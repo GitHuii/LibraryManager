@@ -222,7 +222,6 @@ namespace LibraryManager.Migrations
                         new
                         {
                             MaPhieuMuonTra = 4,
-                            MaPhieuMuonTra = 2,
                             HanTra = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Local),
                             MaDocGia = 2,
                             NgayMuon = new DateTime(2025, 6, 23, 0, 0, 0, 0, DateTimeKind.Local)
