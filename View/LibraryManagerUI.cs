@@ -26,12 +26,18 @@ namespace LibraryManager.View
 
         private void btnqldg_Click(object sender, EventArgs e)
         {
-            ShowUserControl(new DocGiaUI());
+            ShowUserControl(new UC_QuanLyDocGia());
+
         }
 
         private void btnqltk_Click(object sender, EventArgs e)
         {
             ShowUserControl(new TaiKhoanUI());
+        }
+
+        private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

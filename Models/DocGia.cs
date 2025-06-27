@@ -11,6 +11,7 @@ namespace LibraryManager.Models
     public class DocGia
     {
         [Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaDocGia { get; set; }
         public string Ten { get; set; }
         public DateTime NgaySinh { get; set; }

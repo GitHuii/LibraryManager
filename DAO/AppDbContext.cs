@@ -20,7 +20,7 @@ namespace LibraryManager.DAO
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source=HUII;Initial Catalog=LibraryManager;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
+            optionsBuilder.UseSqlServer("Data Source=KHIGH\\SQLEXPRESS;Initial Catalog=khongduchai;Integrated Security=True;Trust Server Certificate=True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -73,8 +73,9 @@ namespace LibraryManager.DAO
 
             modelBuilder.Entity<TaiKhoan>().HasData(
                 new TaiKhoan { UserName = "huii", PassWord = "123"},
-                new TaiKhoan { UserName = "huiii", PassWord = "1234" },
-                new TaiKhoan { UserName = "huiiiii", PassWord = "12345" }
+                new TaiKhoan { UserName = "Hai", PassWord = "1234" },
+                new TaiKhoan { UserName = "duy", PassWord = "12345" },
+                new TaiKhoan { UserName = "manh", PassWord = "123456" }
                 );
         }
 
