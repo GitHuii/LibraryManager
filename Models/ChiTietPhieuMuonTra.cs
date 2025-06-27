@@ -17,8 +17,7 @@ namespace LibraryManager.Models
         [ForeignKey("Sach")]
         public int MaSach { get; set; }
         public int SoLuong { get; set; }
-        public DateTime? NgayTraThucTe { get; set; }
-        public bool DaTra { get; set; }
+        
         public PhieuMuonTra PhieuMuonTra { get; set; }
         public Sach Sach { get; set; }
     }

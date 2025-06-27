@@ -34,9 +34,14 @@ namespace LibraryManager.View
             ShowUserControl(new TaiKhoanUI());
         }
 
+
         private void btnqls_Click(object sender, EventArgs e)
         {
             ShowUserControl(new SachUI());
+	}
+        private void btnqlpmt_Click(object sender, EventArgs e)
+        {
+            ShowUserControl(new PhieuMuonTraUI());
         }
     }
 }

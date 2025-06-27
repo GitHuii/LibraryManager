@@ -17,6 +17,8 @@ namespace LibraryManager.Models
         public int MaDocGia { get; set; }
         public DateTime NgayMuon { get; set; }
         public DateTime HanTra { get; set; }
+        public DateTime? NgayTraThucTe { get; set; }
+        public bool DaTra { get; set; }
         public DocGia DocGia { get; set; }
         public List<ChiTietPhieuMuonTra> ChiTietPhieuMuonTras { get; set; }
     }

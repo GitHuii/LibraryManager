@@ -113,6 +113,7 @@
             btnqlpmt.TabIndex = 3;
             btnqlpmt.Text = "     Quản Lí Phiếu Mượn Trả";
             btnqlpmt.TextAlign = HorizontalAlignment.Left;
+            btnqlpmt.Click += btnqlpmt_Click;
             // 
             // btnqls
             // 
