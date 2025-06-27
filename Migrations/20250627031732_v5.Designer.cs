@@ -4,6 +4,7 @@ using LibraryManager.DAO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryManager.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250627031732_v5")]
+    partial class v5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,11 +32,17 @@ namespace LibraryManager.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaChiTietPhieuMuon"), 1L, 1);
 
+                    b.Property<bool>("DaTra")
+                        .HasColumnType("bit");
+
                     b.Property<int>("MaPhieuMuonTra")
                         .HasColumnType("int");
 
                     b.Property<int>("MaSach")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("NgayTraThucTe")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("SoLuong")
                         .HasColumnType("int");
@@ -51,6 +59,7 @@ namespace LibraryManager.Migrations
                         new
                         {
                             MaChiTietPhieuMuon = 1,
+                            DaTra = false,
                             MaPhieuMuonTra = 1,
                             MaSach = 1,
                             SoLuong = 2
@@ -58,6 +67,7 @@ namespace LibraryManager.Migrations
                         new
                         {
                             MaChiTietPhieuMuon = 2,
+                            DaTra = false,
                             MaPhieuMuonTra = 1,
                             MaSach = 2,
                             SoLuong = 1
@@ -65,6 +75,7 @@ namespace LibraryManager.Migrations
                         new
                         {
                             MaChiTietPhieuMuon = 3,
+                            DaTra = false,
                             MaPhieuMuonTra = 2,
                             MaSach = 3,
                             SoLuong = 1
@@ -72,6 +83,7 @@ namespace LibraryManager.Migrations
                         new
                         {
                             MaChiTietPhieuMuon = 4,
+                            DaTra = false,
                             MaPhieuMuonTra = 3,
                             MaSach = 4,
                             SoLuong = 1
@@ -79,6 +91,7 @@ namespace LibraryManager.Migrations
                         new
                         {
                             MaChiTietPhieuMuon = 5,
+                            DaTra = false,
                             MaPhieuMuonTra = 4,
                             MaSach = 5,
                             SoLuong = 2
@@ -172,9 +185,6 @@ namespace LibraryManager.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaPhieuMuonTra"), 1L, 1);
 
-                    b.Property<bool>("DaTra")
-                        .HasColumnType("bit");
-
                     b.Property<DateTime>("HanTra")
                         .HasColumnType("datetime2");
 
@@ -182,9 +192,6 @@ namespace LibraryManager.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("NgayMuon")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("NgayTraThucTe")
                         .HasColumnType("datetime2");
 
                     b.HasKey("MaPhieuMuonTra");
@@ -197,31 +204,12 @@ namespace LibraryManager.Migrations
                         new
                         {
                             MaPhieuMuonTra = 1,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 6, 30, 0, 0, 0, 0, DateTimeKind.Local),
-                            MaDocGia = 1,
-                            NgayMuon = new DateTime(2025, 6, 20, 0, 0, 0, 0, DateTimeKind.Local)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 2,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Local),
-                            MaDocGia = 2,
-                            NgayMuon = new DateTime(2025, 6, 21, 0, 0, 0, 0, DateTimeKind.Local)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 3,
-                            DaTra = false,
-
                             HanTra = new DateTime(2025, 7, 2, 0, 0, 0, 0, DateTimeKind.Local),
                             MaDocGia = 1,
                             NgayMuon = new DateTime(2025, 6, 22, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
-                            MaPhieuMuonTra = 4,
                             MaPhieuMuonTra = 2,
                             HanTra = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Local),
                             MaDocGia = 2,
@@ -229,8 +217,7 @@ namespace LibraryManager.Migrations
                         },
                         new
                         {
-
-                            MaPhieuMuonTra = 5,
+                            MaPhieuMuonTra = 3,
                             HanTra = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Local),
                             MaDocGia = 3,
                             NgayMuon = new DateTime(2025, 6, 24, 0, 0, 0, 0, DateTimeKind.Local)

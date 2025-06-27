@@ -20,7 +20,11 @@ namespace LibraryManager.DAO
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
+<<<<<<< HEAD
             optionsBuilder.UseSqlServer(@"Data Source=HUII;Initial Catalog=LibraryManager;Integrated Security=True;Trust Server Certificate=True");
+=======
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-3I8EV5L\\SQLEXPRESS;Initial Catalog=hehe;Integrated Security=True;Trust Server Certificate=True");
+>>>>>>> qltk
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
