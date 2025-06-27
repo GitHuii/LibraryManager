@@ -67,9 +67,11 @@
             panelMenu.CustomizableEdges = customizableEdges12;
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
+            panelMenu.Margin = new Padding(3, 4, 3, 4);
             panelMenu.Name = "panelMenu";
             panelMenu.ShadowDecoration.CustomizableEdges = customizableEdges13;
             panelMenu.Size = new Size(250, 711);
+
             panelMenu.TabIndex = 0;
             // 
             // btnbctk
@@ -85,10 +87,11 @@
             btnbctk.Image = Properties.Resources.icons8_statistics_32;
             btnbctk.ImageAlign = HorizontalAlignment.Left;
             btnbctk.ImageSize = new Size(32, 32);
-            btnbctk.Location = new Point(0, 450);
+            btnbctk.Location = new Point(0, 600);
+            btnbctk.Margin = new Padding(3, 4, 3, 4);
             btnbctk.Name = "btnbctk";
             btnbctk.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnbctk.Size = new Size(250, 50);
+            btnbctk.Size = new Size(286, 67);
             btnbctk.TabIndex = 4;
             btnbctk.Text = "     Báo Cáo Thống Kê";
             btnbctk.TextAlign = HorizontalAlignment.Left;
@@ -106,10 +109,11 @@
             btnqlpmt.Image = Properties.Resources.icons8_books_32;
             btnqlpmt.ImageAlign = HorizontalAlignment.Left;
             btnqlpmt.ImageSize = new Size(32, 32);
-            btnqlpmt.Location = new Point(0, 400);
+            btnqlpmt.Location = new Point(0, 533);
+            btnqlpmt.Margin = new Padding(3, 4, 3, 4);
             btnqlpmt.Name = "btnqlpmt";
             btnqlpmt.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnqlpmt.Size = new Size(250, 50);
+            btnqlpmt.Size = new Size(286, 67);
             btnqlpmt.TabIndex = 3;
             btnqlpmt.Text = "     Quản Lí Phiếu Mượn Trả";
             btnqlpmt.TextAlign = HorizontalAlignment.Left;
@@ -128,10 +132,11 @@
             btnqls.Image = Properties.Resources.icons8_book_32;
             btnqls.ImageAlign = HorizontalAlignment.Left;
             btnqls.ImageSize = new Size(32, 32);
-            btnqls.Location = new Point(0, 350);
+            btnqls.Location = new Point(0, 467);
+            btnqls.Margin = new Padding(3, 4, 3, 4);
             btnqls.Name = "btnqls";
             btnqls.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnqls.Size = new Size(250, 50);
+            btnqls.Size = new Size(286, 67);
             btnqls.TabIndex = 3;
             btnqls.Text = "     Quản Lý Sách";
             btnqls.TextAlign = HorizontalAlignment.Left;
@@ -150,10 +155,11 @@
             btnqldg.Image = Properties.Resources.icons8_users_32;
             btnqldg.ImageAlign = HorizontalAlignment.Left;
             btnqldg.ImageSize = new Size(32, 32);
-            btnqldg.Location = new Point(0, 300);
+            btnqldg.Location = new Point(0, 400);
+            btnqldg.Margin = new Padding(3, 4, 3, 4);
             btnqldg.Name = "btnqldg";
             btnqldg.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnqldg.Size = new Size(250, 50);
+            btnqldg.Size = new Size(286, 67);
             btnqldg.TabIndex = 2;
             btnqldg.Text = "     Quản Lí Độc Giả";
             btnqldg.TextAlign = HorizontalAlignment.Left;
@@ -172,10 +178,11 @@
             btnqltk.Image = Properties.Resources.icons8_login_32;
             btnqltk.ImageAlign = HorizontalAlignment.Left;
             btnqltk.ImageSize = new Size(32, 32);
-            btnqltk.Location = new Point(0, 250);
+            btnqltk.Location = new Point(0, 333);
+            btnqltk.Margin = new Padding(3, 4, 3, 4);
             btnqltk.Name = "btnqltk";
             btnqltk.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btnqltk.Size = new Size(250, 50);
+            btnqltk.Size = new Size(286, 67);
             btnqltk.TabIndex = 1;
             btnqltk.Text = "     Quản Lí Tài Khoản";
             btnqltk.TextAlign = HorizontalAlignment.Left;
@@ -188,7 +195,8 @@
             guna2ImageButton1.Image = (Image)resources.GetObject("guna2ImageButton1.Image");
             guna2ImageButton1.ImageOffset = new Point(0, 0);
             guna2ImageButton1.ImageRotate = 0F;
-            guna2ImageButton1.Location = new Point(12, 12);
+            guna2ImageButton1.Location = new Point(14, 16);
+            guna2ImageButton1.Margin = new Padding(3, 4, 3, 4);
             guna2ImageButton1.Name = "guna2ImageButton1";
             guna2ImageButton1.PressedState.ImageSize = new Size(64, 64);
             guna2ImageButton1.ShadowDecoration.CustomizableEdges = customizableEdges11;
@@ -199,19 +207,25 @@
             // 
             panelMain.CustomizableEdges = customizableEdges14;
             panelMain.Dock = DockStyle.Fill;
-            panelMain.Location = new Point(250, 0);
+            panelMain.Location = new Point(286, 0);
+            panelMain.Margin = new Padding(3, 4, 3, 4);
             panelMain.Name = "panelMain";
             panelMain.ShadowDecoration.CustomizableEdges = customizableEdges15;
             panelMain.Size = new Size(1234, 711);
+
             panelMain.TabIndex = 1;
+            panelMain.Paint += panelMain_Paint;
             // 
             // LibraryManagerUI
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+
             ClientSize = new Size(1484, 711);
+
             Controls.Add(panelMain);
             Controls.Add(panelMenu);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "LibraryManagerUI";
             Text = "LibraryManagerUI";
             panelMenu.ResumeLayout(false);

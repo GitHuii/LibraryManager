@@ -74,8 +74,9 @@ namespace LibraryManager.DAO
 
             modelBuilder.Entity<TaiKhoan>().HasData(
                 new TaiKhoan { UserName = "huii", PassWord = "123"},
-                new TaiKhoan { UserName = "huiii", PassWord = "1234" },
-                new TaiKhoan { UserName = "huiiiii", PassWord = "12345" }
+                new TaiKhoan { UserName = "Hai", PassWord = "1234" },
+                new TaiKhoan { UserName = "duy", PassWord = "12345" },
+                new TaiKhoan { UserName = "manh", PassWord = "123456" }
                 );
         }
 

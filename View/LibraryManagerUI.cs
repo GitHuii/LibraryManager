@@ -26,15 +26,14 @@ namespace LibraryManager.View
 
         private void btnqldg_Click(object sender, EventArgs e)
         {
-            ShowUserControl(new DocGiaUI());
+            ShowUserControl(new UC_QuanLyDocGia());
+
         }
 
         private void btnqltk_Click(object sender, EventArgs e)
         {
             ShowUserControl(new TaiKhoanUI());
         }
-
-
         private void btnqls_Click(object sender, EventArgs e)
         {
             ShowUserControl(new SachUI());
@@ -42,6 +41,9 @@ namespace LibraryManager.View
         private void btnqlpmt_Click(object sender, EventArgs e)
         {
             ShowUserControl(new PhieuMuonTraUI());
+        }
+        private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
         }
     }
 }

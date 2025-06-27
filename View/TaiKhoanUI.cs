@@ -71,8 +71,15 @@ namespace LibraryManager.View
             }
         }
 
+        private void dgvqltk_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+        }
+
         private void btntimkiem_Click(object sender, EventArgs e)
         {
+
             string keyword = txttimkiem.Text.Trim();
 
             if (string.IsNullOrEmpty(keyword))
@@ -85,6 +92,7 @@ namespace LibraryManager.View
             }
 
             txttimkiem.Clear();
+
         }
     }
 }
