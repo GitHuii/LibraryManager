@@ -69,7 +69,7 @@
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
             panelMenu.ShadowDecoration.CustomizableEdges = customizableEdges13;
-            panelMenu.Size = new Size(250, 961);
+            panelMenu.Size = new Size(250, 711);
             panelMenu.TabIndex = 0;
             // 
             // btnbctk
@@ -134,6 +134,7 @@
             btnqls.TabIndex = 3;
             btnqls.Text = "     Quản Lý Sách";
             btnqls.TextAlign = HorizontalAlignment.Left;
+            btnqls.Click += btnqls_Click;
             // 
             // btnqldg
             // 
@@ -200,14 +201,14 @@
             panelMain.Location = new Point(250, 0);
             panelMain.Name = "panelMain";
             panelMain.ShadowDecoration.CustomizableEdges = customizableEdges15;
-            panelMain.Size = new Size(1234, 961);
+            panelMain.Size = new Size(1234, 711);
             panelMain.TabIndex = 1;
             // 
             // LibraryManagerUI
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1484, 961);
+            ClientSize = new Size(1484, 711);
             Controls.Add(panelMain);
             Controls.Add(panelMenu);
             Name = "LibraryManagerUI";
