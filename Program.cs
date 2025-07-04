@@ -1,4 +1,6 @@
+using LibraryManager.DAO;
 using LibraryManager.View;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManager
 {
@@ -13,7 +15,9 @@ namespace LibraryManager
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new LibraryManagerUI());
+            
+            DbContextProvider.Initialize();
+            Application.Run(new MainForm());
         }
     }
 }

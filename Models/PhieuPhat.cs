@@ -11,7 +11,7 @@ namespace LibraryManager.Models
     public class PhieuPhat
     {
         [Key]
-        public string MaPhieuPhat { get; set; }
+        public int MaPhieuPhat { get; set; }
 
         [ForeignKey("DocGia")]  
         public int MaDocGia { get; set; }

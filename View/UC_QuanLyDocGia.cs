@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LibraryManager.DAO;
+using LibraryManager.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibraryManager.DAO;
-using LibraryManager.Models;
 
 namespace LibraryManager.View
 {
@@ -16,7 +17,7 @@ namespace LibraryManager.View
 
     public partial class UC_QuanLyDocGia : UserControl
     {
-        DocGiaDAO dao = new DocGiaDAO();
+        AppDbContext dbContext = DbContextProvider.Instance;
         public UC_QuanLyDocGia()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace LibraryManager.View
         }
         void loadData()
         {
-            dgvdocgia.DataSource = dao.GetAllDocGias();
+            dgvdocgia.DataSource = dbContext.DocGias.ToList();
 
         }
 
@@ -50,8 +51,8 @@ namespace LibraryManager.View
                     SDT = txtSDT.Text.Trim()
                 };
 
-                dao.Add(dg);
-
+                dbContext.DocGias.Add(dg);
+                dbContext.SaveChanges();
                 MessageBox.Show("Thêm độc giả thành công!");
                 loadData();
             }
@@ -59,11 +60,6 @@ namespace LibraryManager.View
             {
                 MessageBox.Show("Lỗi khi thêm độc giả: " + ex.Message);
             }
-        }
-
-        private void dgvdocgia_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            loadData();
         }
 
         private void lblten_Click(object sender, EventArgs e)
@@ -74,7 +70,6 @@ namespace LibraryManager.View
         private void dgvdocgia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int row = dgvdocgia.CurrentRow.Index;
-            txtMa.Text = dgvdocgia.Rows[row].Cells[0].Value.ToString();
             txtTen.Text = dgvdocgia.Rows[row].Cells[1].Value.ToString();
             dtpNgaySinh.Value = Convert.ToDateTime(dgvdocgia.Rows[row].Cells[2].Value);
             txtDiaChi.Text = dgvdocgia.Rows[row].Cells[3].Value.ToString();
@@ -87,21 +82,26 @@ namespace LibraryManager.View
         {
             try
             {
-                if (!int.TryParse(txtMa.Text, out int maDG))
+
+                if (!int.TryParse(dgvdocgia.Rows[dgvdocgia.CurrentRow.Index].Cells[0].Value.ToString(), out int maDG))
                 {
                     MessageBox.Show("Vui lòng chọn độc giả hợp lệ để sửa.");
                     return;
                 }
-
-                dao.Update(maDG, dg =>
+                var dg = dbContext.DocGias.Find(maDG);
+                if (dg != null)
                 {
                     dg.Ten = txtTen.Text.Trim();
                     dg.NgaySinh = dtpNgaySinh.Value;
                     dg.DiaChi = txtDiaChi.Text.Trim();
                     dg.Email = txtEmail.Text.Trim();
                     dg.SDT = txtSDT.Text.Trim();
-                });
-
+                    dbContext.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("Không tìm thấy độc giả để sửa.");
+                }
                 MessageBox.Show("Cập nhật thông tin thành công!");
                 loadData();
                 ClearForm();
@@ -111,14 +111,13 @@ namespace LibraryManager.View
                 MessageBox.Show("Lỗi khi cập nhật: " + ex.Message);
             }
         }
-    
 
-        
 
-        
+
+
+
         void ClearForm()
         {
-            txtMa.Text = "";
             txtTen.Text = "";
             txtDiaChi.Text = "";
             txtEmail.Text = "";
@@ -137,7 +136,7 @@ namespace LibraryManager.View
                     return;
                 }
 
-                if (!int.TryParse(txtMa.Text, out int maDG))
+                if (!int.TryParse(dgvdocgia.Rows[dgvdocgia.CurrentRow.Index].Cells[0].Value.ToString(), out int maDG))
                 {
                     MessageBox.Show("Mã độc giả không hợp lệ.");
                     return;
@@ -150,7 +149,15 @@ namespace LibraryManager.View
 
                 if (result == DialogResult.Yes)
                 {
-                    dao.Delete(maDG);
+                    var dg = dbContext.DocGias.Find(maDG);
+                    if (dg == null)
+                    {
+                        MessageBox.Show("Không tìm thấy độc giả để xóa trong CSDL.");
+                        return;
+                    }
+
+                    dbContext.DocGias.Remove(dg);
+                    dbContext.SaveChanges();
                     MessageBox.Show("Xóa độc giả thành công!");
                     loadData();
                     ClearForm();
@@ -164,6 +171,48 @@ namespace LibraryManager.View
 
         private void btntimkiem_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnlammoi_Click(object sender, EventArgs e)
+        {
+            loadData();
+            ClearForm();
+        }
+
+        private void dgvdocgia_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            //Color borderColor = Color.LightGray;
+
+            //// Dữ liệu + header
+            //if (e.RowIndex >= 0 || e.RowIndex == -1)
+            //{
+            //    e.PaintBackground(e.CellBounds, true);
+            //    e.PaintContent(e.CellBounds);
+
+            //    using (Pen pen = new Pen(borderColor, 1))
+            //    {
+            //        // Viền phải
+            //        e.Graphics.DrawLine(pen, e.CellBounds.Right - 1, e.CellBounds.Top, e.CellBounds.Right - 1, e.CellBounds.Bottom);
+
+            //        // Viền dưới
+            //        e.Graphics.DrawLine(pen, e.CellBounds.Left, e.CellBounds.Bottom - 1, e.CellBounds.Right, e.CellBounds.Bottom - 1);
+
+            //        // Viền trái ngoài cùng (nếu là cột đầu tiên)
+            //        if (e.ColumnIndex == 0)
+            //            e.Graphics.DrawLine(pen, e.CellBounds.Left, e.CellBounds.Top, e.CellBounds.Left, e.CellBounds.Bottom);
+
+            //        // Viền trên cùng (nếu là hàng tiêu đề)
+            //        if (e.RowIndex == -1)
+            //            e.Graphics.DrawLine(pen, e.CellBounds.Left, e.CellBounds.Top, e.CellBounds.Right, e.CellBounds.Top);
+            //    }
+
+            //    e.Handled = true;
+            //}
+        }
+
+        private void txttimkiem_TextChanged(object sender, EventArgs e)
+        {
             string keyword = txttimkiem.Text.Trim();
 
             if (string.IsNullOrEmpty(keyword))
@@ -172,7 +221,7 @@ namespace LibraryManager.View
                 return;
             }
 
-            var result = dao.Search(keyword);
+            var result = dbContext.DocGias.Where(d => d.Ten.Contains(keyword)).ToList(); ;
 
             if (result.Count == 0)
             {
@@ -180,12 +229,7 @@ namespace LibraryManager.View
             }
 
             dgvdocgia.DataSource = result;
-        }
 
-        private void btnlammoi_Click(object sender, EventArgs e)
-        {
-            loadData();
-            ClearForm() ;
         }
     }
 }

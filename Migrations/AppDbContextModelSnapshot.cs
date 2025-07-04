@@ -198,62 +198,51 @@ namespace LibraryManager.Migrations
                         {
                             MaPhieuMuonTra = 1,
                             DaTra = false,
-                            HanTra = new DateTime(2025, 6, 30, 0, 0, 0, 0, DateTimeKind.Local),
+                            HanTra = new DateTime(2025, 7, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             MaDocGia = 1,
-                            NgayMuon = new DateTime(2025, 6, 20, 0, 0, 0, 0, DateTimeKind.Local)
+                            NgayMuon = new DateTime(2025, 6, 26, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             MaPhieuMuonTra = 2,
                             DaTra = false,
-                            HanTra = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Local),
+                            HanTra = new DateTime(2025, 7, 7, 0, 0, 0, 0, DateTimeKind.Local),
                             MaDocGia = 2,
-                            NgayMuon = new DateTime(2025, 6, 21, 0, 0, 0, 0, DateTimeKind.Local)
+                            NgayMuon = new DateTime(2025, 6, 27, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             MaPhieuMuonTra = 3,
                             DaTra = false,
-
-                            HanTra = new DateTime(2025, 7, 2, 0, 0, 0, 0, DateTimeKind.Local),
-                            MaDocGia = 1,
-                            NgayMuon = new DateTime(2025, 6, 22, 0, 0, 0, 0, DateTimeKind.Local)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 4,
-                            HanTra = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Local),
-                            MaDocGia = 2,
-                            NgayMuon = new DateTime(2025, 6, 23, 0, 0, 0, 0, DateTimeKind.Local)
-                        },
-                        new
-                        {
-
-                            MaPhieuMuonTra = 5,
-                            HanTra = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Local),
+                            HanTra = new DateTime(2025, 7, 8, 0, 0, 0, 0, DateTimeKind.Local),
                             MaDocGia = 3,
-                            NgayMuon = new DateTime(2025, 6, 24, 0, 0, 0, 0, DateTimeKind.Local)
+                            NgayMuon = new DateTime(2025, 6, 28, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             MaPhieuMuonTra = 4,
-                            HanTra = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Local),
+                            DaTra = false,
+                            HanTra = new DateTime(2025, 7, 9, 0, 0, 0, 0, DateTimeKind.Local),
                             MaDocGia = 4,
-                            NgayMuon = new DateTime(2025, 6, 25, 0, 0, 0, 0, DateTimeKind.Local)
+                            NgayMuon = new DateTime(2025, 6, 29, 0, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             MaPhieuMuonTra = 5,
-                            HanTra = new DateTime(2025, 7, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            DaTra = false,
+                            HanTra = new DateTime(2025, 7, 10, 0, 0, 0, 0, DateTimeKind.Local),
                             MaDocGia = 5,
-                            NgayMuon = new DateTime(2025, 6, 26, 0, 0, 0, 0, DateTimeKind.Local)
+                            NgayMuon = new DateTime(2025, 6, 30, 0, 0, 0, 0, DateTimeKind.Local)
                         });
                 });
 
             modelBuilder.Entity("LibraryManager.Models.PhieuPhat", b =>
                 {
-                    b.Property<string>("MaPhieuPhat")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("MaPhieuPhat")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaPhieuPhat"), 1L, 1);
 
                     b.Property<bool>("DaThuTien")
                         .HasColumnType("bit");
@@ -280,47 +269,47 @@ namespace LibraryManager.Migrations
                     b.HasData(
                         new
                         {
-                            MaPhieuPhat = "PP001",
+                            MaPhieuPhat = 1,
                             DaThuTien = false,
                             LyDo = "Trả trễ",
                             MaDocGia = 1,
-                            NgayLap = new DateTime(2025, 6, 27, 0, 0, 0, 0, DateTimeKind.Local),
+                            NgayLap = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Local),
                             SoTienPhat = 5000m
                         },
                         new
                         {
-                            MaPhieuPhat = "PP002",
+                            MaPhieuPhat = 2,
                             DaThuTien = false,
                             LyDo = "Mất sách",
                             MaDocGia = 2,
-                            NgayLap = new DateTime(2025, 6, 27, 0, 0, 0, 0, DateTimeKind.Local),
+                            NgayLap = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Local),
                             SoTienPhat = 7000m
                         },
                         new
                         {
-                            MaPhieuPhat = "PP003",
+                            MaPhieuPhat = 3,
                             DaThuTien = true,
                             LyDo = "Trả sai sách",
                             MaDocGia = 3,
-                            NgayLap = new DateTime(2025, 6, 27, 0, 0, 0, 0, DateTimeKind.Local),
+                            NgayLap = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Local),
                             SoTienPhat = 10000m
                         },
                         new
                         {
-                            MaPhieuPhat = "PP004",
+                            MaPhieuPhat = 4,
                             DaThuTien = false,
                             LyDo = "Sách rách",
                             MaDocGia = 4,
-                            NgayLap = new DateTime(2025, 6, 27, 0, 0, 0, 0, DateTimeKind.Local),
+                            NgayLap = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Local),
                             SoTienPhat = 3000m
                         },
                         new
                         {
-                            MaPhieuPhat = "PP005",
+                            MaPhieuPhat = 5,
                             DaThuTien = true,
                             LyDo = "Không trả sách",
                             MaDocGia = 5,
-                            NgayLap = new DateTime(2025, 6, 27, 0, 0, 0, 0, DateTimeKind.Local),
+                            NgayLap = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Local),
                             SoTienPhat = 8000m
                         });
                 });
@@ -357,7 +346,7 @@ namespace LibraryManager.Migrations
 
                     b.HasKey("MaSach");
 
-                    b.ToTable("Saches");
+                    b.ToTable("Sachs");
 
                     b.HasData(
                         new

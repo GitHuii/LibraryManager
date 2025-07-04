@@ -12,18 +12,21 @@ using System.Windows.Forms;
 
 namespace LibraryManager.View
 {
-    public partial class PhieuMuonTraUIAdd : Form
+    public partial class AddPhieuMuonTraForm : Form
     {
-        public PhieuMuonTraUIAdd()
+        public AddPhieuMuonTraForm()
         {
             InitializeComponent();
+            PhieuMuonTraUIAdd_Load(null, null);
         }
-        PhieuMuonTraDAO PhieuMuonTraDAO = new PhieuMuonTraDAO();
-        AppDbContext dbContext = new AppDbContext();
+        AppDbContext dbContext = DbContextProvider.Instance;
         private void PhieuMuonTraUIAdd_Load(object sender, EventArgs e)
         {
             txtngaymuon.Text = DateTime.Now.Date.ToString();
-            dgvtimkiem.DataSource = dbContext.Saches.ToList();
+
+            var ds = dbContext.Sachs.ToList();
+            dgvtimkiem.DataSource = null ;
+            dgvtimkiem.DataSource = ds;
             dgvtimkiem.Columns["NXB"].Visible = false;
             dgvtimkiem.Columns["TheLoai"].Visible = false;
             dgvtimkiem.Columns["NamXuatBan"].Visible = false;
@@ -33,7 +36,7 @@ namespace LibraryManager.View
 
         private void txttimkiem_TextChanged(object sender, EventArgs e)
         {
-            dgvtimkiem.DataSource = dbContext.Saches.Where(s => s.Ten.ToLower().Contains(txttimkiem.Text.ToLower())).ToList();
+            dgvtimkiem.DataSource = dbContext.Sachs.Where(s => s.Ten.ToLower().Contains(txttimkiem.Text.ToLower())).ToList();
             dgvtimkiem.Columns["NXB"].Visible = false;
             dgvtimkiem.Columns["TheLoai"].Visible = false;
             dgvtimkiem.Columns["NamXuatBan"].Visible = false;
@@ -48,6 +51,44 @@ namespace LibraryManager.View
             string TenSach = dgvtimkiem.Rows[index].Cells["Ten"].Value.ToString();
             string SoLuong = txtsoluong.Text;
             dgvsach.Rows.Add(MaSach, TenSach, SoLuong);
+            dgvtimkiem.Rows[index].Cells["SoLuong"].Value = Convert.ToInt32(dgvtimkiem.Rows[index].Cells["SoLuong"].Value) - Convert.ToInt32(SoLuong);
+        }
+
+        public void ShowCustomMessage(string message, string title)
+        {
+            Form msgForm = new Form();
+            msgForm.FormBorderStyle = FormBorderStyle.None;
+            msgForm.StartPosition = FormStartPosition.Manual;
+            msgForm.Size = new Size(350, 180);
+            msgForm.BackColor = Color.WhiteSmoke;
+            msgForm.TopMost = true;
+
+            // Tọa độ giữa màn hình
+            Rectangle screen = Screen.PrimaryScreen.WorkingArea;
+            msgForm.Location = new Point(
+                screen.Left + (screen.Width - msgForm.Width) / 2,
+                screen.Top + (screen.Height - msgForm.Height) / 2
+            );
+
+            // Label
+            var label = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            label.Text = message;
+            label.Font = new Font("Segoe UI", 11F);
+            label.Location = new Point(30, 40);
+            label.Size = new Size(290, 60);
+            msgForm.Controls.Add(label);
+
+            // Nút OK
+            var btnOK = new Guna.UI2.WinForms.Guna2Button();
+            btnOK.Text = "OK";
+            btnOK.Location = new Point(msgForm.Width / 2 - 45, 110);
+            btnOK.Size = new Size(90, 35);
+            btnOK.Click += (s, e) => msgForm.Close();
+            msgForm.Controls.Add(btnOK);
+
+            msgForm.ShowDialog();
+
+
         }
 
         private void btnluu_Click(object sender, EventArgs e)
@@ -68,9 +109,9 @@ namespace LibraryManager.View
 
             var phieuMoi = new PhieuMuonTra
             {
-                MaDocGia = 1,
+                MaDocGia = int.Parse(txtmadocgia.Text),
                 NgayMuon = DateTime.Now,
-                HanTra = DateTime.Now.AddDays(7),
+                HanTra = dtphantra.Value.Date,
                 DaTra = false,
                 ChiTietPhieuMuonTras = chiTietList
             };
@@ -79,7 +120,7 @@ namespace LibraryManager.View
                 // Lặp qua từng sách mượn
                 foreach (var ct in phieuMoi.ChiTietPhieuMuonTras)
                 {
-                    var sach = context.Saches.FirstOrDefault(s => s.MaSach == ct.MaSach);
+                    var sach = context.Sachs.FirstOrDefault(s => s.MaSach == ct.MaSach);
                     if (sach == null)
                     {
                         throw new Exception($"Không tìm thấy sách với mã {ct.MaSach}");
@@ -97,8 +138,13 @@ namespace LibraryManager.View
                 context.PhieuMuonTras.Add(phieuMoi);
                 context.SaveChanges();
             }
-            MessageBox.Show("Lưu thành công phiếu mượn trả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ShowCustomMessage("Bạn đã lưu thành công!", "Thông báo");
             this.Close();
+        }
+
+        private void dgvtimkiem_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

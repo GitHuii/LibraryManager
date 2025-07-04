@@ -1,5 +1,6 @@
 ﻿using LibraryManager.DAO;
 using LibraryManager.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,17 +13,17 @@ using System.Windows.Forms;
 
 namespace LibraryManager.View
 {
-    public partial class TaiKhoanUI : UserControl
+    public partial class UC_QuanLyTaiKhoan : UserControl
     {
-        public TaiKhoanUI()
+        public UC_QuanLyTaiKhoan()
         {
             InitializeComponent();
         }
 
-        TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
+        AppDbContext dbContext = DbContextProvider.Instance;
         void LoadData()
         {
-            dgvqltk.DataSource = taiKhoanDAO.GetAllTaiKhoans();
+            dgvqltk.DataSource = dbContext.TaiKhoans.ToList();
         }
         private void TaiKhoanUI_Load(object sender, EventArgs e)
         {
@@ -36,7 +37,9 @@ namespace LibraryManager.View
                 UserName = txttk.Text,
                 PassWord = txtmk.Text
             };
-            taiKhoanDAO.AddTaiKhoan(tk);
+            dbContext.TaiKhoans.Add(tk);
+            dbContext.SaveChanges();
+
             LoadData();
             txttk.Clear();
             txtmk.Clear();
@@ -49,14 +52,24 @@ namespace LibraryManager.View
                 UserName = txttk.Text,
                 PassWord = txtmk.Text
             };
-            taiKhoanDAO.UpdateTaiKhoan(tk);
+            var existing = dbContext.TaiKhoans.Find(tk.UserName);
+            if (existing != null)
+            {
+                existing.PassWord = tk.PassWord;
+                dbContext.SaveChanges();
+            }
             LoadData();
         }
 
         private void btnxoa_Click(object sender, EventArgs e)
         {
             var userName = txttk.Text;
-            taiKhoanDAO.DeleteTaiKhoan(userName);
+            var existing = dbContext.TaiKhoans.Find(userName);
+            if (existing != null)
+            {
+                dbContext.TaiKhoans.Remove(existing);
+                dbContext.SaveChanges();
+            }
             LoadData();
             txttk.Clear();
             txtmk.Clear();
@@ -71,11 +84,7 @@ namespace LibraryManager.View
             }
         }
 
-        private void dgvqltk_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-
-        }
 
         private void btntimkiem_Click(object sender, EventArgs e)
         {
@@ -88,11 +97,35 @@ namespace LibraryManager.View
             }
             else
             {
-                dgvqltk.DataSource = taiKhoanDAO.SearchTaiKhoan(keyword);
+                dgvqltk.DataSource = dbContext.TaiKhoans.Where(t => t.UserName.Contains(keyword)).ToList(); ;
             }
 
             txttimkiem.Clear();
 
+        }
+
+        private void txttimkiem_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txttimkiem.Text.Trim();
+
+            if (string.IsNullOrEmpty(keyword))
+            {
+                LoadData();
+            }
+            else
+            {
+                dgvqltk.DataSource = dbContext.TaiKhoans.Where(t => t.UserName.Contains(keyword)).ToList(); ;
+            }
+
+            txttimkiem.Clear();
+        }
+
+        private void dgvqltk_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvqltk.Columns[e.ColumnIndex].Name == "PassWord" && e.Value != null)
+            {
+                e.Value = new string('•', e.Value.ToString().Length);
+            }
         }
     }
 }

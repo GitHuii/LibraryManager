@@ -1,6 +1,6 @@
 ﻿namespace LibraryManager.View
 {
-    partial class PhieuMuonTraUIAdd
+    partial class AddPhieuMuonTraForm
     {
         /// <summary>
         /// Required designer variable.
@@ -60,7 +60,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            dtpngaytra = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            dtphantra = new Guna.UI2.WinForms.Guna2DateTimePicker();
             txtmadocgia = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtngaymuon = new Guna.UI2.WinForms.Guna2TextBox();
@@ -81,6 +81,7 @@
             dgvtimkiem = new Guna.UI2.WinForms.Guna2DataGridView();
             txttimkiem = new Guna.UI2.WinForms.Guna2TextBox();
             btnluu = new Guna.UI2.WinForms.Guna2Button();
+            guna2MessageDialog1 = new Guna.UI2.WinForms.Guna2MessageDialog();
             guna2GroupBox1.SuspendLayout();
             guna2GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvsach).BeginInit();
@@ -90,7 +91,7 @@
             // guna2GroupBox1
             // 
             guna2GroupBox1.Controls.Add(guna2HtmlLabel5);
-            guna2GroupBox1.Controls.Add(dtpngaytra);
+            guna2GroupBox1.Controls.Add(dtphantra);
             guna2GroupBox1.Controls.Add(txtmadocgia);
             guna2GroupBox1.Controls.Add(guna2HtmlLabel4);
             guna2GroupBox1.Controls.Add(txtngaymuon);
@@ -118,21 +119,21 @@
             guna2HtmlLabel5.TabIndex = 9;
             guna2HtmlLabel5.Text = "Ngày Trả";
             // 
-            // dtpngaytra
+            // dtphantra
             // 
-            dtpngaytra.Checked = true;
-            dtpngaytra.CustomizableEdges = customizableEdges1;
-            dtpngaytra.FillColor = Color.White;
-            dtpngaytra.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpngaytra.Format = DateTimePickerFormat.Long;
-            dtpngaytra.Location = new Point(107, 211);
-            dtpngaytra.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
-            dtpngaytra.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
-            dtpngaytra.Name = "dtpngaytra";
-            dtpngaytra.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            dtpngaytra.Size = new Size(200, 36);
-            dtpngaytra.TabIndex = 8;
-            dtpngaytra.Value = new DateTime(2025, 6, 25, 17, 18, 57, 676);
+            dtphantra.Checked = true;
+            dtphantra.CustomizableEdges = customizableEdges1;
+            dtphantra.FillColor = Color.White;
+            dtphantra.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dtphantra.Format = DateTimePickerFormat.Long;
+            dtphantra.Location = new Point(107, 211);
+            dtphantra.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
+            dtphantra.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            dtphantra.Name = "dtphantra";
+            dtphantra.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            dtphantra.Size = new Size(200, 36);
+            dtphantra.TabIndex = 8;
+            dtphantra.Value = new DateTime(2025, 6, 25, 17, 18, 57, 676);
             // 
             // txtmadocgia
             // 
@@ -460,6 +461,7 @@
             dgvtimkiem.ThemeStyle.RowsStyle.Height = 25;
             dgvtimkiem.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgvtimkiem.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgvtimkiem.CellClick += dgvtimkiem_CellClick;
             // 
             // txttimkiem
             // 
@@ -501,7 +503,16 @@
             btnluu.Text = "Lưu";
             btnluu.Click += btnluu_Click;
             // 
-            // PhieuMuonTraUIAdd
+            // guna2MessageDialog1
+            // 
+            guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            guna2MessageDialog1.Caption = null;
+            guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
+            guna2MessageDialog1.Parent = null;
+            guna2MessageDialog1.Style = Guna.UI2.WinForms.MessageDialogStyle.Default;
+            guna2MessageDialog1.Text = null;
+            // 
+            // AddPhieuMuonTraForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -509,7 +520,7 @@
             Controls.Add(btnluu);
             Controls.Add(guna2GroupBox2);
             Controls.Add(guna2GroupBox1);
-            Name = "PhieuMuonTraUIAdd";
+            Name = "AddPhieuMuonTraForm";
             Text = "PhieuMuonTraUIAdd";
             Load += PhieuMuonTraUIAdd_Load;
             guna2GroupBox1.ResumeLayout(false);
@@ -532,7 +543,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2TextBox txtmadocgia;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpngaytra;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtphantra;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
         private Guna.UI2.WinForms.Guna2DataGridView dgvtimkiem;
@@ -546,5 +557,6 @@
         private DataGridViewTextBoxColumn SoLuong;
         private Guna.UI2.WinForms.Guna2Button btnluu;
         private Guna.UI2.WinForms.Guna2TextBox txtsoluong;
+        private Guna.UI2.WinForms.Guna2MessageDialog guna2MessageDialog1;
     }
 }

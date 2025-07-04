@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace LibraryManager.DAO
 {
+
     public class AppDbContext : DbContext
     {
-        public DbSet<Sach> Saches { get; set; }
+        public DbSet<Sach> Sachs { get; set; }
         public DbSet<DocGia> DocGias { get; set; }
         public DbSet<PhieuMuonTra> PhieuMuonTras { get; set; }
         public DbSet<ChiTietPhieuMuonTra> ChiTietPhieuMuonTras { get; set; }
@@ -65,11 +66,11 @@ namespace LibraryManager.DAO
 
             // 💸 PhieuPhat
             modelBuilder.Entity<PhieuPhat>().HasData(
-                new PhieuPhat { MaPhieuPhat = "PP001", MaDocGia = 1, NgayLap = DateTime.Today, SoTienPhat = 5000, LyDo = "Trả trễ", DaThuTien = false },
-                new PhieuPhat { MaPhieuPhat = "PP002", MaDocGia = 2, NgayLap = DateTime.Today, SoTienPhat = 7000, LyDo = "Mất sách", DaThuTien = false },
-                new PhieuPhat { MaPhieuPhat = "PP003", MaDocGia = 3, NgayLap = DateTime.Today, SoTienPhat = 10000, LyDo = "Trả sai sách", DaThuTien = true },
-                new PhieuPhat { MaPhieuPhat = "PP004", MaDocGia = 4, NgayLap = DateTime.Today, SoTienPhat = 3000, LyDo = "Sách rách", DaThuTien = false },
-                new PhieuPhat { MaPhieuPhat = "PP005", MaDocGia = 5, NgayLap = DateTime.Today, SoTienPhat = 8000, LyDo = "Không trả sách", DaThuTien = true }
+                new PhieuPhat { MaPhieuPhat = 1, MaDocGia = 1, NgayLap = DateTime.Today, SoTienPhat = 5000, LyDo = "Trả trễ", DaThuTien = false },
+                new PhieuPhat { MaPhieuPhat = 2, MaDocGia = 2, NgayLap = DateTime.Today, SoTienPhat = 7000, LyDo = "Mất sách", DaThuTien = false },
+                new PhieuPhat { MaPhieuPhat = 3, MaDocGia = 3, NgayLap = DateTime.Today, SoTienPhat = 10000, LyDo = "Trả sai sách", DaThuTien = true },
+                new PhieuPhat { MaPhieuPhat = 4, MaDocGia = 4, NgayLap = DateTime.Today, SoTienPhat = 3000, LyDo = "Sách rách", DaThuTien = false },
+                new PhieuPhat { MaPhieuPhat = 5, MaDocGia = 5, NgayLap = DateTime.Today, SoTienPhat = 8000, LyDo = "Không trả sách", DaThuTien = true }
             );
 
             modelBuilder.Entity<TaiKhoan>().HasData(

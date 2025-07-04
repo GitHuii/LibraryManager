@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace LibraryManager.View
 {
-    public partial class SachUI : UserControl
+    public partial class UC_QuanLySach : UserControl
     {
-        public SachUI()
+        public UC_QuanLySach()
         {
             InitializeComponent();
         }
@@ -23,7 +23,7 @@ namespace LibraryManager.View
         {
             using (var db = new AppDbContext())
             {
-                dgvSach.DataSource = db.Saches.ToList();
+                dgvSach.DataSource = db.Sachs.ToList();
             }
             formclear();
         }
@@ -33,15 +33,6 @@ namespace LibraryManager.View
             LoadData();
         }
 
-        private void btnTimKiem_Click(object sender, EventArgs e)
-        {
-            using (var db = new AppDbContext())
-            {
-                var tk = txtTimKiem.Text;
-                var result = db.Saches.Where(s => s.Ten.ToLower().Contains(tk.ToLower())).ToList();
-                dgvSach.DataSource = result;
-            }
-        }
 
         private void btnHienThi_Click(object sender, EventArgs e)
         {
@@ -61,7 +52,7 @@ namespace LibraryManager.View
                     NamXuatBan = int.Parse(txtNamXuatBan.Text),
                     SoLuong = int.Parse(txtSoLuong.Text)
                 };
-                db.Saches.Add(sach);
+                db.Sachs.Add(sach);
                 db.SaveChanges();
                 MessageBox.Show("Thêm thành công");
                 LoadData();
@@ -69,9 +60,9 @@ namespace LibraryManager.View
 
         }
 
-        private void dgvSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvSach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 var row = dgvSach.Rows[e.RowIndex];
                 ma = Convert.ToInt32(row.Cells["MaSach"].Value.ToString());
@@ -89,7 +80,7 @@ namespace LibraryManager.View
         {
             using (var db = new AppDbContext())
             {
-                var sach = db.Saches.Find(ma);
+                var sach = db.Sachs.Find(ma);
                 if (sach != null)
                 {
                     sach.Ten = txtTen.Text;
@@ -98,7 +89,8 @@ namespace LibraryManager.View
                     sach.NXB = txtNhaXuatBan.Text;
                     sach.NamXuatBan = int.Parse(txtNamXuatBan.Text);
                     sach.SoLuong = int.Parse(txtSoLuong.Text);
-                };
+                }
+                ;
                 db.SaveChanges();
                 MessageBox.Show("Sửa thành công");
                 LoadData();
@@ -108,19 +100,19 @@ namespace LibraryManager.View
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-             using(var db = new AppDbContext())
-             {
-                var sach = db.Saches.Find(ma);
+            using (var db = new AppDbContext())
+            {
+                var sach = db.Sachs.Find(ma);
                 var result = MessageBox.Show("Bạn có chắc chắn muốn xóa sách này không", "Yes", MessageBoxButtons.YesNo);
-                if(result == DialogResult.Yes)
+                if (result == DialogResult.Yes)
                 {
-                    db.Saches.Remove(sach);
+                    db.Sachs.Remove(sach);
                     db.SaveChanges();
                     MessageBox.Show("Xóa thành công");
                     LoadData();
                     formclear();
                 }
-               
+
             }
         }
         void formclear()
@@ -131,6 +123,16 @@ namespace LibraryManager.View
             txtNhaXuatBan.Clear();
             txtNamXuatBan.Clear();
             txtSoLuong.Clear();
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            using (var db = new AppDbContext())
+            {
+                var tk = txtTimKiem.Text;
+                var result = db.Sachs.Where(s => s.Ten.ToLower().Contains(tk.ToLower())).ToList();
+                dgvSach.DataSource = result;
+            }
         }
     }
 }
