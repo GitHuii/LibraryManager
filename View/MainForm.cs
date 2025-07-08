@@ -53,17 +53,25 @@ namespace LibraryManager.View
         {
             ShowUserControl(new UC_QuanLyPhieuMuonTra());
         }
-        private void panelMain_Paint(object sender, PaintEventArgs e)
-        {
-        }
 
         private void LibraryManagerUI_Load(object sender, EventArgs e)
         {
+
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnxulivipham_Click(object sender, EventArgs e)
+        {
+            ShowUserControl(new UC_XuLiViPham());
         }
     }
 }

@@ -12,15 +12,13 @@ namespace LibraryManager.DAO
         public static void Initialize()
         {
             var _ = Instance;
-
-            // Warm-up bằng truy vấn nhẹ
             try
             {
                 Instance.TaiKhoans.ToList();
             }
             catch (Exception ex)
             {
-                // Log nếu cần
+
             }
         }
     }

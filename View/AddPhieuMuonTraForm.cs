@@ -24,8 +24,7 @@ namespace LibraryManager.View
         {
             txtngaymuon.Text = DateTime.Now.Date.ToString();
 
-            var ds = dbContext.Sachs.ToList();
-            dgvtimkiem.DataSource = null ;
+            var ds = dbContext.Saches.ToList();
             dgvtimkiem.DataSource = ds;
             dgvtimkiem.Columns["NXB"].Visible = false;
             dgvtimkiem.Columns["TheLoai"].Visible = false;
@@ -36,7 +35,7 @@ namespace LibraryManager.View
 
         private void txttimkiem_TextChanged(object sender, EventArgs e)
         {
-            dgvtimkiem.DataSource = dbContext.Sachs.Where(s => s.Ten.ToLower().Contains(txttimkiem.Text.ToLower())).ToList();
+            dgvtimkiem.DataSource = dbContext.Saches.Where(s => s.Ten.ToLower().Contains(txttimkiem.Text.ToLower())).ToList();
             dgvtimkiem.Columns["NXB"].Visible = false;
             dgvtimkiem.Columns["TheLoai"].Visible = false;
             dgvtimkiem.Columns["NamXuatBan"].Visible = false;
@@ -51,7 +50,7 @@ namespace LibraryManager.View
             string TenSach = dgvtimkiem.Rows[index].Cells["Ten"].Value.ToString();
             string SoLuong = txtsoluong.Text;
             dgvsach.Rows.Add(MaSach, TenSach, SoLuong);
-            dgvtimkiem.Rows[index].Cells["SoLuong"].Value = Convert.ToInt32(dgvtimkiem.Rows[index].Cells["SoLuong"].Value) - Convert.ToInt32(SoLuong);
+            //dgvtimkiem.Rows[index].Cells["SoLuong"].Value = Convert.ToInt32(dgvtimkiem.Rows[index].Cells["SoLuong"].Value) - Convert.ToInt32(SoLuong);
         }
 
         public void ShowCustomMessage(string message, string title)
@@ -103,7 +102,7 @@ namespace LibraryManager.View
                 chiTietList.Add(new ChiTietPhieuMuonTra
                 {
                     MaSach = maSach,
-                    SoLuong = soLuong
+                    SoLuongMuon = soLuong
                 });
             }
 
@@ -115,29 +114,26 @@ namespace LibraryManager.View
                 DaTra = false,
                 ChiTietPhieuMuonTras = chiTietList
             };
-            using (var context = new AppDbContext())
-            {
                 // Lặp qua từng sách mượn
                 foreach (var ct in phieuMoi.ChiTietPhieuMuonTras)
                 {
-                    var sach = context.Sachs.FirstOrDefault(s => s.MaSach == ct.MaSach);
+                    var sach = dbContext.Saches.FirstOrDefault(s => s.MaSach == ct.MaSach);
                     if (sach == null)
                     {
                         throw new Exception($"Không tìm thấy sách với mã {ct.MaSach}");
                     }
 
-                    if (sach.SoLuong < ct.SoLuong)
+                    if (sach.SoLuong < ct.SoLuongMuon)
                     {
                         throw new Exception($"Không đủ số lượng sách {sach.Ten}. Còn lại: {sach.SoLuong}");
                     }
 
                     // Trừ số lượng sách
-                    sach.SoLuong -= ct.SoLuong;
+                    sach.SoLuong -= ct.SoLuongMuon;
                 }
-                // Thêm phiếu mượn
-                context.PhieuMuonTras.Add(phieuMoi);
-                context.SaveChanges();
-            }
+            // Thêm phiếu mượn
+            dbContext.PhieuMuonTras.Add(phieuMoi);
+            dbContext.SaveChanges();
             ShowCustomMessage("Bạn đã lưu thành công!", "Thông báo");
             this.Close();
         }

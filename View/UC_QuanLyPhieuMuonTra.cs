@@ -26,9 +26,6 @@ namespace LibraryManager.View
         {
             dgvqlpmt.DataSource = dbContext.PhieuMuonTras.ToList();
             dgvqlpmt.Columns["DocGia"].Visible = false;
-
-            dgvphieuphat.DataSource = dbContext.PhieuPhats.ToList();
-            dgvphieuphat.Columns["DocGia"].Visible = false;
         }
         private void PhieuMuonTraUI_Load(object sender, EventArgs e)
         {
@@ -64,10 +61,11 @@ namespace LibraryManager.View
 
             foreach (var chiTiet in phieu.ChiTietPhieuMuonTras)
             {
-                var sach = dbContext.Sachs.FirstOrDefault(s => s.MaSach == chiTiet.MaSach);
+                int sl = chiTiet.SoLuongMuon;
+                var sach = dbContext.Saches.FirstOrDefault(s => s.MaSach == chiTiet.MaSach);
                 if (sach != null)
                 {
-                    sach.SoLuong += chiTiet.SoLuong;
+                    sach.SoLuong += sl;
                 }
             }
 
@@ -99,8 +97,8 @@ namespace LibraryManager.View
                 .Select(ct => new
                 {
                     ct.MaSach,
-                    Ten = dbContext.Sachs.FirstOrDefault(s => s.MaSach == ct.MaSach).Ten,
-                    ct.SoLuong
+                    Ten = dbContext.Saches.FirstOrDefault(s => s.MaSach == ct.MaSach).Ten,
+                    ct.SoLuongMuon
                 }).ToList();
         }
     }

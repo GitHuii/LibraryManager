@@ -24,24 +24,16 @@ namespace LibraryManager.Migrations
 
             modelBuilder.Entity("LibraryManager.Models.ChiTietPhieuMuonTra", b =>
                 {
-                    b.Property<int>("MaChiTietPhieuMuon")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaChiTietPhieuMuon"), 1L, 1);
-
                     b.Property<int>("MaPhieuMuonTra")
                         .HasColumnType("int");
 
                     b.Property<int>("MaSach")
                         .HasColumnType("int");
 
-                    b.Property<int>("SoLuong")
+                    b.Property<int>("SoLuongMuon")
                         .HasColumnType("int");
 
-                    b.HasKey("MaChiTietPhieuMuon");
-
-                    b.HasIndex("MaPhieuMuonTra");
+                    b.HasKey("MaPhieuMuonTra", "MaSach");
 
                     b.HasIndex("MaSach");
 
@@ -50,38 +42,327 @@ namespace LibraryManager.Migrations
                     b.HasData(
                         new
                         {
-                            MaChiTietPhieuMuon = 1,
                             MaPhieuMuonTra = 1,
-                            MaSach = 1,
-                            SoLuong = 2
+                            MaSach = 5,
+                            SoLuongMuon = 2
                         },
                         new
                         {
-                            MaChiTietPhieuMuon = 2,
                             MaPhieuMuonTra = 1,
-                            MaSach = 2,
-                            SoLuong = 1
+                            MaSach = 12,
+                            SoLuongMuon = 1
                         },
                         new
                         {
-                            MaChiTietPhieuMuon = 3,
                             MaPhieuMuonTra = 2,
                             MaSach = 3,
-                            SoLuong = 1
+                            SoLuongMuon = 3
                         },
                         new
                         {
-                            MaChiTietPhieuMuon = 4,
                             MaPhieuMuonTra = 3,
-                            MaSach = 4,
-                            SoLuong = 1
+                            MaSach = 1,
+                            SoLuongMuon = 1
                         },
                         new
                         {
-                            MaChiTietPhieuMuon = 5,
+                            MaPhieuMuonTra = 3,
+                            MaSach = 6,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
                             MaPhieuMuonTra = 4,
+                            MaSach = 7,
+                            SoLuongMuon = 1
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 4,
+                            MaSach = 9,
+                            SoLuongMuon = 4
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 5,
+                            MaSach = 2,
+                            SoLuongMuon = 1
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 6,
+                            MaSach = 4,
+                            SoLuongMuon = 3
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 7,
+                            MaSach = 15,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 7,
+                            MaSach = 16,
+                            SoLuongMuon = 1
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 8,
+                            MaSach = 8,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 9,
+                            MaSach = 11,
+                            SoLuongMuon = 3
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 10,
+                            MaSach = 10,
+                            SoLuongMuon = 1
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 11,
+                            MaSach = 6,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 12,
                             MaSach = 5,
-                            SoLuong = 2
+                            SoLuongMuon = 3
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 13,
+                            MaSach = 14,
+                            SoLuongMuon = 1
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 14,
+                            MaSach = 13,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 15,
+                            MaSach = 18,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 16,
+                            MaSach = 7,
+                            SoLuongMuon = 1
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 17,
+                            MaSach = 20,
+                            SoLuongMuon = 3
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 18,
+                            MaSach = 1,
+                            SoLuongMuon = 1
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 19,
+                            MaSach = 2,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 20,
+                            MaSach = 9,
+                            SoLuongMuon = 4
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 21,
+                            MaSach = 3,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 22,
+                            MaSach = 4,
+                            SoLuongMuon = 3
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 23,
+                            MaSach = 6,
+                            SoLuongMuon = 1
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 24,
+                            MaSach = 5,
+                            SoLuongMuon = 1
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 25,
+                            MaSach = 8,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 26,
+                            MaSach = 10,
+                            SoLuongMuon = 3
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 27,
+                            MaSach = 11,
+                            SoLuongMuon = 1
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 28,
+                            MaSach = 13,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 29,
+                            MaSach = 12,
+                            SoLuongMuon = 3
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 30,
+                            MaSach = 15,
+                            SoLuongMuon = 1
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 31,
+                            MaSach = 17,
+                            SoLuongMuon = 3
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 32,
+                            MaSach = 19,
+                            SoLuongMuon = 1
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 33,
+                            MaSach = 21,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 34,
+                            MaSach = 23,
+                            SoLuongMuon = 3
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 35,
+                            MaSach = 22,
+                            SoLuongMuon = 1
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 36,
+                            MaSach = 24,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 37,
+                            MaSach = 25,
+                            SoLuongMuon = 3
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 38,
+                            MaSach = 26,
+                            SoLuongMuon = 1
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 39,
+                            MaSach = 27,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 40,
+                            MaSach = 28,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 41,
+                            MaSach = 29,
+                            SoLuongMuon = 1
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 42,
+                            MaSach = 30,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 43,
+                            MaSach = 16,
+                            SoLuongMuon = 1
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 44,
+                            MaSach = 14,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 45,
+                            MaSach = 18,
+                            SoLuongMuon = 3
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 46,
+                            MaSach = 7,
+                            SoLuongMuon = 2
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 47,
+                            MaSach = 18,
+                            SoLuongMuon = 3
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 48,
+                            MaSach = 19,
+                            SoLuongMuon = 4
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 49,
+                            MaSach = 20,
+                            SoLuongMuon = 5
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 50,
+                            MaSach = 21,
+                            SoLuongMuon = 6
                         });
                 });
 
@@ -121,46 +402,271 @@ namespace LibraryManager.Migrations
                         {
                             MaDocGia = 1,
                             DiaChi = "Hà Nội",
-                            Email = "a@example.com",
-                            NgaySinh = new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SDT = "0911111111",
+                            Email = "vana1@gmail.com",
+                            NgaySinh = new DateTime(1998, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0912345678",
                             Ten = "Nguyễn Văn A"
                         },
                         new
                         {
                             MaDocGia = 2,
                             DiaChi = "TP.HCM",
-                            Email = "b@example.com",
-                            NgaySinh = new DateTime(1999, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SDT = "0922222222",
+                            Email = "thib2@yahoo.com",
+                            NgaySinh = new DateTime(1997, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0987654321",
                             Ten = "Trần Thị B"
                         },
                         new
                         {
                             MaDocGia = 3,
                             DiaChi = "Đà Nẵng",
-                            Email = "c@example.com",
-                            NgaySinh = new DateTime(2001, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SDT = "0933333333",
+                            Email = "le.c3@hotmail.com",
+                            NgaySinh = new DateTime(1995, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0901234567",
                             Ten = "Lê Văn C"
                         },
                         new
                         {
                             MaDocGia = 4,
-                            DiaChi = "Huế",
-                            Email = "d@example.com",
-                            NgaySinh = new DateTime(2002, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SDT = "0944444444",
+                            DiaChi = "Cần Thơ",
+                            Email = "phamd4@gmail.com",
+                            NgaySinh = new DateTime(2000, 4, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0932123456",
                             Ten = "Phạm Thị D"
                         },
                         new
                         {
                             MaDocGia = 5,
-                            DiaChi = "Cần Thơ",
-                            Email = "e@example.com",
-                            NgaySinh = new DateTime(1998, 10, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SDT = "0955555555",
+                            DiaChi = "Hải Phòng",
+                            Email = "ehoang5@gmail.com",
+                            NgaySinh = new DateTime(1999, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0967890123",
                             Ten = "Hoàng Văn E"
+                        },
+                        new
+                        {
+                            MaDocGia = 6,
+                            DiaChi = "Quảng Ninh",
+                            Email = "f.d6@gmail.com",
+                            NgaySinh = new DateTime(2001, 6, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0978901234",
+                            Ten = "Đỗ Thị F"
+                        },
+                        new
+                        {
+                            MaDocGia = 7,
+                            DiaChi = "Huế",
+                            Email = "gvu7@gmail.com",
+                            NgaySinh = new DateTime(1996, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0911223344",
+                            Ten = "Vũ Văn G"
+                        },
+                        new
+                        {
+                            MaDocGia = 8,
+                            DiaChi = "Nghệ An",
+                            Email = "hngo8@yahoo.com",
+                            NgaySinh = new DateTime(1994, 8, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0922334455",
+                            Ten = "Ngô Thị H"
+                        },
+                        new
+                        {
+                            MaDocGia = 9,
+                            DiaChi = "Bình Dương",
+                            Email = "ibui9@gmail.com",
+                            NgaySinh = new DateTime(1993, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0933445566",
+                            Ten = "Bùi Văn I"
+                        },
+                        new
+                        {
+                            MaDocGia = 10,
+                            DiaChi = "Đắk Lắk",
+                            Email = "kdang10@gmail.com",
+                            NgaySinh = new DateTime(1992, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0944556677",
+                            Ten = "Đặng Thị K"
+                        },
+                        new
+                        {
+                            MaDocGia = 11,
+                            DiaChi = "Hòa Bình",
+                            Email = "ltrinh11@gmail.com",
+                            NgaySinh = new DateTime(1991, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0955667788",
+                            Ten = "Trịnh Văn L"
+                        },
+                        new
+                        {
+                            MaDocGia = 12,
+                            DiaChi = "Ninh Bình",
+                            Email = "mphan12@gmail.com",
+                            NgaySinh = new DateTime(1990, 12, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0966778899",
+                            Ten = "Phan Thị M"
+                        },
+                        new
+                        {
+                            MaDocGia = 13,
+                            DiaChi = "Thanh Hóa",
+                            Email = "nly13@gmail.com",
+                            NgaySinh = new DateTime(1989, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0977889900",
+                            Ten = "Lý Văn N"
+                        },
+                        new
+                        {
+                            MaDocGia = 14,
+                            DiaChi = "Phú Thọ",
+                            Email = "ota14@gmail.com",
+                            NgaySinh = new DateTime(1998, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0988990011",
+                            Ten = "Tạ Thị O"
+                        },
+                        new
+                        {
+                            MaDocGia = 15,
+                            DiaChi = "Nam Định",
+                            Email = "p.dinh15@gmail.com",
+                            NgaySinh = new DateTime(1997, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0999001122",
+                            Ten = "Đinh Văn P"
+                        },
+                        new
+                        {
+                            MaDocGia = 16,
+                            DiaChi = "Thái Bình",
+                            Email = "q.ha16@gmail.com",
+                            NgaySinh = new DateTime(1996, 4, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0900112233",
+                            Ten = "Hà Thị Q"
+                        },
+                        new
+                        {
+                            MaDocGia = 17,
+                            DiaChi = "Lào Cai",
+                            Email = "rtruong17@gmail.com",
+                            NgaySinh = new DateTime(1995, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0911223345",
+                            Ten = "Trương Văn R"
+                        },
+                        new
+                        {
+                            MaDocGia = 18,
+                            DiaChi = "Bắc Giang",
+                            Email = "scao18@gmail.com",
+                            NgaySinh = new DateTime(1994, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0922334456",
+                            Ten = "Cao Thị S"
+                        },
+                        new
+                        {
+                            MaDocGia = 19,
+                            DiaChi = "Tuyên Quang",
+                            Email = "tkieu19@gmail.com",
+                            NgaySinh = new DateTime(1993, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0933445567",
+                            Ten = "Kiều Văn T"
+                        },
+                        new
+                        {
+                            MaDocGia = 20,
+                            DiaChi = "Yên Bái",
+                            Email = "ulam20@gmail.com",
+                            NgaySinh = new DateTime(1992, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0944556678",
+                            Ten = "Lâm Thị U"
+                        },
+                        new
+                        {
+                            MaDocGia = 21,
+                            DiaChi = "Hà Giang",
+                            Email = "vchau21@gmail.com",
+                            NgaySinh = new DateTime(1991, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0955667789",
+                            Ten = "Châu Văn V"
+                        },
+                        new
+                        {
+                            MaDocGia = 22,
+                            DiaChi = "Sơn La",
+                            Email = "xtrinh22@gmail.com",
+                            NgaySinh = new DateTime(1990, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0966778890",
+                            Ten = "Trịnh Thị X"
+                        },
+                        new
+                        {
+                            MaDocGia = 23,
+                            DiaChi = "Lạng Sơn",
+                            Email = "ytong23@gmail.com",
+                            NgaySinh = new DateTime(1989, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0977889901",
+                            Ten = "Tống Văn Y"
+                        },
+                        new
+                        {
+                            MaDocGia = 24,
+                            DiaChi = "Bắc Ninh",
+                            Email = "zmai24@gmail.com",
+                            NgaySinh = new DateTime(1988, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0988990012",
+                            Ten = "Mai Thị Z"
+                        },
+                        new
+                        {
+                            MaDocGia = 25,
+                            DiaChi = "Quảng Nam",
+                            Email = "aa.ng25@gmail.com",
+                            NgaySinh = new DateTime(1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0999001123",
+                            Ten = "Nguyễn Văn AA"
+                        },
+                        new
+                        {
+                            MaDocGia = 26,
+                            DiaChi = "Bình Phước",
+                            Email = "bbtran26@gmail.com",
+                            NgaySinh = new DateTime(1998, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0900112234",
+                            Ten = "Trần Thị BB"
+                        },
+                        new
+                        {
+                            MaDocGia = 27,
+                            DiaChi = "Tây Ninh",
+                            Email = "ccle27@gmail.com",
+                            NgaySinh = new DateTime(1997, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0911223346",
+                            Ten = "Lê Văn CC"
+                        },
+                        new
+                        {
+                            MaDocGia = 28,
+                            DiaChi = "Hậu Giang",
+                            Email = "ddpham28@gmail.com",
+                            NgaySinh = new DateTime(1996, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0922334457",
+                            Ten = "Phạm Thị DD"
+                        },
+                        new
+                        {
+                            MaDocGia = 29,
+                            DiaChi = "Vĩnh Long",
+                            Email = "eehoang29@gmail.com",
+                            NgaySinh = new DateTime(1995, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0933445568",
+                            Ten = "Hoàng Văn EE"
+                        },
+                        new
+                        {
+                            MaDocGia = 30,
+                            DiaChi = "Trà Vinh",
+                            Email = "ffdo30@gmail.com",
+                            NgaySinh = new DateTime(1994, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SDT = "0944556679",
+                            Ten = "Đỗ Thị FF"
                         });
                 });
 
@@ -198,41 +704,434 @@ namespace LibraryManager.Migrations
                         {
                             MaPhieuMuonTra = 1,
                             DaTra = false,
-                            HanTra = new DateTime(2025, 7, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MaDocGia = 1,
-                            NgayMuon = new DateTime(2025, 6, 26, 0, 0, 0, 0, DateTimeKind.Local)
+                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             MaPhieuMuonTra = 2,
                             DaTra = false,
-                            HanTra = new DateTime(2025, 7, 7, 0, 0, 0, 0, DateTimeKind.Local),
+                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MaDocGia = 2,
-                            NgayMuon = new DateTime(2025, 6, 27, 0, 0, 0, 0, DateTimeKind.Local)
+                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             MaPhieuMuonTra = 3,
                             DaTra = false,
-                            HanTra = new DateTime(2025, 7, 8, 0, 0, 0, 0, DateTimeKind.Local),
+                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MaDocGia = 3,
-                            NgayMuon = new DateTime(2025, 6, 28, 0, 0, 0, 0, DateTimeKind.Local)
+                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             MaPhieuMuonTra = 4,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 9, 0, 0, 0, 0, DateTimeKind.Local),
-                            MaDocGia = 4,
-                            NgayMuon = new DateTime(2025, 6, 29, 0, 0, 0, 0, DateTimeKind.Local)
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 3,
+                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             MaPhieuMuonTra = 5,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 3,
+                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 6,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 4,
+                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 21, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 7,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 4,
+                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 8,
                             DaTra = false,
-                            HanTra = new DateTime(2025, 7, 10, 0, 0, 0, 0, DateTimeKind.Local),
+                            HanTra = new DateTime(2025, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 4,
+                            NgayMuon = new DateTime(2025, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 9,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MaDocGia = 5,
-                            NgayMuon = new DateTime(2025, 6, 30, 0, 0, 0, 0, DateTimeKind.Local)
+                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 10,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 5,
+                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 11,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 5,
+                            NgayMuon = new DateTime(2025, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 12,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 6,
+                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 13,
+                            DaTra = false,
+                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 6,
+                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 14,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 6,
+                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 15,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 7,
+                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 9, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 16,
+                            DaTra = false,
+                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 7,
+                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 17,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 7,
+                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 18,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 8,
+                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 19,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 9,
+                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 20,
+                            DaTra = false,
+                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 9,
+                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 21,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 10,
+                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 22,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 10,
+                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 23,
+                            DaTra = false,
+                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 11,
+                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 24,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 12,
+                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 9, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 25,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 13,
+                            NgayMuon = new DateTime(2025, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 26,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 14,
+                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 27,
+                            DaTra = false,
+                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 14,
+                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 28,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 15,
+                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 29,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 16,
+                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 30,
+                            DaTra = false,
+                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 16,
+                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 31,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 17,
+                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 32,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 17,
+                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 33,
+                            DaTra = false,
+                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 18,
+                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 34,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 18,
+                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 35,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 19,
+                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 36,
+                            DaTra = false,
+                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 20,
+                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 37,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 20,
+                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 38,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 20,
+                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 39,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 21,
+                            NgayMuon = new DateTime(2025, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 40,
+                            DaTra = false,
+                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 21,
+                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 41,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 22,
+                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 42,
+                            DaTra = false,
+                            HanTra = new DateTime(2025, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 23,
+                            NgayMuon = new DateTime(2025, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 43,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 24,
+                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 44,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 24,
+                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 45,
+                            DaTra = false,
+                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 25,
+                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 46,
+                            DaTra = false,
+                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 26,
+                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 47,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 27,
+                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 9, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 48,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 28,
+                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 49,
+                            DaTra = true,
+                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 29,
+                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NgayTraThucTe = new DateTime(2025, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            MaPhieuMuonTra = 50,
+                            DaTra = false,
+                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MaDocGia = 30,
+                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -265,53 +1164,6 @@ namespace LibraryManager.Migrations
                     b.HasIndex("MaDocGia");
 
                     b.ToTable("PhieuPhats");
-
-                    b.HasData(
-                        new
-                        {
-                            MaPhieuPhat = 1,
-                            DaThuTien = false,
-                            LyDo = "Trả trễ",
-                            MaDocGia = 1,
-                            NgayLap = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Local),
-                            SoTienPhat = 5000m
-                        },
-                        new
-                        {
-                            MaPhieuPhat = 2,
-                            DaThuTien = false,
-                            LyDo = "Mất sách",
-                            MaDocGia = 2,
-                            NgayLap = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Local),
-                            SoTienPhat = 7000m
-                        },
-                        new
-                        {
-                            MaPhieuPhat = 3,
-                            DaThuTien = true,
-                            LyDo = "Trả sai sách",
-                            MaDocGia = 3,
-                            NgayLap = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Local),
-                            SoTienPhat = 10000m
-                        },
-                        new
-                        {
-                            MaPhieuPhat = 4,
-                            DaThuTien = false,
-                            LyDo = "Sách rách",
-                            MaDocGia = 4,
-                            NgayLap = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Local),
-                            SoTienPhat = 3000m
-                        },
-                        new
-                        {
-                            MaPhieuPhat = 5,
-                            DaThuTien = true,
-                            LyDo = "Không trả sách",
-                            MaDocGia = 5,
-                            NgayLap = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Local),
-                            SoTienPhat = 8000m
-                        });
                 });
 
             modelBuilder.Entity("LibraryManager.Models.Sach", b =>
@@ -346,58 +1198,308 @@ namespace LibraryManager.Migrations
 
                     b.HasKey("MaSach");
 
-                    b.ToTable("Sachs");
+                    b.ToTable("Saches");
 
                     b.HasData(
                         new
                         {
                             MaSach = 1,
-                            NXB = "NXB Trẻ",
-                            NamXuatBan = 2021,
-                            SoLuong = 10,
-                            TacGia = "Nguyễn Văn T",
-                            Ten = "Lập trình C#",
-                            TheLoai = "CNTT"
+                            NXB = "NXB Kim Đồng",
+                            NamXuatBan = 2012,
+                            SoLuong = 28,
+                            TacGia = "Nguyễn Nhật Ánh",
+                            Ten = "Harry Potter và Hòn Đá Phù Thủy",
+                            TheLoai = "Giáo dục"
                         },
                         new
                         {
                             MaSach = 2,
-                            NXB = "NXB Giáo dục",
+                            NXB = "NXB Trẻ",
                             NamXuatBan = 2020,
-                            SoLuong = 15,
-                            TacGia = "Phạm Văn P",
-                            Ten = "Toán cao cấp",
-                            TheLoai = "Giáo trình"
+                            SoLuong = 45,
+                            TacGia = "Nam Cao",
+                            Ten = "Đắc Nhân Tâm",
+                            TheLoai = "Tâm lý"
                         },
                         new
                         {
                             MaSach = 3,
-                            NXB = "NXB Thanh Niên",
-                            NamXuatBan = 2019,
-                            SoLuong = 8,
-                            TacGia = "Trần Thị Q",
-                            Ten = "Kỹ năng sống",
-                            TheLoai = "Kỹ năng"
+                            NXB = "NXB Kim Đồng",
+                            NamXuatBan = 2015,
+                            SoLuong = 32,
+                            TacGia = "To Hoai",
+                            Ten = "Dế Mèn Phiêu Lưu Ký",
+                            TheLoai = "Thiếu nhi"
                         },
                         new
                         {
                             MaSach = 4,
-                            NXB = "NXB Văn hóa",
-                            NamXuatBan = 2018,
-                            SoLuong = 12,
-                            TacGia = "Lê Văn K",
-                            Ten = "Tiếng Anh giao tiếp",
-                            TheLoai = "Ngoại ngữ"
+                            NXB = "NXB Trẻ",
+                            NamXuatBan = 2016,
+                            SoLuong = 40,
+                            TacGia = "Nguyễn Nhật Ánh",
+                            Ten = "Tôi Thấy Hoa Vàng Trên Cỏ Xanh",
+                            TheLoai = "Văn học"
                         },
                         new
                         {
                             MaSach = 5,
-                            NXB = "NXB Lao động",
+                            NXB = "NXB Giáo Dục",
+                            NamXuatBan = 2010,
+                            SoLuong = 18,
+                            TacGia = "Ngô Tất Tố",
+                            Ten = "Lão Hạc",
+                            TheLoai = "Truyện ngắn"
+                        },
+                        new
+                        {
+                            MaSach = 6,
+                            NXB = "NXB Văn Học",
+                            NamXuatBan = 2013,
+                            SoLuong = 25,
+                            TacGia = "Nguyễn Du",
+                            Ten = "Chiếc Thuyền Ngoài Xa",
+                            TheLoai = "Văn học"
+                        },
+                        new
+                        {
+                            MaSach = 7,
+                            NXB = "NXB Trẻ",
+                            NamXuatBan = 2014,
+                            SoLuong = 38,
+                            TacGia = "Truyện Dân Gian",
+                            Ten = "Tuổi Thơ Dữ Dội",
+                            TheLoai = "Lịch sử"
+                        },
+                        new
+                        {
+                            MaSach = 8,
+                            NXB = "NXB Văn Học",
+                            NamXuatBan = 2021,
+                            SoLuong = 15,
+                            TacGia = "Nam Cao",
+                            Ten = "Số Đỏ",
+                            TheLoai = "Truyện ngắn"
+                        },
+                        new
+                        {
+                            MaSach = 9,
+                            NXB = "NXB Văn Học",
+                            NamXuatBan = 2012,
+                            SoLuong = 30,
+                            TacGia = "Ngô Tất Tố",
+                            Ten = "Chí Phèo",
+                            TheLoai = "Truyện ngắn"
+                        },
+                        new
+                        {
+                            MaSach = 10,
+                            NXB = "NXB Trẻ",
+                            NamXuatBan = 2019,
+                            SoLuong = 20,
+                            TacGia = "Nguyễn Nhật Ánh",
+                            Ten = "Nhà Giả Kim",
+                            TheLoai = "Văn học"
+                        },
+                        new
+                        {
+                            MaSach = 11,
+                            NXB = "NXB Giáo Dục",
+                            NamXuatBan = 2004,
+                            SoLuong = 16,
+                            TacGia = "J.K. Rowling",
+                            Ten = "1984",
+                            TheLoai = "Khoa học"
+                        },
+                        new
+                        {
+                            MaSach = 12,
+                            NXB = "NXB Tổng hợp",
+                            NamXuatBan = 2020,
+                            SoLuong = 22,
+                            TacGia = "Nguyễn Du",
+                            Ten = "Bắt Trẻ Đồng Xanh",
+                            TheLoai = "Tâm lý"
+                        },
+                        new
+                        {
+                            MaSach = 13,
+                            NXB = "NXB Kim Đồng",
+                            NamXuatBan = 2011,
+                            SoLuong = 17,
+                            TacGia = "To Hoai",
+                            Ten = "Ông Già Và Biển Cả",
+                            TheLoai = "Lịch sử"
+                        },
+                        new
+                        {
+                            MaSach = 14,
+                            NXB = "NXB Trẻ",
+                            NamXuatBan = 2005,
+                            SoLuong = 29,
+                            TacGia = "Nguyễn Nhật Ánh",
+                            Ten = "Không Gia Đình",
+                            TheLoai = "Truyện ngắn"
+                        },
+                        new
+                        {
+                            MaSach = 15,
+                            NXB = "NXB Tổng hợp",
                             NamXuatBan = 2022,
-                            SoLuong = 6,
-                            TacGia = "Nguyễn Thị H",
-                            Ten = "Tư duy phản biện",
-                            TheLoai = "Kỹ năng"
+                            SoLuong = 34,
+                            TacGia = "Nam Cao",
+                            Ten = "Cuộc Đời Của Pi",
+                            TheLoai = "Văn học"
+                        },
+                        new
+                        {
+                            MaSach = 16,
+                            NXB = "NXB Kim Đồng",
+                            NamXuatBan = 2018,
+                            SoLuong = 26,
+                            TacGia = "To Hoai",
+                            Ten = "Kính Vạn Hoa",
+                            TheLoai = "Thiếu nhi"
+                        },
+                        new
+                        {
+                            MaSach = 17,
+                            NXB = "NXB Giáo Dục",
+                            NamXuatBan = 2016,
+                            SoLuong = 31,
+                            TacGia = "Nguyễn Du",
+                            Ten = "Người Bán Hàng Vĩ Đại Nhất Thế Giới",
+                            TheLoai = "Giáo dục"
+                        },
+                        new
+                        {
+                            MaSach = 18,
+                            NXB = "NXB Tổng hợp",
+                            NamXuatBan = 2007,
+                            SoLuong = 19,
+                            TacGia = "Truyện Dân Gian",
+                            Ten = "Vượt Lên Người Khổng Lồ",
+                            TheLoai = "Tâm lý"
+                        },
+                        new
+                        {
+                            MaSach = 19,
+                            NXB = "NXB Văn Học",
+                            NamXuatBan = 2014,
+                            SoLuong = 35,
+                            TacGia = "Nguyễn Nhật Ánh",
+                            Ten = "Bí Mật Của Phan Thiên Ân",
+                            TheLoai = "Tâm lý"
+                        },
+                        new
+                        {
+                            MaSach = 20,
+                            NXB = "NXB Giáo Dục",
+                            NamXuatBan = 2003,
+                            SoLuong = 40,
+                            TacGia = "To Hoai",
+                            Ten = "Totto-chan Bên Cửa Sổ",
+                            TheLoai = "Thiếu nhi"
+                        },
+                        new
+                        {
+                            MaSach = 21,
+                            NXB = "NXB Trẻ",
+                            NamXuatBan = 2017,
+                            SoLuong = 22,
+                            TacGia = "Nam Cao",
+                            Ten = "Muôn Kiếp Nhân Sinh",
+                            TheLoai = "Văn học"
+                        },
+                        new
+                        {
+                            MaSach = 22,
+                            NXB = "NXB Giáo Dục",
+                            NamXuatBan = 2015,
+                            SoLuong = 44,
+                            TacGia = "Nguyễn Du",
+                            Ten = "Truyện Kiều",
+                            TheLoai = "Văn học"
+                        },
+                        new
+                        {
+                            MaSach = 23,
+                            NXB = "NXB Kim Đồng",
+                            NamXuatBan = 2008,
+                            SoLuong = 39,
+                            TacGia = "Nguyễn Nhật Ánh",
+                            Ten = "Mắt Biếc",
+                            TheLoai = "Truyện ngắn"
+                        },
+                        new
+                        {
+                            MaSach = 24,
+                            NXB = "NXB Văn Học",
+                            NamXuatBan = 2006,
+                            SoLuong = 18,
+                            TacGia = "Nguyễn Du",
+                            Ten = "Đồi Gió Hú",
+                            TheLoai = "Tâm lý"
+                        },
+                        new
+                        {
+                            MaSach = 25,
+                            NXB = "NXB Giáo Dục",
+                            NamXuatBan = 2009,
+                            SoLuong = 23,
+                            TacGia = "Ngô Tất Tố",
+                            Ten = "Những Tấm Lòng Cao Cả",
+                            TheLoai = "Giáo dục"
+                        },
+                        new
+                        {
+                            MaSach = 26,
+                            NXB = "NXB Văn Học",
+                            NamXuatBan = 2011,
+                            SoLuong = 24,
+                            TacGia = "Truyện Dân Gian",
+                            Ten = "Con Đường Hồi Giáo",
+                            TheLoai = "Lịch sử"
+                        },
+                        new
+                        {
+                            MaSach = 27,
+                            NXB = "NXB Tổng hợp",
+                            NamXuatBan = 2002,
+                            SoLuong = 12,
+                            TacGia = "Nguyễn Nhật Ánh",
+                            Ten = "Tự Truyện Lý Tiểu Long",
+                            TheLoai = "Lịch sử"
+                        },
+                        new
+                        {
+                            MaSach = 28,
+                            NXB = "NXB Trẻ",
+                            NamXuatBan = 2013,
+                            SoLuong = 27,
+                            TacGia = "Nguyễn Du",
+                            Ten = "Bố Già",
+                            TheLoai = "Tâm lý"
+                        },
+                        new
+                        {
+                            MaSach = 29,
+                            NXB = "NXB Giáo Dục",
+                            NamXuatBan = 2023,
+                            SoLuong = 33,
+                            TacGia = "Nam Cao",
+                            Ten = "Thiên Tài Bên Trái, Kẻ Điên Bên Phải",
+                            TheLoai = "Khoa học"
+                        },
+                        new
+                        {
+                            MaSach = 30,
+                            NXB = "NXB Tổng hợp",
+                            NamXuatBan = 2001,
+                            SoLuong = 21,
+                            TacGia = "To Hoai",
+                            Ten = "Cuốn Theo Chiều Gió",
+                            TheLoai = "Văn học"
                         });
                 });
 
@@ -417,23 +1519,58 @@ namespace LibraryManager.Migrations
                     b.HasData(
                         new
                         {
-                            UserName = "huii",
-                            PassWord = "123"
-                        },
-                        new
-                        {
-                            UserName = "Hai",
-                            PassWord = "1234"
-                        },
-                        new
-                        {
-                            UserName = "duy",
-                            PassWord = "12345"
-                        },
-                        new
-                        {
-                            UserName = "manh",
+                            UserName = "admin",
                             PassWord = "123456"
+                        },
+                        new
+                        {
+                            UserName = "user1",
+                            PassWord = "Password@123"
+                        },
+                        new
+                        {
+                            UserName = "user2",
+                            PassWord = "Abc123!"
+                        },
+                        new
+                        {
+                            UserName = "user3",
+                            PassWord = "123456"
+                        },
+                        new
+                        {
+                            UserName = "user4",
+                            PassWord = "qwerty"
+                        },
+                        new
+                        {
+                            UserName = "user5",
+                            PassWord = "helloWorld!"
+                        },
+                        new
+                        {
+                            UserName = "user6",
+                            PassWord = "Secret123"
+                        },
+                        new
+                        {
+                            UserName = "user7",
+                            PassWord = "Test@2025"
+                        },
+                        new
+                        {
+                            UserName = "user8",
+                            PassWord = "LetMeIn"
+                        },
+                        new
+                        {
+                            UserName = "user9",
+                            PassWord = "Admin#001"
+                        },
+                        new
+                        {
+                            UserName = "user10",
+                            PassWord = "P@ssw0rd"
                         });
                 });
 

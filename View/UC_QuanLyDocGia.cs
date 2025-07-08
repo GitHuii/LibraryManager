@@ -182,33 +182,6 @@ namespace LibraryManager.View
 
         private void dgvdocgia_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            //Color borderColor = Color.LightGray;
-
-            //// Dữ liệu + header
-            //if (e.RowIndex >= 0 || e.RowIndex == -1)
-            //{
-            //    e.PaintBackground(e.CellBounds, true);
-            //    e.PaintContent(e.CellBounds);
-
-            //    using (Pen pen = new Pen(borderColor, 1))
-            //    {
-            //        // Viền phải
-            //        e.Graphics.DrawLine(pen, e.CellBounds.Right - 1, e.CellBounds.Top, e.CellBounds.Right - 1, e.CellBounds.Bottom);
-
-            //        // Viền dưới
-            //        e.Graphics.DrawLine(pen, e.CellBounds.Left, e.CellBounds.Bottom - 1, e.CellBounds.Right, e.CellBounds.Bottom - 1);
-
-            //        // Viền trái ngoài cùng (nếu là cột đầu tiên)
-            //        if (e.ColumnIndex == 0)
-            //            e.Graphics.DrawLine(pen, e.CellBounds.Left, e.CellBounds.Top, e.CellBounds.Left, e.CellBounds.Bottom);
-
-            //        // Viền trên cùng (nếu là hàng tiêu đề)
-            //        if (e.RowIndex == -1)
-            //            e.Graphics.DrawLine(pen, e.CellBounds.Left, e.CellBounds.Top, e.CellBounds.Right, e.CellBounds.Top);
-            //    }
-
-            //    e.Handled = true;
-            //}
         }
 
         private void txttimkiem_TextChanged(object sender, EventArgs e)
