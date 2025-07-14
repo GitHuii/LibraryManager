@@ -1,13 +1,13 @@
 ﻿namespace LibraryManager.View
 {
-    partial class UC_XuLiViPham
+    partial class AddXuLyPhieuPhat
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,21 +20,18 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region Windows Form Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -43,20 +40,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
-            dgvPhieuPhat = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             chkDaThuTien = new Guna.UI2.WinForms.Guna2CheckBox();
             dtpNgayLap = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -70,93 +57,10 @@
             txtMaPhieuPhat = new Guna.UI2.WinForms.Guna2TextBox();
             lblmaphieuphat = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblngaylap = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            btnHienThi = new Guna.UI2.WinForms.Guna2Button();
-            btnXoa = new Guna.UI2.WinForms.Guna2Button();
-            btnSua = new Guna.UI2.WinForms.Guna2Button();
+            btnhuy = new Guna.UI2.WinForms.Guna2Button();
             btnThem = new Guna.UI2.WinForms.Guna2Button();
-            txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2GroupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvPhieuPhat).BeginInit();
             guna2GroupBox1.SuspendLayout();
             SuspendLayout();
-            // 
-            // guna2GroupBox2
-            // 
-            guna2GroupBox2.BorderRadius = 20;
-            guna2GroupBox2.Controls.Add(dgvPhieuPhat);
-            guna2GroupBox2.CustomBorderColor = Color.FromArgb(224, 224, 224);
-            guna2GroupBox2.CustomizableEdges = customizableEdges1;
-            guna2GroupBox2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            guna2GroupBox2.ForeColor = Color.FromArgb(64, 64, 64);
-            guna2GroupBox2.Location = new Point(57, 121);
-            guna2GroupBox2.Margin = new Padding(3, 4, 3, 4);
-            guna2GroupBox2.Name = "guna2GroupBox2";
-            guna2GroupBox2.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2GroupBox2.Size = new Size(1257, 427);
-            guna2GroupBox2.TabIndex = 51;
-            guna2GroupBox2.Text = "Danh Sách";
-            // 
-            // dgvPhieuPhat
-            // 
-            dgvPhieuPhat.AllowUserToAddRows = false;
-            dgvPhieuPhat.AllowUserToDeleteRows = false;
-            dgvPhieuPhat.AllowUserToResizeColumns = false;
-            dgvPhieuPhat.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            dgvPhieuPhat.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvPhieuPhat.BorderStyle = BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.RoyalBlue;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.RoyalBlue;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvPhieuPhat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dgvPhieuPhat.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvPhieuPhat.DefaultCellStyle = dataGridViewCellStyle3;
-            dgvPhieuPhat.Dock = DockStyle.Fill;
-            dgvPhieuPhat.GridColor = Color.Silver;
-            dgvPhieuPhat.Location = new Point(0, 40);
-            dgvPhieuPhat.Margin = new Padding(3, 4, 3, 4);
-            dgvPhieuPhat.MultiSelect = false;
-            dgvPhieuPhat.Name = "dgvPhieuPhat";
-            dgvPhieuPhat.ReadOnly = true;
-            dgvPhieuPhat.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dgvPhieuPhat.RowHeadersVisible = false;
-            dgvPhieuPhat.RowHeadersWidth = 50;
-            dgvPhieuPhat.RowTemplate.Height = 25;
-            dgvPhieuPhat.Size = new Size(1257, 387);
-            dgvPhieuPhat.TabIndex = 25;
-            dgvPhieuPhat.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            dgvPhieuPhat.ThemeStyle.AlternatingRowsStyle.Font = null;
-            dgvPhieuPhat.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            dgvPhieuPhat.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            dgvPhieuPhat.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            dgvPhieuPhat.ThemeStyle.BackColor = Color.White;
-            dgvPhieuPhat.ThemeStyle.GridColor = Color.Silver;
-            dgvPhieuPhat.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            dgvPhieuPhat.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvPhieuPhat.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dgvPhieuPhat.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dgvPhieuPhat.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvPhieuPhat.ThemeStyle.HeaderStyle.Height = 30;
-            dgvPhieuPhat.ThemeStyle.ReadOnly = true;
-            dgvPhieuPhat.ThemeStyle.RowsStyle.BackColor = Color.White;
-            dgvPhieuPhat.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvPhieuPhat.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dgvPhieuPhat.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            dgvPhieuPhat.ThemeStyle.RowsStyle.Height = 25;
-            dgvPhieuPhat.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dgvPhieuPhat.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dgvPhieuPhat.SelectionChanged += dgvPhieuPhat_SelectionChanged_1;
             // 
             // guna2GroupBox1
             // 
@@ -174,16 +78,16 @@
             guna2GroupBox1.Controls.Add(lblmaphieuphat);
             guna2GroupBox1.Controls.Add(lblngaylap);
             guna2GroupBox1.CustomBorderColor = Color.FromArgb(224, 224, 224);
-            guna2GroupBox1.CustomizableEdges = customizableEdges13;
+            guna2GroupBox1.CustomizableEdges = customizableEdges11;
             guna2GroupBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             guna2GroupBox1.ForeColor = Color.FromArgb(64, 64, 64);
-            guna2GroupBox1.Location = new Point(57, 560);
+            guna2GroupBox1.Location = new Point(3, 2);
             guna2GroupBox1.Margin = new Padding(3, 4, 3, 4);
             guna2GroupBox1.Name = "guna2GroupBox1";
-            guna2GroupBox1.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2GroupBox1.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2GroupBox1.Size = new Size(1022, 373);
-            guna2GroupBox1.TabIndex = 50;
-            guna2GroupBox1.Text = "Thông Tin Sách";
+            guna2GroupBox1.TabIndex = 55;
+            guna2GroupBox1.Text = "Thêm Phiếu Phạt";
             // 
             // chkDaThuTien
             // 
@@ -205,14 +109,14 @@
             // dtpNgayLap
             // 
             dtpNgayLap.Checked = true;
-            dtpNgayLap.CustomizableEdges = customizableEdges3;
+            dtpNgayLap.CustomizableEdges = customizableEdges1;
             dtpNgayLap.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             dtpNgayLap.Format = DateTimePickerFormat.Long;
             dtpNgayLap.Location = new Point(152, 280);
             dtpNgayLap.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpNgayLap.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpNgayLap.Name = "dtpNgayLap";
-            dtpNgayLap.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            dtpNgayLap.ShadowDecoration.CustomizableEdges = customizableEdges2;
             dtpNgayLap.Size = new Size(343, 45);
             dtpNgayLap.TabIndex = 24;
             dtpNgayLap.Value = new DateTime(2025, 7, 12, 14, 13, 43, 154);
@@ -222,7 +126,7 @@
             txtSoTienPhat.BackColor = Color.Transparent;
             txtSoTienPhat.BorderColor = Color.Gray;
             txtSoTienPhat.BorderRadius = 15;
-            txtSoTienPhat.CustomizableEdges = customizableEdges5;
+            txtSoTienPhat.CustomizableEdges = customizableEdges3;
             txtSoTienPhat.DefaultText = "";
             txtSoTienPhat.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtSoTienPhat.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -234,9 +138,9 @@
             txtSoTienPhat.Location = new Point(629, 93);
             txtSoTienPhat.Margin = new Padding(3, 4, 3, 4);
             txtSoTienPhat.Name = "txtSoTienPhat";
-            txtSoTienPhat.PlaceholderText = "Tiền Phạt";
+            txtSoTienPhat.PlaceholderText = "Nhập Số Tiền Phạt";
             txtSoTienPhat.SelectedText = "";
-            txtSoTienPhat.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            txtSoTienPhat.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtSoTienPhat.Size = new Size(343, 47);
             txtSoTienPhat.TabIndex = 22;
             // 
@@ -256,7 +160,7 @@
             txtLyDo.BackColor = Color.Transparent;
             txtLyDo.BorderColor = Color.Gray;
             txtLyDo.BorderRadius = 15;
-            txtLyDo.CustomizableEdges = customizableEdges7;
+            txtLyDo.CustomizableEdges = customizableEdges5;
             txtLyDo.DefaultText = "";
             txtLyDo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtLyDo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -268,9 +172,9 @@
             txtLyDo.Location = new Point(629, 187);
             txtLyDo.Margin = new Padding(3, 4, 3, 4);
             txtLyDo.Name = "txtLyDo";
-            txtLyDo.PlaceholderText = "Lý Do";
+            txtLyDo.PlaceholderText = "Nhập Lý Do";
             txtLyDo.SelectedText = "";
-            txtLyDo.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            txtLyDo.ShadowDecoration.CustomizableEdges = customizableEdges6;
             txtLyDo.Size = new Size(343, 47);
             txtLyDo.TabIndex = 23;
             // 
@@ -290,7 +194,7 @@
             txtMaDocGia.BackColor = Color.Transparent;
             txtMaDocGia.BorderColor = Color.Gray;
             txtMaDocGia.BorderRadius = 15;
-            txtMaDocGia.CustomizableEdges = customizableEdges9;
+            txtMaDocGia.CustomizableEdges = customizableEdges7;
             txtMaDocGia.DefaultText = "";
             txtMaDocGia.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtMaDocGia.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -302,9 +206,9 @@
             txtMaDocGia.Location = new Point(152, 187);
             txtMaDocGia.Margin = new Padding(3, 4, 3, 4);
             txtMaDocGia.Name = "txtMaDocGia";
-            txtMaDocGia.PlaceholderText = "Mã Độc GIả";
+            txtMaDocGia.PlaceholderText = "Nhập Mã Độc Giả";
             txtMaDocGia.SelectedText = "";
-            txtMaDocGia.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            txtMaDocGia.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txtMaDocGia.Size = new Size(343, 47);
             txtMaDocGia.TabIndex = 20;
             // 
@@ -335,7 +239,7 @@
             txtMaPhieuPhat.BackColor = Color.Transparent;
             txtMaPhieuPhat.BorderColor = Color.Gray;
             txtMaPhieuPhat.BorderRadius = 15;
-            txtMaPhieuPhat.CustomizableEdges = customizableEdges11;
+            txtMaPhieuPhat.CustomizableEdges = customizableEdges9;
             txtMaPhieuPhat.DefaultText = "";
             txtMaPhieuPhat.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtMaPhieuPhat.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -347,10 +251,10 @@
             txtMaPhieuPhat.Location = new Point(149, 93);
             txtMaPhieuPhat.Margin = new Padding(3, 4, 3, 4);
             txtMaPhieuPhat.Name = "txtMaPhieuPhat";
-            txtMaPhieuPhat.PlaceholderText = "Phiếu Phạt";
+            txtMaPhieuPhat.PlaceholderText = " Phiếu Phạt";
             txtMaPhieuPhat.ReadOnly = true;
             txtMaPhieuPhat.SelectedText = "";
-            txtMaPhieuPhat.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            txtMaPhieuPhat.ShadowDecoration.CustomizableEdges = customizableEdges10;
             txtMaPhieuPhat.Size = new Size(343, 47);
             txtMaPhieuPhat.TabIndex = 19;
             // 
@@ -376,82 +280,34 @@
             lblngaylap.TabIndex = 9;
             lblngaylap.Text = "Ngày Lập";
             // 
-            // btnHienThi
+            // btnhuy
             // 
-            btnHienThi.BorderRadius = 20;
-            btnHienThi.CustomizableEdges = customizableEdges15;
-            btnHienThi.DisabledState.BorderColor = Color.DarkGray;
-            btnHienThi.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnHienThi.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnHienThi.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnHienThi.FillColor = Color.DodgerBlue;
-            btnHienThi.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnHienThi.ForeColor = Color.White;
-            btnHienThi.Image = Properties.Resources.icons8_refresh_32;
-            btnHienThi.ImageAlign = HorizontalAlignment.Left;
-            btnHienThi.ImageSize = new Size(32, 32);
-            btnHienThi.Location = new Point(1086, 560);
-            btnHienThi.Margin = new Padding(3, 4, 3, 4);
-            btnHienThi.Name = "btnHienThi";
-            btnHienThi.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnHienThi.Size = new Size(229, 67);
-            btnHienThi.TabIndex = 48;
-            btnHienThi.Text = "     Làm Mới";
-            btnHienThi.TextAlign = HorizontalAlignment.Left;
-            btnHienThi.Click += btnHienThi_Click_2;
-            // 
-            // btnXoa
-            // 
-            btnXoa.BorderRadius = 20;
-            btnXoa.CustomizableEdges = customizableEdges17;
-            btnXoa.DisabledState.BorderColor = Color.DarkGray;
-            btnXoa.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnXoa.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnXoa.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnXoa.FillColor = Color.DodgerBlue;
-            btnXoa.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnXoa.ForeColor = Color.White;
-            btnXoa.Image = Properties.Resources.icons8_clear_symbol_32;
-            btnXoa.ImageAlign = HorizontalAlignment.Left;
-            btnXoa.ImageSize = new Size(32, 32);
-            btnXoa.Location = new Point(1086, 867);
-            btnXoa.Margin = new Padding(3, 4, 3, 4);
-            btnXoa.Name = "btnXoa";
-            btnXoa.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            btnXoa.Size = new Size(229, 67);
-            btnXoa.TabIndex = 47;
-            btnXoa.Text = "     Xóa Phiếu Phạt";
-            btnXoa.TextAlign = HorizontalAlignment.Left;
-            btnXoa.Click += btnXoa_Click;
-            // 
-            // btnSua
-            // 
-            btnSua.BorderRadius = 20;
-            btnSua.CustomizableEdges = customizableEdges19;
-            btnSua.DisabledState.BorderColor = Color.DarkGray;
-            btnSua.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnSua.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnSua.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnSua.FillColor = Color.DodgerBlue;
-            btnSua.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSua.ForeColor = Color.White;
-            btnSua.Image = Properties.Resources.icons8_edit_32__1_;
-            btnSua.ImageAlign = HorizontalAlignment.Left;
-            btnSua.ImageSize = new Size(32, 32);
-            btnSua.Location = new Point(1086, 764);
-            btnSua.Margin = new Padding(3, 4, 3, 4);
-            btnSua.Name = "btnSua";
-            btnSua.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            btnSua.Size = new Size(229, 67);
-            btnSua.TabIndex = 46;
-            btnSua.Text = "     Sửa Phiếu Phạt";
-            btnSua.TextAlign = HorizontalAlignment.Left;
-            btnSua.Click += btnSua_Click;
+            btnhuy.BorderRadius = 20;
+            btnhuy.CustomizableEdges = customizableEdges13;
+            btnhuy.DisabledState.BorderColor = Color.DarkGray;
+            btnhuy.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnhuy.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnhuy.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnhuy.FillColor = Color.DodgerBlue;
+            btnhuy.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnhuy.ForeColor = Color.White;
+            btnhuy.Image = Properties.Resources.icons8_refresh_32;
+            btnhuy.ImageAlign = HorizontalAlignment.Left;
+            btnhuy.ImageSize = new Size(32, 32);
+            btnhuy.Location = new Point(642, 392);
+            btnhuy.Margin = new Padding(3, 4, 3, 4);
+            btnhuy.Name = "btnhuy";
+            btnhuy.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btnhuy.Size = new Size(229, 67);
+            btnhuy.TabIndex = 54;
+            btnhuy.Text = "Hủy";
+            btnhuy.TextAlign = HorizontalAlignment.Left;
+            btnhuy.Click += btnhuy_Click;
             // 
             // btnThem
             // 
             btnThem.BorderRadius = 20;
-            btnThem.CustomizableEdges = customizableEdges21;
+            btnThem.CustomizableEdges = customizableEdges15;
             btnThem.DisabledState.BorderColor = Color.DarkGray;
             btnThem.DisabledState.CustomBorderColor = Color.DarkGray;
             btnThem.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -462,59 +318,26 @@
             btnThem.Image = Properties.Resources.icons8_add_32__2_;
             btnThem.ImageAlign = HorizontalAlignment.Left;
             btnThem.ImageSize = new Size(32, 32);
-            btnThem.Location = new Point(1086, 661);
+            btnThem.Location = new Point(155, 392);
             btnThem.Margin = new Padding(3, 4, 3, 4);
             btnThem.Name = "btnThem";
-            btnThem.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            btnThem.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnThem.Size = new Size(229, 67);
-            btnThem.TabIndex = 45;
+            btnThem.TabIndex = 51;
             btnThem.Text = "     Thêm Phiếu Phạt";
             btnThem.TextAlign = HorizontalAlignment.Left;
             btnThem.Click += btnThem_Click;
             // 
-            // txtTimKiem
-            // 
-            txtTimKiem.BackColor = Color.Transparent;
-            txtTimKiem.BorderColor = Color.Gray;
-            txtTimKiem.BorderRadius = 15;
-            txtTimKiem.CustomizableEdges = customizableEdges23;
-            txtTimKiem.DefaultText = "";
-            txtTimKiem.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtTimKiem.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtTimKiem.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtTimKiem.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtTimKiem.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTimKiem.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTimKiem.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTimKiem.IconLeft = Properties.Resources.icons8_search_321;
-            txtTimKiem.IconLeftSize = new Size(32, 32);
-            txtTimKiem.Location = new Point(971, 67);
-            txtTimKiem.Margin = new Padding(3, 4, 3, 4);
-            txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.PlaceholderText = "Tìm Kiếm Phiếu Phạt Theo Mã Độc Giả . . .";
-            txtTimKiem.SelectedText = "";
-            txtTimKiem.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            txtTimKiem.Size = new Size(343, 47);
-            txtTimKiem.TabIndex = 44;
-            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
-            // 
-            // UC_XuLiViPham
+            // AddXuLyPhieuPhat
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(guna2GroupBox2);
+            ClientSize = new Size(1039, 472);
             Controls.Add(guna2GroupBox1);
-            Controls.Add(btnHienThi);
-            Controls.Add(btnXoa);
-            Controls.Add(btnSua);
+            Controls.Add(btnhuy);
             Controls.Add(btnThem);
-            Controls.Add(txtTimKiem);
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "UC_XuLiViPham";
-            Size = new Size(1371, 1000);
-            Load += UC_XuLiViPham_Load;
-            guna2GroupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvPhieuPhat).EndInit();
+            Name = "AddXuLyPhieuPhat";
+            Text = "AddXuLyPhieuPhat";
             guna2GroupBox1.ResumeLayout(false);
             guna2GroupBox1.PerformLayout();
             ResumeLayout(false);
@@ -522,9 +345,9 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvPhieuPhat;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private Guna.UI2.WinForms.Guna2CheckBox chkDaThuTien;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgayLap;
         private Guna.UI2.WinForms.Guna2TextBox txtSoTienPhat;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbldathutien;
         private Guna.UI2.WinForms.Guna2TextBox txtLyDo;
@@ -535,12 +358,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtMaPhieuPhat;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblmaphieuphat;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblngaylap;
-        private Guna.UI2.WinForms.Guna2Button btnHienThi;
-        private Guna.UI2.WinForms.Guna2Button btnXoa;
-        private Guna.UI2.WinForms.Guna2Button btnSua;
+        private Guna.UI2.WinForms.Guna2Button btnhuy;
         private Guna.UI2.WinForms.Guna2Button btnThem;
-        private Guna.UI2.WinForms.Guna2TextBox txtTimKiem;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgayLap;
-        private Guna.UI2.WinForms.Guna2CheckBox chkDaThuTien;
     }
 }
