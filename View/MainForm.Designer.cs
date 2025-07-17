@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -50,9 +52,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panelMenu = new Guna.UI2.WinForms.Guna2Panel();
+            btnxulivipham = new Guna.UI2.WinForms.Guna2Button();
             btnLogo = new Guna.UI2.WinForms.Guna2ImageButton();
             btnbctk = new Guna.UI2.WinForms.Guna2Button();
             btnqlpmt = new Guna.UI2.WinForms.Guna2Button();
@@ -66,7 +67,6 @@
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            btnxulivipham = new Guna.UI2.WinForms.Guna2Button();
             panelMenu.SuspendLayout();
             panelTitle.SuspendLayout();
             SuspendLayout();
@@ -89,6 +89,36 @@
             panelMenu.ShadowDecoration.CustomizableEdges = customizableEdges15;
             panelMenu.Size = new Size(300, 750);
             panelMenu.TabIndex = 0;
+            // 
+            // btnxulivipham
+            // 
+            btnxulivipham.BackColor = Color.Transparent;
+            btnxulivipham.BorderRadius = 23;
+            btnxulivipham.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            btnxulivipham.CheckedState.FillColor = Color.White;
+            btnxulivipham.CheckedState.ForeColor = Color.DodgerBlue;
+            customizableEdges1.BottomRight = false;
+            customizableEdges1.TopRight = false;
+            btnxulivipham.CustomizableEdges = customizableEdges1;
+            btnxulivipham.DisabledState.BorderColor = Color.DarkGray;
+            btnxulivipham.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnxulivipham.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnxulivipham.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnxulivipham.FillColor = Color.Transparent;
+            btnxulivipham.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnxulivipham.ForeColor = Color.White;
+            btnxulivipham.Image = Properties.Resources.icons8_bill_32__1_;
+            btnxulivipham.ImageAlign = HorizontalAlignment.Left;
+            btnxulivipham.ImageSize = new Size(32, 32);
+            btnxulivipham.Location = new Point(21, 424);
+            btnxulivipham.Name = "btnxulivipham";
+            btnxulivipham.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnxulivipham.Size = new Size(280, 50);
+            btnxulivipham.TabIndex = 6;
+            btnxulivipham.Text = "     Xử Lí Vi Phạm";
+            btnxulivipham.TextAlign = HorizontalAlignment.Left;
+            btnxulivipham.UseTransparentBackground = true;
+            btnxulivipham.Click += btnxulivipham_Click;
             // 
             // btnLogo
             // 
@@ -134,6 +164,7 @@
             btnbctk.Text = "     Báo Cáo Thống Kê";
             btnbctk.TextAlign = HorizontalAlignment.Left;
             btnbctk.UseTransparentBackground = true;
+            btnbctk.Click += btnbctk_Click;
             // 
             // btnqlpmt
             // 
@@ -327,36 +358,6 @@
             guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges21;
             guna2ControlBox1.Size = new Size(50, 50);
             guna2ControlBox1.TabIndex = 0;
-            // 
-            // btnxulivipham
-            // 
-            btnxulivipham.BackColor = Color.Transparent;
-            btnxulivipham.BorderRadius = 23;
-            btnxulivipham.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnxulivipham.CheckedState.FillColor = Color.White;
-            btnxulivipham.CheckedState.ForeColor = Color.DodgerBlue;
-            customizableEdges1.BottomRight = false;
-            customizableEdges1.TopRight = false;
-            btnxulivipham.CustomizableEdges = customizableEdges1;
-            btnxulivipham.DisabledState.BorderColor = Color.DarkGray;
-            btnxulivipham.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnxulivipham.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnxulivipham.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnxulivipham.FillColor = Color.Transparent;
-            btnxulivipham.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnxulivipham.ForeColor = Color.White;
-            btnxulivipham.Image = Properties.Resources.icons8_bill_32__1_;
-            btnxulivipham.ImageAlign = HorizontalAlignment.Left;
-            btnxulivipham.ImageSize = new Size(32, 32);
-            btnxulivipham.Location = new Point(21, 424);
-            btnxulivipham.Name = "btnxulivipham";
-            btnxulivipham.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnxulivipham.Size = new Size(280, 50);
-            btnxulivipham.TabIndex = 6;
-            btnxulivipham.Text = "     Xử Lí Vi Phạm";
-            btnxulivipham.TextAlign = HorizontalAlignment.Left;
-            btnxulivipham.UseTransparentBackground = true;
-            btnxulivipham.Click += btnxulivipham_Click;
             // 
             // MainForm
             // 

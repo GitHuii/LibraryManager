@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryManager.DAO;
 using LibraryManager.Models;
+using LibraryManager.View.XuLyViPham;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManager.View
@@ -33,40 +34,53 @@ namespace LibraryManager.View
             dgvPhieuPhat.DataSource = dbContext.PhieuPhats.ToList();
             dgvPhieuPhat.Columns["DocGia"].Visible = false;
         }
-
+        private void dgvPhieuPhat_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvPhieuPhat.Columns[e.ColumnIndex].Name == "SoTienPhat" && e.Value != null)
+            {
+                if (decimal.TryParse(e.Value.ToString(), out decimal tienPhat))
+                {
+                    e.Value = tienPhat.ToString("#,0", new System.Globalization.CultureInfo("vi-VN"));
+                    e.FormattingApplied = true;
+                }
+            }
+            if (dgvPhieuPhat.Columns[e.ColumnIndex].Name == "MaDocGia" && e.Value != null)
+            {
+                int so;
+                if (int.TryParse(e.Value.ToString(), out so))
+                {
+                    e.Value = "DG" + so.ToString("D3");
+                    e.FormattingApplied = true;
+                }
+            }
+            if (dgvPhieuPhat.Columns[e.ColumnIndex].Name == "MaPhieuPhat" && e.Value != null)
+            {
+                int so;
+                if (int.TryParse(e.Value.ToString(), out so))
+                {
+                    e.Value = "PP" + so.ToString("D3");
+                    e.FormattingApplied = true;
+                }
+            }
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
-
-            var form = new AddXuLyPhieuPhat();
-            form.ShowDialog(); // mở dưới dạng form con (modal)
+            new Form_AddPhieuPhat().ShowDialog();
             LoadData(); // tải lại danh sách sau khi thêm
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            int maPhieu = int.Parse(txtMaPhieuPhat.Text);
+            int maPhieu = int.Parse(dgvPhieuPhat.CurrentRow.Cells["MaPhieuPhat"].Value.ToString());
             var phieu = dbContext.PhieuPhats.Find(maPhieu);
             if (phieu != null)
             {
-                phieu.MaDocGia = int.Parse(txtMaDocGia.Text);
-                phieu.NgayLap = dtpNgayLap.Value;
-                phieu.SoTienPhat = decimal.Parse(txtSoTienPhat.Text);
-                phieu.LyDo = txtLyDo.Text;
-                phieu.DaThuTien = chkDaThuTien.Checked;
+                phieu.DaThuTien = true;
                 dbContext.SaveChanges();
                 LoadData();
             }
         }
 
-        private void btnHienThi_Click(object sender, EventArgs e)
-        {
-            txtMaPhieuPhat.Clear();
-            txtMaDocGia.Clear();
-            txtSoTienPhat.Clear();
-            txtLyDo.Clear();
-            chkDaThuTien.Checked = false;
-            dtpNgayLap.Value = DateTime.Now;
-        }
 
         private void guna2GroupBox1_Click(object sender, EventArgs e)
         {
@@ -75,7 +89,7 @@ namespace LibraryManager.View
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            int maPhieu = int.Parse(txtMaPhieuPhat.Text);
+            int maPhieu = int.Parse(dgvPhieuPhat.CurrentRow.Cells["MaPhieuPhat"].Value.ToString());
             var phieu = dbContext.PhieuPhats.Find(maPhieu);
             if (phieu != null)
             {
@@ -99,7 +113,6 @@ namespace LibraryManager.View
 
         private void btnHienThi_Click_2(object sender, EventArgs e)
         {
-            txtMaPhieuPhat.Clear();
             txtMaDocGia.Clear();
             txtSoTienPhat.Clear();
             txtLyDo.Clear();
@@ -115,8 +128,8 @@ namespace LibraryManager.View
             if (dgvPhieuPhat.CurrentRow != null && dgvPhieuPhat.CurrentRow.Index >= 0)
             {
                 var row = dgvPhieuPhat.CurrentRow;
-                txtMaPhieuPhat.Text = row.Cells["MaPhieuPhat"].Value.ToString();
-                txtMaDocGia.Text = row.Cells["MaDocGia"].Value.ToString();
+                
+                txtMaDocGia.Text = "DG"+ Convert.ToInt32(row.Cells["MaDocGia"].Value).ToString("D3");
                 dtpNgayLap.Value = Convert.ToDateTime(row.Cells["NgayLap"].Value);
                 txtSoTienPhat.Text = row.Cells["SoTienPhat"].Value.ToString();
                 txtLyDo.Text = row.Cells["LyDo"].Value.ToString();

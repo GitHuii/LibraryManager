@@ -22,348 +22,40 @@ namespace LibraryManager.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("LibraryManager.Models.ChiTietPhieuMuonTra", b =>
+            modelBuilder.Entity("LibraryManager.Models.ChiTietPhieuMuon", b =>
                 {
-                    b.Property<int>("MaPhieuMuonTra")
+                    b.Property<int>("MaPhieuMuon")
                         .HasColumnType("int");
 
                     b.Property<int>("MaSach")
                         .HasColumnType("int");
 
+                    b.Property<bool>("DaTra")
+                        .HasColumnType("bit");
+
                     b.Property<int>("SoLuongMuon")
                         .HasColumnType("int");
 
-                    b.HasKey("MaPhieuMuonTra", "MaSach");
+                    b.HasKey("MaPhieuMuon", "MaSach");
 
                     b.HasIndex("MaSach");
 
-                    b.ToTable("ChiTietPhieuMuonTras");
+                    b.ToTable("ChiTietPhieuMuons");
+                });
 
-                    b.HasData(
-                        new
-                        {
-                            MaPhieuMuonTra = 1,
-                            MaSach = 5,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 1,
-                            MaSach = 12,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 2,
-                            MaSach = 3,
-                            SoLuongMuon = 3
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 3,
-                            MaSach = 1,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 3,
-                            MaSach = 6,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 4,
-                            MaSach = 7,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 4,
-                            MaSach = 9,
-                            SoLuongMuon = 4
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 5,
-                            MaSach = 2,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 6,
-                            MaSach = 4,
-                            SoLuongMuon = 3
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 7,
-                            MaSach = 15,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 7,
-                            MaSach = 16,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 8,
-                            MaSach = 8,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 9,
-                            MaSach = 11,
-                            SoLuongMuon = 3
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 10,
-                            MaSach = 10,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 11,
-                            MaSach = 6,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 12,
-                            MaSach = 5,
-                            SoLuongMuon = 3
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 13,
-                            MaSach = 14,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 14,
-                            MaSach = 13,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 15,
-                            MaSach = 18,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 16,
-                            MaSach = 7,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 17,
-                            MaSach = 20,
-                            SoLuongMuon = 3
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 18,
-                            MaSach = 1,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 19,
-                            MaSach = 2,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 20,
-                            MaSach = 9,
-                            SoLuongMuon = 4
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 21,
-                            MaSach = 3,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 22,
-                            MaSach = 4,
-                            SoLuongMuon = 3
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 23,
-                            MaSach = 6,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 24,
-                            MaSach = 5,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 25,
-                            MaSach = 8,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 26,
-                            MaSach = 10,
-                            SoLuongMuon = 3
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 27,
-                            MaSach = 11,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 28,
-                            MaSach = 13,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 29,
-                            MaSach = 12,
-                            SoLuongMuon = 3
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 30,
-                            MaSach = 15,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 31,
-                            MaSach = 17,
-                            SoLuongMuon = 3
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 32,
-                            MaSach = 19,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 33,
-                            MaSach = 21,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 34,
-                            MaSach = 23,
-                            SoLuongMuon = 3
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 35,
-                            MaSach = 22,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 36,
-                            MaSach = 24,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 37,
-                            MaSach = 25,
-                            SoLuongMuon = 3
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 38,
-                            MaSach = 26,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 39,
-                            MaSach = 27,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 40,
-                            MaSach = 28,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 41,
-                            MaSach = 29,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 42,
-                            MaSach = 30,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 43,
-                            MaSach = 16,
-                            SoLuongMuon = 1
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 44,
-                            MaSach = 14,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 45,
-                            MaSach = 18,
-                            SoLuongMuon = 3
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 46,
-                            MaSach = 7,
-                            SoLuongMuon = 2
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 47,
-                            MaSach = 18,
-                            SoLuongMuon = 3
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 48,
-                            MaSach = 19,
-                            SoLuongMuon = 4
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 49,
-                            MaSach = 20,
-                            SoLuongMuon = 5
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 50,
-                            MaSach = 21,
-                            SoLuongMuon = 6
-                        });
+            modelBuilder.Entity("LibraryManager.Models.ChiTietPhieuTra", b =>
+                {
+                    b.Property<int>("MaPhieuTra")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MaSach")
+                        .HasColumnType("int");
+
+                    b.HasKey("MaPhieuTra", "MaSach");
+
+                    b.HasIndex("MaSach");
+
+                    b.ToTable("ChiTietPhieuTras");
                 });
 
             modelBuilder.Entity("LibraryManager.Models.DocGia", b =>
@@ -375,22 +67,18 @@ namespace LibraryManager.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaDocGia"), 1L, 1);
 
                     b.Property<string>("DiaChi")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("NgaySinh")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("SDT")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ten")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MaDocGia");
@@ -670,16 +358,13 @@ namespace LibraryManager.Migrations
                         });
                 });
 
-            modelBuilder.Entity("LibraryManager.Models.PhieuMuonTra", b =>
+            modelBuilder.Entity("LibraryManager.Models.PhieuMuon", b =>
                 {
-                    b.Property<int>("MaPhieuMuonTra")
+                    b.Property<int>("MaPhieuMuon")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaPhieuMuonTra"), 1L, 1);
-
-                    b.Property<bool>("DaTra")
-                        .HasColumnType("bit");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaPhieuMuon"), 1L, 1);
 
                     b.Property<DateTime>("HanTra")
                         .HasColumnType("datetime2");
@@ -690,449 +375,11 @@ namespace LibraryManager.Migrations
                     b.Property<DateTime>("NgayMuon")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("NgayTraThucTe")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("MaPhieuMuonTra");
+                    b.HasKey("MaPhieuMuon");
 
                     b.HasIndex("MaDocGia");
 
-                    b.ToTable("PhieuMuonTras");
-
-                    b.HasData(
-                        new
-                        {
-                            MaPhieuMuonTra = 1,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 1,
-                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 2,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 2,
-                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 3,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 3,
-                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 4,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 3,
-                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 5,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 3,
-                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 6,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 4,
-                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 21, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 7,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 4,
-                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 8,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 4,
-                            NgayMuon = new DateTime(2025, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 9,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 5,
-                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 10,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 5,
-                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 11,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 5,
-                            NgayMuon = new DateTime(2025, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 12,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 6,
-                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 13,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 6,
-                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 14,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 6,
-                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 15,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 7,
-                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 9, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 16,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 7,
-                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 17,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 7,
-                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 18,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 8,
-                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 19,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 9,
-                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 20,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 9,
-                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 21,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 10,
-                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 22,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 10,
-                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 23,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 11,
-                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 24,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 12,
-                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 9, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 25,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 13,
-                            NgayMuon = new DateTime(2025, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 26,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 14,
-                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 27,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 14,
-                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 28,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 15,
-                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 29,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 16,
-                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 30,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 16,
-                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 31,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 17,
-                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 32,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 17,
-                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 33,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 18,
-                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 34,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 18,
-                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 35,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 19,
-                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 36,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 20,
-                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 37,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 20,
-                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 38,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 20,
-                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 39,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 21,
-                            NgayMuon = new DateTime(2025, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 40,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 21,
-                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 41,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 22,
-                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 42,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 23,
-                            NgayMuon = new DateTime(2025, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 43,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 24,
-                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 44,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 24,
-                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 45,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 25,
-                            NgayMuon = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 46,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 26,
-                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 47,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 27,
-                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 9, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 48,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 28,
-                            NgayMuon = new DateTime(2025, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 49,
-                            DaTra = true,
-                            HanTra = new DateTime(2025, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 29,
-                            NgayMuon = new DateTime(2025, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NgayTraThucTe = new DateTime(2025, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            MaPhieuMuonTra = 50,
-                            DaTra = false,
-                            HanTra = new DateTime(2025, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MaDocGia = 30,
-                            NgayMuon = new DateTime(2025, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
+                    b.ToTable("PhieuMuons");
                 });
 
             modelBuilder.Entity("LibraryManager.Models.PhieuPhat", b =>
@@ -1147,7 +394,6 @@ namespace LibraryManager.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("LyDo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("MaDocGia")
@@ -1164,6 +410,299 @@ namespace LibraryManager.Migrations
                     b.HasIndex("MaDocGia");
 
                     b.ToTable("PhieuPhats");
+
+                    b.HasData(
+                        new
+                        {
+                            MaPhieuPhat = 1,
+                            DaThuTien = true,
+                            LyDo = "Trả sách trễ",
+                            MaDocGia = 1,
+                            NgayLap = new DateTime(2025, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 15000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 2,
+                            DaThuTien = false,
+                            LyDo = "Làm hỏng sách",
+                            MaDocGia = 2,
+                            NgayLap = new DateTime(2025, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 20000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 3,
+                            DaThuTien = true,
+                            LyDo = "Trả sách trễ",
+                            MaDocGia = 3,
+                            NgayLap = new DateTime(2025, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 5000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 4,
+                            DaThuTien = false,
+                            LyDo = "Mất sách",
+                            MaDocGia = 4,
+                            NgayLap = new DateTime(2025, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 10000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 5,
+                            DaThuTien = true,
+                            LyDo = "Làm hỏng sách",
+                            MaDocGia = 5,
+                            NgayLap = new DateTime(2025, 3, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 25000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 6,
+                            DaThuTien = false,
+                            LyDo = "Trả sách trễ",
+                            MaDocGia = 6,
+                            NgayLap = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 5000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 7,
+                            DaThuTien = true,
+                            LyDo = "Không trả sách đầy đủ",
+                            MaDocGia = 7,
+                            NgayLap = new DateTime(2025, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 30000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 8,
+                            DaThuTien = true,
+                            LyDo = "Ghi chú sai thông tin",
+                            MaDocGia = 8,
+                            NgayLap = new DateTime(2025, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 10000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 9,
+                            DaThuTien = false,
+                            LyDo = "Trả sách trễ",
+                            MaDocGia = 9,
+                            NgayLap = new DateTime(2025, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 15000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 10,
+                            DaThuTien = true,
+                            LyDo = "Làm hỏng sách",
+                            MaDocGia = 10,
+                            NgayLap = new DateTime(2025, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 20000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 11,
+                            DaThuTien = false,
+                            LyDo = "Trả sách trễ",
+                            MaDocGia = 11,
+                            NgayLap = new DateTime(2025, 6, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 10000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 12,
+                            DaThuTien = true,
+                            LyDo = "Mất sách",
+                            MaDocGia = 12,
+                            NgayLap = new DateTime(2025, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 20000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 13,
+                            DaThuTien = false,
+                            LyDo = "Làm hỏng sách",
+                            MaDocGia = 13,
+                            NgayLap = new DateTime(2025, 6, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 25000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 14,
+                            DaThuTien = true,
+                            LyDo = "Không trả sách đầy đủ",
+                            MaDocGia = 14,
+                            NgayLap = new DateTime(2025, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 30000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 15,
+                            DaThuTien = false,
+                            LyDo = "Trả sách trễ",
+                            MaDocGia = 15,
+                            NgayLap = new DateTime(2025, 7, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 5000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 16,
+                            DaThuTien = true,
+                            LyDo = "Làm hỏng sách",
+                            MaDocGia = 16,
+                            NgayLap = new DateTime(2025, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 15000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 17,
+                            DaThuTien = false,
+                            LyDo = "Mất sách",
+                            MaDocGia = 17,
+                            NgayLap = new DateTime(2025, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 20000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 18,
+                            DaThuTien = true,
+                            LyDo = "Ghi chú sai thông tin",
+                            MaDocGia = 18,
+                            NgayLap = new DateTime(2025, 8, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 10000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 19,
+                            DaThuTien = true,
+                            LyDo = "Trả sách trễ",
+                            MaDocGia = 19,
+                            NgayLap = new DateTime(2025, 9, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 15000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 20,
+                            DaThuTien = false,
+                            LyDo = "Không trả sách đầy đủ",
+                            MaDocGia = 20,
+                            NgayLap = new DateTime(2025, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 30000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 21,
+                            DaThuTien = true,
+                            LyDo = "Trả sách trễ",
+                            MaDocGia = 21,
+                            NgayLap = new DateTime(2025, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 5000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 22,
+                            DaThuTien = false,
+                            LyDo = "Mất sách",
+                            MaDocGia = 22,
+                            NgayLap = new DateTime(2025, 10, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 20000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 23,
+                            DaThuTien = true,
+                            LyDo = "Làm hỏng sách",
+                            MaDocGia = 23,
+                            NgayLap = new DateTime(2025, 10, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 25000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 24,
+                            DaThuTien = false,
+                            LyDo = "Trả sách trễ",
+                            MaDocGia = 24,
+                            NgayLap = new DateTime(2025, 11, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 15000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 25,
+                            DaThuTien = true,
+                            LyDo = "Ghi chú sai thông tin",
+                            MaDocGia = 25,
+                            NgayLap = new DateTime(2025, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 10000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 26,
+                            DaThuTien = true,
+                            LyDo = "Trả sách trễ",
+                            MaDocGia = 26,
+                            NgayLap = new DateTime(2025, 11, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 5000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 27,
+                            DaThuTien = false,
+                            LyDo = "Không trả sách đầy đủ",
+                            MaDocGia = 27,
+                            NgayLap = new DateTime(2025, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 30000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 28,
+                            DaThuTien = true,
+                            LyDo = "Trả sách trễ",
+                            MaDocGia = 28,
+                            NgayLap = new DateTime(2025, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 15000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 29,
+                            DaThuTien = false,
+                            LyDo = "Làm hỏng sách",
+                            MaDocGia = 29,
+                            NgayLap = new DateTime(2025, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 20000m
+                        },
+                        new
+                        {
+                            MaPhieuPhat = 30,
+                            DaThuTien = true,
+                            LyDo = "Mất sách",
+                            MaDocGia = 30,
+                            NgayLap = new DateTime(2025, 12, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoTienPhat = 10000m
+                        });
+                });
+
+            modelBuilder.Entity("LibraryManager.Models.PhieuTra", b =>
+                {
+                    b.Property<int>("MaPhieuTra")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaPhieuTra"), 1L, 1);
+
+                    b.Property<int>("MaPhieuMuon")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("NgayTra")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("MaPhieuTra");
+
+                    b.HasIndex("MaPhieuMuon");
+
+                    b.ToTable("PhieuTras");
                 });
 
             modelBuilder.Entity("LibraryManager.Models.Sach", b =>
@@ -1175,7 +714,6 @@ namespace LibraryManager.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaSach"), 1L, 1);
 
                     b.Property<string>("NXB")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NamXuatBan")
@@ -1185,15 +723,12 @@ namespace LibraryManager.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("TacGia")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ten")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TheLoai")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MaSach");
@@ -1509,7 +1044,9 @@ namespace LibraryManager.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("PassWord")
-                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserName");
@@ -1519,84 +1056,84 @@ namespace LibraryManager.Migrations
                     b.HasData(
                         new
                         {
-                            UserName = "admin",
-                            PassWord = "123456"
+                            UserName = "admin1",
+                            PassWord = "123456",
+                            Role = "Admin"
                         },
                         new
                         {
-                            UserName = "user1",
-                            PassWord = "Password@123"
+                            UserName = "admin2",
+                            PassWord = "admin@2025",
+                            Role = "Admin"
                         },
                         new
                         {
-                            UserName = "user2",
-                            PassWord = "Abc123!"
+                            UserName = "manager1",
+                            PassWord = "manager123",
+                            Role = "Manager"
                         },
                         new
                         {
-                            UserName = "user3",
-                            PassWord = "123456"
+                            UserName = "manager2",
+                            PassWord = "qwerty",
+                            Role = "Manager"
                         },
                         new
                         {
-                            UserName = "user4",
-                            PassWord = "qwerty"
+                            UserName = "admin3",
+                            PassWord = "admin789",
+                            Role = "Admin"
                         },
                         new
                         {
-                            UserName = "user5",
-                            PassWord = "helloWorld!"
-                        },
-                        new
-                        {
-                            UserName = "user6",
-                            PassWord = "Secret123"
-                        },
-                        new
-                        {
-                            UserName = "user7",
-                            PassWord = "Test@2025"
-                        },
-                        new
-                        {
-                            UserName = "user8",
-                            PassWord = "LetMeIn"
-                        },
-                        new
-                        {
-                            UserName = "user9",
-                            PassWord = "Admin#001"
-                        },
-                        new
-                        {
-                            UserName = "user10",
-                            PassWord = "P@ssw0rd"
+                            UserName = "manager3",
+                            PassWord = "m@2025",
+                            Role = "Manager"
                         });
                 });
 
-            modelBuilder.Entity("LibraryManager.Models.ChiTietPhieuMuonTra", b =>
+            modelBuilder.Entity("LibraryManager.Models.ChiTietPhieuMuon", b =>
                 {
-                    b.HasOne("LibraryManager.Models.PhieuMuonTra", "PhieuMuonTra")
-                        .WithMany("ChiTietPhieuMuonTras")
-                        .HasForeignKey("MaPhieuMuonTra")
+                    b.HasOne("LibraryManager.Models.PhieuMuon", "PhieuMuon")
+                        .WithMany("ChiTietPhieuMuons")
+                        .HasForeignKey("MaPhieuMuon")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("LibraryManager.Models.Sach", "Sach")
-                        .WithMany("ChiTietPhieuMuonTras")
+                        .WithMany("ChiTietPhieuMuons")
                         .HasForeignKey("MaSach")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("PhieuMuonTra");
+                    b.Navigation("PhieuMuon");
 
                     b.Navigation("Sach");
                 });
 
-            modelBuilder.Entity("LibraryManager.Models.PhieuMuonTra", b =>
+            modelBuilder.Entity("LibraryManager.Models.ChiTietPhieuTra", b =>
+                {
+                    b.HasOne("LibraryManager.Models.PhieuTra", "PhieuTra")
+                        .WithMany("ChiTietPhieuTras")
+                        .HasForeignKey("MaPhieuTra")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LibraryManager.Models.Sach", "Sach")
+                        .WithMany()
+                        .HasForeignKey("MaSach")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PhieuTra");
+
+                    b.Navigation("Sach");
+                });
+
+            modelBuilder.Entity("LibraryManager.Models.PhieuMuon", b =>
                 {
                     b.HasOne("LibraryManager.Models.DocGia", "DocGia")
-                        .WithMany("PhieuMuonTras")
+                        .WithMany("PhieuMuons")
                         .HasForeignKey("MaDocGia")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1615,21 +1152,39 @@ namespace LibraryManager.Migrations
                     b.Navigation("DocGia");
                 });
 
+            modelBuilder.Entity("LibraryManager.Models.PhieuTra", b =>
+                {
+                    b.HasOne("LibraryManager.Models.PhieuMuon", "PhieuMuon")
+                        .WithMany("PhieuTras")
+                        .HasForeignKey("MaPhieuMuon")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PhieuMuon");
+                });
+
             modelBuilder.Entity("LibraryManager.Models.DocGia", b =>
                 {
-                    b.Navigation("PhieuMuonTras");
+                    b.Navigation("PhieuMuons");
 
                     b.Navigation("PhieuThuTienPhats");
                 });
 
-            modelBuilder.Entity("LibraryManager.Models.PhieuMuonTra", b =>
+            modelBuilder.Entity("LibraryManager.Models.PhieuMuon", b =>
                 {
-                    b.Navigation("ChiTietPhieuMuonTras");
+                    b.Navigation("ChiTietPhieuMuons");
+
+                    b.Navigation("PhieuTras");
+                });
+
+            modelBuilder.Entity("LibraryManager.Models.PhieuTra", b =>
+                {
+                    b.Navigation("ChiTietPhieuTras");
                 });
 
             modelBuilder.Entity("LibraryManager.Models.Sach", b =>
                 {
-                    b.Navigation("ChiTietPhieuMuonTras");
+                    b.Navigation("ChiTietPhieuMuons");
                 });
 #pragma warning restore 612, 618
         }

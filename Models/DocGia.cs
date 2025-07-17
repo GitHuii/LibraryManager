@@ -16,20 +16,20 @@ namespace LibraryManager.Models
         public int MaDocGia { get; set; }
 
         [DisplayName("Tên Độc Giả")]
-        public string Ten { get; set; }
+        public string? Ten { get; set; }
 
         [DisplayName("Ngày Sinh")]
         public DateTime NgaySinh { get; set; }
 
         [DisplayName("Địa Chỉ")]
-        public string DiaChi { get; set; }
+        public string? DiaChi { get; set; }
 
         [DisplayName("Email")]
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         [DisplayName("Số Điện Thoại")]
-        public string SDT { get; set; }
-        public List<PhieuMuonTra> PhieuMuonTras { get; set; }
-        public List<PhieuPhat> PhieuThuTienPhats { get; set; }
+        public string? SDT { get; set; }
+        public List<PhieuMuon>? PhieuMuons { get; set; }
+        public List<PhieuPhat>? PhieuThuTienPhats { get; set; }
     }
 }

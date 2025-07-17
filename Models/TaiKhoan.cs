@@ -10,7 +10,13 @@ namespace LibraryManager.Models
     public class TaiKhoan
     {
         [Key]
-        public string UserName { get; set; }
-        public string PassWord { get; set; }
+        [Display(Name = "Tài Khoản")]
+        public string? UserName { get; set; }
+
+        [Display(Name = "Mật Khẩu")]
+        public string? PassWord { get; set; }
+
+        [Display(Name = "Phân Quyền")]
+        public string? Role { get; set; }
     }
 }

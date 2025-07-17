@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace LibraryManager.Models
 {
-    public class PhieuMuonTra
+    public class PhieuMuon
     {
         [Key]
-        [DisplayName("Mã Phiếu Mượn Trả")]
-        public int MaPhieuMuonTra { get; set; }
+        [DisplayName("Mã Phiếu Mượn")]
+        public int MaPhieuMuon { get; set; }
 
         [ForeignKey("DocGia")] 
         [DisplayName("Mã Độc Giả")]
@@ -25,12 +25,8 @@ namespace LibraryManager.Models
         [DisplayName("Hạn Trả")]
         public DateTime HanTra { get; set; }
 
-        [DisplayName("Ngày Trả Thực Tế")]
-        public DateTime? NgayTraThucTe { get; set; }
-
-        [DisplayName("Đã Trả Sách")]
-        public bool DaTra { get; set; }
-        public DocGia DocGia { get; set; }
-        public List<ChiTietPhieuMuonTra> ChiTietPhieuMuonTras { get; set; }
+        public DocGia? DocGia { get; set; }
+        public List<ChiTietPhieuMuon>? ChiTietPhieuMuons { get; set; }
+        public List<PhieuTra>? PhieuTras { get; set; }
     }
 }

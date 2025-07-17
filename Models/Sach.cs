@@ -16,22 +16,22 @@ namespace LibraryManager.Models
         public int MaSach { get; set; }
 
         [Display(Name = "Tên Sách")]
-        public string Ten { get; set; }
+        public string? Ten { get; set; }
 
         [Display(Name = "Tác Giả")]
-        public string TacGia { get; set; }
+        public string? TacGia { get; set; }
 
         [Display(Name = "Thể Loại")]
-        public string TheLoai { get; set; }
+        public string? TheLoai { get; set; }
 
         [Display(Name = "Nhà Xuất Bản")]
-        public string NXB { get; set; }
+        public string? NXB { get; set; }
 
         [Display(Name = "Năm Xuất Bản")]
         public int NamXuatBan { get; set; }
 
         [Display(Name = "Số Lượng")]
         public int SoLuong { get; set; }
-        public List<ChiTietPhieuMuonTra> ChiTietPhieuMuonTras { get; set; }
+        public List<ChiTietPhieuMuon>? ChiTietPhieuMuons { get; set; }
     }
 }

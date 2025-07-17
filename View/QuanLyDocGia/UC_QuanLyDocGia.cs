@@ -1,5 +1,7 @@
 ﻿using LibraryManager.DAO;
 using LibraryManager.Models;
+using LibraryManager.View.QuanLyDocGia;
+using LibraryManager.View.QuanLyTaiKhoan;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -40,26 +42,8 @@ namespace LibraryManager.View
 
         private void btnthem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DocGia dg = new DocGia()
-                {
-                    Ten = txtTen.Text.Trim(),
-                    NgaySinh = dtpNgaySinh.Value,
-                    DiaChi = txtDiaChi.Text.Trim(),
-                    Email = txtEmail.Text.Trim(),
-                    SDT = txtSDT.Text.Trim()
-                };
-
-                dbContext.DocGias.Add(dg);
-                dbContext.SaveChanges();
-                MessageBox.Show("Thêm độc giả thành công!");
-                loadData();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi thêm độc giả: " + ex.Message);
-            }
+            new Form_AddDocGia().ShowDialog();
+            loadData();
         }
 
         private void lblten_Click(object sender, EventArgs e)
@@ -171,7 +155,7 @@ namespace LibraryManager.View
 
         private void btntimkiem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnlammoi_Click(object sender, EventArgs e)
@@ -203,6 +187,19 @@ namespace LibraryManager.View
 
             dgvdocgia.DataSource = result;
 
+        }
+
+        private void dgvdocgia_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvdocgia.Columns[e.ColumnIndex].Name == "MaDocGia" && e.Value != null)
+            {
+                int so;
+                if (int.TryParse(e.Value.ToString(), out so))
+                {
+                    e.Value = "DG" + so.ToString("D3");
+                    e.FormattingApplied = true;
+                }
+            }
         }
     }
 }

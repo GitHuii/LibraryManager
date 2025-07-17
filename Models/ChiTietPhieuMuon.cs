@@ -9,19 +9,21 @@ using System.Threading.Tasks;
 
 namespace LibraryManager.Models
 {
-    public class ChiTietPhieuMuonTra
+    public class ChiTietPhieuMuon
     {
-        [DisplayName("Mã Phiếu Mượn Trả")]
-        [ForeignKey("PhieuMuonTra")]
-        public int MaPhieuMuonTra { get; set; }
+        [DisplayName("Mã Phiếu Mượn")]
+        [ForeignKey("PhieuMuon")]
+        public int MaPhieuMuon { get; set; }
 
         [ForeignKey("Sach")]
         [DisplayName("Mã Sách")]
         public int MaSach { get; set; }
         [DisplayName("Số Lượng Mượn")]
         public int SoLuongMuon { get; set; }
-        
-        public PhieuMuonTra PhieuMuonTra { get; set; }
-        public Sach Sach { get; set; }
+
+        [DisplayName("Đã Trả")]
+        public bool DaTra { get; set; }
+        public PhieuMuon? PhieuMuon { get; set; }
+        public Sach? Sach { get; set; }
     }
 }
