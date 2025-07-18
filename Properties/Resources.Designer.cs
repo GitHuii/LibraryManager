@@ -153,6 +153,16 @@ namespace LibraryManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_closed_eye_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-closed-eye-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_delete_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-delete-32", resourceCulture);
@@ -183,6 +193,16 @@ namespace LibraryManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_eye_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-eye-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_find_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-find-32", resourceCulture);
@@ -196,6 +216,16 @@ namespace LibraryManager.Properties {
         internal static System.Drawing.Bitmap icons8_login_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-login-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_password_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-password-50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -256,6 +286,16 @@ namespace LibraryManager.Properties {
         internal static System.Drawing.Bitmap icons8_statistics_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-statistics-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_user_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-user-48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

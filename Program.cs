@@ -17,7 +17,7 @@ namespace LibraryManager
             ApplicationConfiguration.Initialize();
             
             DbContextProvider.Initialize();
-            Application.Run(new MainForm());
+            Application.Run(new LoginForm());
         }
     }
 }

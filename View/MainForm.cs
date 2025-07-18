@@ -1,5 +1,6 @@
 ﻿using Guna.UI2.WinForms;
 using LibraryManager.DAO;
+using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -72,6 +73,25 @@ namespace LibraryManager.View
         private void btnxulivipham_Click(object sender, EventArgs e)
         {
             ShowUserControl(new UC_XuLiViPham());
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+        "Bạn có chắc chắn muốn đăng xuất không?",
+        "Xác nhận đăng xuất",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+
+                var loginForm = new LoginForm();
+                loginForm.ShowDialog();
+
+                Application.Exit(); 
+            }
         }
     }
 }
