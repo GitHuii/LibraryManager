@@ -84,7 +84,7 @@
             btnexit.FillColor = Color.DodgerBlue;
             btnexit.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnexit.ForeColor = Color.White;
-            btnexit.Image = Properties.Resources.icons8_refresh_32;
+            btnexit.Image = Properties.Resources.icons8_return_32;
             btnexit.ImageAlign = HorizontalAlignment.Left;
             btnexit.ImageSize = new Size(32, 32);
             btnexit.Location = new Point(950, 650);
@@ -411,7 +411,7 @@
             btntaophieutrasach.FillColor = Color.DodgerBlue;
             btntaophieutrasach.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btntaophieutrasach.ForeColor = Color.White;
-            btntaophieutrasach.Image = Properties.Resources.icons8_refresh_32;
+            btntaophieutrasach.Image = Properties.Resources.icons8_add_32__2_;
             btntaophieutrasach.ImageAlign = HorizontalAlignment.Left;
             btntaophieutrasach.ImageSize = new Size(32, 32);
             btntaophieutrasach.Location = new Point(50, 650);

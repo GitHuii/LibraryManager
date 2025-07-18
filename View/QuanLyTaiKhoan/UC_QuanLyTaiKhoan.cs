@@ -2,6 +2,7 @@
 using LibraryManager.Models;
 using LibraryManager.View.QuanLyTaiKhoan;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace LibraryManager.View
 {
@@ -29,6 +31,8 @@ namespace LibraryManager.View
             dgvqltk.Columns["Role"].HeaderText = "Phân Quyền";
             txttk.Clear();
             txtmk.Clear();
+            txttimkiem.Clear();
+            cbophanquyen.SelectedIndex = -1;
         }
         private void TaiKhoanUI_Load(object sender, EventArgs e)
         {
@@ -43,6 +47,16 @@ namespace LibraryManager.View
 
         private void btnsua_Click(object sender, EventArgs e)
         {
+            if (txttk.Text.IsNullOrEmpty())
+            {
+                MessageBoxHelper.ShowWarning("Vui lòng chọn tài khoản cần sửa.");
+                return;
+            }
+            DialogResult result = MessageBoxHelper.ShowQuestion($"Sửa thông tin tài khoản {txttk.Text} ?");
+            if (result != DialogResult.Yes)
+            {
+                return;
+            }
             var tk = new TaiKhoan
             {
                 UserName = txttk.Text,
@@ -56,18 +70,30 @@ namespace LibraryManager.View
                 existing.Role = tk.Role;
                 dbContext.SaveChanges();
             }
+            MessageBoxHelper.ShowInfo("Cập nhật tài khoản thành công!");
             LoadData();
         }
 
         private void btnxoa_Click(object sender, EventArgs e)
         {
-            var userName = txttk.Text;
+            string userName = txttk.Text;
+            if(userName.IsNullOrEmpty())
+            {
+                MessageBoxHelper.ShowWarning("Vui lòng chọn tài khoản cần xóa.");
+                return;
+            }
+            DialogResult result = MessageBoxHelper.ShowQuestion("Bạn có chắc chắn muốn xóa tài khoản này không?");
+            if(result != DialogResult.Yes)
+            {
+                return;
+            }
             var existing = dbContext.TaiKhoans.Find(userName);
             if (existing != null)
             {
                 dbContext.TaiKhoans.Remove(existing);
                 dbContext.SaveChanges();
             }
+            MessageBoxHelper.ShowInfo("Xóa tài khoản thành công!");
             LoadData();
         }
 
@@ -85,17 +111,7 @@ namespace LibraryManager.View
         private void txttimkiem_TextChanged(object sender, EventArgs e)
         {
             string keyword = txttimkiem.Text.Trim();
-
-            if (string.IsNullOrEmpty(keyword))
-            {
-                LoadData();
-            }
-            else
-            {
-                dgvqltk.DataSource = dbContext.TaiKhoans.Where(t => t.UserName.Contains(keyword)).ToList(); ;
-            }
-
-            txttimkiem.Clear();
+            dgvqltk.DataSource = dbContext.TaiKhoans.Where(t => t.UserName.Contains(keyword)).ToList();
         }
 
         private void dgvqltk_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

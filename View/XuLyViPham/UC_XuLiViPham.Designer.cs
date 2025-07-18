@@ -149,8 +149,8 @@
             dgvPhieuPhat.ThemeStyle.RowsStyle.Height = 25;
             dgvPhieuPhat.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgvPhieuPhat.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgvPhieuPhat.CellClick += dgvPhieuPhat_CellClick;
             dgvPhieuPhat.CellFormatting += dgvPhieuPhat_CellFormatting;
-            dgvPhieuPhat.SelectionChanged += dgvPhieuPhat_SelectionChanged_1;
             // 
             // guna2GroupBox1
             // 
@@ -449,6 +449,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             Controls.Add(guna2GroupBox2);
             Controls.Add(guna2GroupBox1);
             Controls.Add(btnHienThi);

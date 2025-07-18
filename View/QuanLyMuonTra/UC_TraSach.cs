@@ -145,53 +145,68 @@ namespace LibraryManager.View.QuanLyMuonTra
 
         private void btntaophieutrasach_Click(object sender, EventArgs e)
         {
-            List<ChiTietPhieuTra> chiTietList = new List<ChiTietPhieuTra>();
-
-            foreach (DataGridViewRow row in dgvchitietphieutra.Rows)
+            try
             {
-                int maSach = Convert.ToInt32(row.Cells["MaSach"].Value);
-                int soLuongMuon = Convert.ToInt32(row.Cells["SoLuong"].Value);
-                chiTietList.Add(new ChiTietPhieuTra
+                List<ChiTietPhieuTra> chiTietList = new List<ChiTietPhieuTra>();
+
+                if(dgvchitietphieutra.Rows.Count == 0)
                 {
-                    MaSach = maSach
-                });
-
-                var sach = dbContext.Saches.FirstOrDefault(s => s.MaSach == maSach);
-                sach.SoLuong += soLuongMuon; // Tăng số lượng sách khi trả
-
-                var chitietphieumuon = dbContext.ChiTietPhieuMuons.FirstOrDefault(ct => ct.MaSach == maSach && ct.MaPhieuMuon == int.Parse(cbomaphieumuon.SelectedValue.ToString()) && !ct.DaTra);
-                chitietphieumuon.DaTra = true; // Đánh dấu là đã trả sách
-            }
-
-            var phieutra = new PhieuTra
-            {
-                MaPhieuMuon = int.Parse(cbomaphieumuon.SelectedValue.ToString()),
-                NgayTra = dtpngaytra.Value.Date,
-                ChiTietPhieuTras = chiTietList
-            };
-
-            dbContext.PhieuTras.Add(phieutra);
-            MessageBox.Show("Thêm phiếu Trả thành công!");
-
-            var phieumuon = dbContext.PhieuMuons.FirstOrDefault(pm => pm.MaPhieuMuon == phieutra.MaPhieuMuon);
-            if (phieutra.NgayTra > phieumuon.HanTra)
-            {
-                int soNgayTre = (phieutra.NgayTra - phieumuon.HanTra)?.Days ?? 0;
-                var phieuPhat = new PhieuPhat
+                    //MessageBox.Show("Vui lòng chọn sách để trả.");
+                    MessageBoxHelper.ShowError("Vui lòng chọn sách để trả.");
+                    return;
+                }
+                foreach (DataGridViewRow row in dgvchitietphieutra.Rows)
                 {
-                    MaDocGia = phieumuon.MaDocGia,
-                    NgayLap = DateTime.Now,
-                    SoTienPhat = soNgayTre * 5000,
-                    LyDo = $"Trả sách trễ hạn {soNgayTre} ngày",
-                    DaThuTien = false
+                    int maSach = Convert.ToInt32(row.Cells["MaSach"].Value);
+                    int soLuongMuon = Convert.ToInt32(row.Cells["SoLuong"].Value);
+                    chiTietList.Add(new ChiTietPhieuTra
+                    {
+                        MaSach = maSach
+                    });
+
+                    var sach = dbContext.Saches.FirstOrDefault(s => s.MaSach == maSach);
+                    sach.SoLuong += soLuongMuon; // Tăng số lượng sách khi trả
+
+                    var chitietphieumuon = dbContext.ChiTietPhieuMuons.FirstOrDefault(ct => ct.MaSach == maSach && ct.MaPhieuMuon == int.Parse(cbomaphieumuon.SelectedValue.ToString()) && !ct.DaTra);
+                    chitietphieumuon.DaTra = true; // Đánh dấu là đã trả sách
+                }
+                var phieutra = new PhieuTra
+                {
+                    MaPhieuMuon = int.Parse(cbomaphieumuon.SelectedValue.ToString()),
+                    NgayTra = dtpngaytra.Value.Date,
+                    ChiTietPhieuTras = chiTietList
                 };
-                dbContext.PhieuPhats.Add(phieuPhat);
-                MessageBox.Show($"Trả sách trễ hạn {soNgayTre} ngày !\nĐã Thêm Phiếu Phạt");
+
+                dbContext.PhieuTras.Add(phieutra);
+                //MessageBox.Show("Thêm phiếu Trả thành công!");
+                MessageBoxHelper.ShowInfo("Thêm phiếu Trả thành công!");
+
+                var phieumuon = dbContext.PhieuMuons.FirstOrDefault(pm => pm.MaPhieuMuon == phieutra.MaPhieuMuon);
+                if (phieutra.NgayTra > phieumuon.HanTra)
+                {
+                    int soNgayTre = (phieutra.NgayTra - phieumuon.HanTra)?.Days ?? 0;
+                    var phieuPhat = new PhieuPhat
+                    {
+                        MaDocGia = phieumuon.MaDocGia,
+                        NgayLap = DateTime.Now,
+                        SoTienPhat = soNgayTre * 5000,
+                        LyDo = $"Trả sách trễ hạn {soNgayTre} ngày",
+                        DaThuTien = false
+                    };
+                    dbContext.PhieuPhats.Add(phieuPhat);
+                    //MessageBox.Show($"Trả sách trễ hạn {soNgayTre} ngày !\nĐã Thêm Phiếu Phạt");
+                    MessageBoxHelper.ShowInfo($"Trả sách trễ hạn {soNgayTre} ngày !\nĐã Thêm Phiếu Phạt");
+                }
+
+
+                dbContext.SaveChanges();
+                _mainForm.ShowUserControl(new UC_QuanLyPhieuMuonTra(_mainForm));
             }
-
-
-            dbContext.SaveChanges();
-            _mainForm.ShowUserControl(new UC_QuanLyPhieuMuonTra(_mainForm));
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Lỗi khi thêm phiếu trả: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBoxHelper.ShowError("Lỗi khi thêm phiếu trả: " + ex.Message); 
+            }
         }
     }
 }

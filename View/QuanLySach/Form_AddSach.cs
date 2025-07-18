@@ -1,4 +1,5 @@
-﻿using LibraryManager.DAO;
+﻿using Guna.UI2.WinForms;
+using LibraryManager.DAO;
 using LibraryManager.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -20,23 +21,46 @@ namespace LibraryManager.View.QuanLySach
         {
             this.Size = new Size(500, 500);
             InitializeComponent();
+            new Guna2ShadowForm().SetShadowForm(this);
+            cboTheloai.SelectedIndex = 0; // Đặt giá trị mặc định cho cboTheloai
         }
 
         private void btnthem_Click(object sender, EventArgs e)
         {
-            var sach = new Sach
+            try
             {
-                Ten = txtTen.Text,
-                TacGia = txtTacGia.Text,
-                TheLoai = cboTheloai.Text,
-                NXB = txtNhaXuatBan.Text,
-                NamXuatBan = int.Parse(txtNamXuatBan.Text),
-                SoLuong = int.Parse(txtSoLuong.Text)
-            };
-            dbContext.Saches.Add(sach);
-            dbContext.SaveChanges();
-            MessageBox.Show("Thêm thành công");
-            this.Close();
+                if (string.IsNullOrWhiteSpace(txtTen.Text) ||
+                string.IsNullOrWhiteSpace(txtTacGia.Text) ||
+                string.IsNullOrWhiteSpace(cboTheloai.Text) ||
+                string.IsNullOrWhiteSpace(txtNhaXuatBan.Text) ||
+                string.IsNullOrWhiteSpace(txtNamXuatBan.Text) ||
+                string.IsNullOrWhiteSpace(txtSoLuong.Text) || 
+                cboTheloai.SelectedIndex <= 0)
+                {
+                    MessageBoxHelper.ShowInfo("Vui lòng điền đầy đủ thông tin");
+                    return;
+                }
+                var sach = new Sach
+                {
+                    Ten = txtTen.Text,
+                    TacGia = txtTacGia.Text,
+                    TheLoai = cboTheloai.Text,
+                    NXB = txtNhaXuatBan.Text,
+                    NamXuatBan = int.Parse(txtNamXuatBan.Text),
+                    SoLuong = int.Parse(txtSoLuong.Text)
+                };
+                dbContext.Saches.Add(sach);
+                dbContext.SaveChanges();
+                //MessageBox.Show("Thêm thành công");
+                MessageBoxHelper.ShowSuccess("Thêm thành công");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBoxHelper.ShowError("Lỗi: " + ex.Message);
+            }
+
         }
 
         private void btnexit_Click(object sender, EventArgs e)

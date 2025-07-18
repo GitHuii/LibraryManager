@@ -60,6 +60,12 @@ namespace LibraryManager.View
                     ct.SoLuongMuon,
                     ct.DaTra
                 }).ToList();
+
+            dgvchitiet.Columns["MaSach"].HeaderText = "Mã Sách";
+            dgvchitiet.Columns["Ten"].HeaderText = "Tên Sách";
+            dgvchitiet.Columns["SoLuongMuon"].HeaderText = "Số Lượng Mượn";
+            dgvchitiet.Columns["DaTra"].HeaderText = "Đã Trả";
+
         }
 
         private void dgvphieutra_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -72,8 +78,11 @@ namespace LibraryManager.View
                 {
                     ct.MaSach,
                     Ten = dbContext.Saches.FirstOrDefault(s => s.MaSach == ct.MaSach).Ten,
-                    SoLuong = dbContext.ChiTietPhieuMuons.FirstOrDefault(ctpm => ctpm.MaSach == ct.MaSach).SoLuongMuon
+                    SoLuongTra = dbContext.ChiTietPhieuMuons.FirstOrDefault(ctpm => ctpm.MaSach == ct.MaSach).SoLuongMuon
                 }).ToList();
+            dgvchitiet.Columns["MaSach"].HeaderText = "Mã Sách";
+            dgvchitiet.Columns["Ten"].HeaderText = "Tên Sách";
+            dgvchitiet.Columns["SoLuongTra"].HeaderText = "Số Lượng Trả";
         }
 
         private void dgvphieumuon_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

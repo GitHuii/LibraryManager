@@ -358,6 +358,7 @@
             guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges21;
             guna2ControlBox1.Size = new Size(50, 50);
             guna2ControlBox1.TabIndex = 0;
+            guna2ControlBox1.Click += guna2ControlBox1_Click;
             // 
             // MainForm
             // 

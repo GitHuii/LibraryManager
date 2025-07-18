@@ -23,7 +23,7 @@ namespace LibraryManager.View
             InitializeComponent();
         }
 
-        
+
 
         private void UC_XuLiViPham_Load(object sender, EventArgs e)
         {
@@ -71,31 +71,66 @@ namespace LibraryManager.View
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            int maPhieu = int.Parse(dgvPhieuPhat.CurrentRow.Cells["MaPhieuPhat"].Value.ToString());
-            var phieu = dbContext.PhieuPhats.Find(maPhieu);
-            if (phieu != null)
+            try
             {
-                phieu.DaThuTien = true;
-                dbContext.SaveChanges();
-                LoadData();
+                int maPhieu = int.Parse(dgvPhieuPhat.CurrentRow.Cells["MaPhieuPhat"].Value.ToString());
+
+                var phieu = dbContext.PhieuPhats.Find(maPhieu);
+                if (phieu == null)
+                {
+                    MessageBoxHelper.ShowWarning("Phiếu phạt không tồn tại.");
+                    return;
+                }
+                if (phieu.DaThuTien)
+                {
+                    MessageBoxHelper.ShowWarning("Phiếu phạt đã được thu tiền.");
+                    return;
+                }
+                DialogResult result = MessageBoxHelper.ShowQuestion($"Thu tiền phiếu phạt PP{maPhieu.ToString("D3")}");
+                if (result != DialogResult.Yes)
+                {
+                    return; // nếu không đồng ý thì thoát
+                }
+                if (phieu != null)
+                {
+                    phieu.DaThuTien = true;
+                    dbContext.SaveChanges();
+                    MessageBoxHelper.ShowInfo("Đã thu tiền phiếu phạt thành công!", "Thông báo");
+                    LoadData();
+                }
             }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBoxHelper.ShowError("Lỗi: " + ex.Message, "Thông báo");
+            }
+
         }
 
 
-        private void guna2GroupBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            int maPhieu = int.Parse(dgvPhieuPhat.CurrentRow.Cells["MaPhieuPhat"].Value.ToString());
-            var phieu = dbContext.PhieuPhats.Find(maPhieu);
-            if (phieu != null)
+            try
             {
-                dbContext.PhieuPhats.Remove(phieu);
-                dbContext.SaveChanges();
-                LoadData();
+                int maPhieu = int.Parse(dgvPhieuPhat.CurrentRow.Cells["MaPhieuPhat"].Value.ToString());
+                DialogResult result = MessageBoxHelper.ShowQuestion($"Xóa phiết phạt PP{maPhieu.ToString("D3")} ?");
+                if (result != DialogResult.Yes)
+                {
+                    return; // nếu không đồng ý thì thoát
+                }
+                var phieu = dbContext.PhieuPhats.Find(maPhieu);
+                if (phieu != null)
+                {
+                    dbContext.PhieuPhats.Remove(phieu);
+                    dbContext.SaveChanges();
+                    LoadData();
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBoxHelper.ShowError("Lỗi: " + ex.Message, "Thông báo");
             }
         }
 
@@ -118,24 +153,23 @@ namespace LibraryManager.View
             txtLyDo.Clear();
             chkDaThuTien.Checked = false;
             dtpNgayLap.Value = DateTime.Now;
-
             txtTimKiem.Clear();
             LoadData();
         }
 
-        private void dgvPhieuPhat_SelectionChanged_1(object sender, EventArgs e)
+
+        private void dgvPhieuPhat_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvPhieuPhat.CurrentRow != null && dgvPhieuPhat.CurrentRow.Index >= 0)
             {
                 var row = dgvPhieuPhat.CurrentRow;
-                
-                txtMaDocGia.Text = "DG"+ Convert.ToInt32(row.Cells["MaDocGia"].Value).ToString("D3");
+
+                txtMaDocGia.Text = "DG" + Convert.ToInt32(row.Cells["MaDocGia"].Value).ToString("D3");
                 dtpNgayLap.Value = Convert.ToDateTime(row.Cells["NgayLap"].Value);
                 txtSoTienPhat.Text = row.Cells["SoTienPhat"].Value.ToString();
                 txtLyDo.Text = row.Cells["LyDo"].Value.ToString();
                 chkDaThuTien.Checked = Convert.ToBoolean(row.Cells["DaThuTien"].Value);
             }
-
         }
     }
 }

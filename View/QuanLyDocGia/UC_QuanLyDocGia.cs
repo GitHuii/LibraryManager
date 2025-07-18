@@ -37,7 +37,6 @@ namespace LibraryManager.View
         void loadData()
         {
             dgvdocgia.DataSource = dbContext.DocGias.ToList();
-
         }
 
         private void btnthem_Click(object sender, EventArgs e)
@@ -59,7 +58,6 @@ namespace LibraryManager.View
             txtDiaChi.Text = dgvdocgia.Rows[row].Cells[3].Value.ToString();
             txtEmail.Text = dgvdocgia.Rows[row].Cells[4].Value.ToString();
             txtSDT.Text = dgvdocgia.Rows[row].Cells[5].Value.ToString();
-
         }
 
         private void btnsua_Click(object sender, EventArgs e)
@@ -69,7 +67,22 @@ namespace LibraryManager.View
 
                 if (!int.TryParse(dgvdocgia.Rows[dgvdocgia.CurrentRow.Index].Cells[0].Value.ToString(), out int maDG))
                 {
-                    MessageBox.Show("Vui lòng chọn độc giả hợp lệ để sửa.");
+                    //MessageBox.Show("Vui lòng chọn độc giả hợp lệ để sửa.");
+                    MessageBoxHelper.ShowWarning("Vui lòng chọn độc giả hợp lệ để sửa.");
+                    return;
+                }
+                if( string.IsNullOrWhiteSpace(txtTen.Text) ||
+                    string.IsNullOrWhiteSpace(txtDiaChi.Text) ||
+                    string.IsNullOrWhiteSpace(txtEmail.Text) ||
+                    string.IsNullOrWhiteSpace(txtSDT.Text))
+                {
+                    //MessageBox.Show("Vui lòng điền đầy đủ thông tin độc giả.");
+                    MessageBoxHelper.ShowWarning("Vui lòng điền đầy đủ thông tin độc giả.");
+                    return;
+                }
+                DialogResult result = MessageBoxHelper.ShowQuestion($"Bạn có chắc muốn sửa thông tin độc giả DG{maDG.ToString("D3")} không?");
+                if (result != DialogResult.Yes)
+                {
                     return;
                 }
                 var dg = dbContext.DocGias.Find(maDG);
@@ -84,15 +97,19 @@ namespace LibraryManager.View
                 }
                 else
                 {
-                    throw new Exception("Không tìm thấy độc giả để sửa.");
+                    //throw new Exception("Không tìm thấy độc giả để sửa.");
+                    MessageBoxHelper.ShowError("Không tìm thấy độc giả để sửa.");
+                    return;
                 }
-                MessageBox.Show("Cập nhật thông tin thành công!");
+                //MessageBox.Show("Cập nhật thông tin thành công!");
+                MessageBoxHelper.ShowInfo("Cập nhật thông tin thành công!");
                 loadData();
                 ClearForm();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi cập nhật: " + ex.Message);
+                //MessageBox.Show("Lỗi khi cập nhật: " + ex.Message);
+                MessageBoxHelper.ShowError("Lỗi khi cập nhật: " + ex.Message);
             }
         }
 
@@ -116,40 +133,43 @@ namespace LibraryManager.View
             {
                 if (dgvdocgia.CurrentRow == null)
                 {
-                    MessageBox.Show("Vui lòng chọn một độc giả để xóa.");
+                    //MessageBox.Show("Vui lòng chọn một độc giả để xóa.");
+                    MessageBoxHelper.ShowWarning("Vui lòng chọn một độc giả để xóa.");
                     return;
                 }
 
                 if (!int.TryParse(dgvdocgia.Rows[dgvdocgia.CurrentRow.Index].Cells[0].Value.ToString(), out int maDG))
                 {
-                    MessageBox.Show("Mã độc giả không hợp lệ.");
+                    //MessageBox.Show("Mã độc giả không hợp lệ.");
+                    MessageBoxHelper.ShowWarning("Mã độc giả không hợp lệ.");
                     return;
                 }
-
-                DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa độc giả này không?",
-                                                      "Xác nhận xóa",
-                                                      MessageBoxButtons.YesNo,
-                                                      MessageBoxIcon.Warning);
+                
+                //DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa độc giả này không?",
+                //                                      "Xác nhận xóa",
+                //                                      MessageBoxButtons.YesNo,
+                //                                      MessageBoxIcon.Warning);
+                DialogResult result = MessageBoxHelper.ShowQuestion($"Bạn có chắc muốn xóa độc giả DG{maDG.ToString("D3")} không?");
 
                 if (result == DialogResult.Yes)
                 {
                     var dg = dbContext.DocGias.Find(maDG);
                     if (dg == null)
                     {
-                        MessageBox.Show("Không tìm thấy độc giả để xóa trong CSDL.");
+                        MessageBoxHelper.ShowWarning("Không tìm thấy độc giả.");
                         return;
                     }
 
                     dbContext.DocGias.Remove(dg);
                     dbContext.SaveChanges();
-                    MessageBox.Show("Xóa độc giả thành công!");
+                    MessageBoxHelper.ShowInfo("Xóa độc giả thành công!");
                     loadData();
                     ClearForm();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi xóa độc giả: " + ex.Message);
+                MessageBoxHelper.ShowWarning("Lỗi khi xóa độc giả: " + ex.Message);
             }
         }
 
@@ -171,20 +191,7 @@ namespace LibraryManager.View
         private void txttimkiem_TextChanged(object sender, EventArgs e)
         {
             string keyword = txttimkiem.Text.Trim();
-
-            if (string.IsNullOrEmpty(keyword))
-            {
-                MessageBox.Show("Vui lòng nhập từ khóa để tìm kiếm.");
-                return;
-            }
-
-            var result = dbContext.DocGias.Where(d => d.Ten.Contains(keyword)).ToList(); ;
-
-            if (result.Count == 0)
-            {
-                MessageBox.Show("Không tìm thấy độc giả nào.");
-            }
-
+            var result = dbContext.DocGias.Where(d => d.Ten.Contains(keyword)).ToList();
             dgvdocgia.DataSource = result;
 
         }

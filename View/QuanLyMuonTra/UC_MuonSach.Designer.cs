@@ -427,7 +427,6 @@
             btnthem.FillColor = Color.DodgerBlue;
             btnthem.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnthem.ForeColor = Color.White;
-            btnthem.Image = Properties.Resources.icons8_refresh_32;
             btnthem.ImageAlign = HorizontalAlignment.Left;
             btnthem.ImageSize = new Size(32, 32);
             btnthem.Location = new Point(224, 43);
@@ -436,7 +435,6 @@
             btnthem.Size = new Size(100, 35);
             btnthem.TabIndex = 48;
             btnthem.Text = "Thêm";
-            btnthem.TextAlign = HorizontalAlignment.Left;
             btnthem.Click += btnthem_Click;
             // 
             // txtsoluong
@@ -487,7 +485,7 @@
             btntaophieumuon.FillColor = Color.DodgerBlue;
             btntaophieumuon.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btntaophieumuon.ForeColor = Color.White;
-            btntaophieumuon.Image = Properties.Resources.icons8_refresh_32;
+            btntaophieumuon.Image = Properties.Resources.icons8_add_32__2_;
             btntaophieumuon.ImageAlign = HorizontalAlignment.Left;
             btntaophieumuon.ImageSize = new Size(32, 32);
             btntaophieumuon.Location = new Point(50, 650);
@@ -510,7 +508,7 @@
             btnexit.FillColor = Color.DodgerBlue;
             btnexit.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnexit.ForeColor = Color.White;
-            btnexit.Image = Properties.Resources.icons8_refresh_32;
+            btnexit.Image = Properties.Resources.icons8_return_32;
             btnexit.ImageAlign = HorizontalAlignment.Left;
             btnexit.ImageSize = new Size(32, 32);
             btnexit.Location = new Point(950, 650);

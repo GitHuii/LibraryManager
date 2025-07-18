@@ -1,4 +1,5 @@
-﻿using LibraryManager.DAO;
+﻿using Guna.UI2.WinForms;
+using LibraryManager.DAO;
 using LibraryManager.Models;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace LibraryManager.View.XuLyViPham
         {
             this.Size = new Size(500, 500);
             InitializeComponent();
+            new Guna2ShadowForm().SetShadowForm(this);
         }
 
         private void btnexit_Click(object sender, EventArgs e)
@@ -30,6 +32,14 @@ namespace LibraryManager.View.XuLyViPham
         {
             try
             {
+                if(string.IsNullOrWhiteSpace(cbomadocgia.Text) || 
+                    string.IsNullOrWhiteSpace(txtSoTienPhat.Text) ||
+                    string.IsNullOrWhiteSpace(txtLyDo.Text))
+                {
+                    //MessageBox.Show("Vui lòng chọn Mã Độc Giả", "Thông báo");
+                    MessageBoxHelper.ShowWarning("Vui lòng nhập đầy đủ thông tin");
+                    return;
+                }
                 var phieu = new PhieuPhat
                 {
                     MaDocGia = int.Parse(cbomadocgia.Text),
@@ -40,12 +50,14 @@ namespace LibraryManager.View.XuLyViPham
 
                 dbContext.PhieuPhats.Add(phieu);
                 dbContext.SaveChanges();
-                MessageBox.Show("Thêm phiếu phạt thành công!", "Thông báo");
+                //MessageBox.Show("Thêm phiếu phạt thành công!", "Thông báo");
+                MessageBoxHelper.ShowInfo("Thêm phiếu phạt thành công!", "Thông báo");
                 this.Close(); // đóng form sau khi lưu
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi");
+                //MessageBox.Show("Lỗi: " + ex.Message, "Lỗi");
+                MessageBoxHelper.ShowError("Lỗi: " + ex.Message, "Thông báo");
             }
         }
 

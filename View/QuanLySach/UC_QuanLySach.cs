@@ -70,35 +70,66 @@ namespace LibraryManager.View
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            var sach = dbContext.Saches.Find(ma);
-            if (sach != null)
+            try
             {
-                sach.Ten = txtTen.Text;
-                sach.TacGia = txtTacGia.Text;
-                sach.TheLoai = cboTheloai.Text;
-                sach.NXB = txtNhaXuatBan.Text;
-                sach.NamXuatBan = int.Parse(txtNamXuatBan.Text);
-                sach.SoLuong = int.Parse(txtSoLuong.Text);
-            }
+                if (string.IsNullOrWhiteSpace(txtTen.Text) || string.IsNullOrWhiteSpace(txtTacGia.Text) || string.IsNullOrWhiteSpace(cboTheloai.Text) || string.IsNullOrWhiteSpace(txtNhaXuatBan.Text) || string.IsNullOrWhiteSpace(txtNamXuatBan.Text) || string.IsNullOrWhiteSpace(txtSoLuong.Text))
+                {
+                    //MessageBox.Show("Vui lòng nhập đầy đủ thông tin sách.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBoxHelper.ShowWarning("Vui lòng nhập đầy đủ thông tin sách.");
+                    return;
+                }
+                DialogResult result = MessageBoxHelper.ShowQuestion($"Sửa thông tin sách {txtTen.Text} ?");
+                if (result != DialogResult.Yes)
+                {
+                    return;
+                }
+                var sach = dbContext.Saches.Find(Convert.ToInt32(dgvSach.CurrentRow.Cells[0].Value));
+                if (sach != null)
+                {
+                    sach.Ten = txtTen.Text;
+                    sach.TacGia = txtTacGia.Text;
+                    sach.TheLoai = cboTheloai.Text;
+                    sach.NXB = txtNhaXuatBan.Text;
+                    sach.NamXuatBan = int.Parse(txtNamXuatBan.Text);
+                    sach.SoLuong = int.Parse(txtSoLuong.Text);
+                }
                 ;
-            dbContext.SaveChanges();
-            MessageBox.Show("Sửa thành công");
+                dbContext.SaveChanges();
+                //MessageBox.Show("Sửa thành công");
+                MessageBoxHelper.ShowInfo("Cập nhật thông tin sách thành công");
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Lỗi: " + ex.Message);
+                MessageBoxHelper.ShowError("Lỗi: " + ex.Message);
+            }
             LoadData();
 
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            var sach = dbContext.Saches.Find(ma);
-            var result = MessageBox.Show("Bạn có chắc chắn muốn xóa sách này không", "Yes", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            try
             {
-                dbContext.Saches.Remove(sach);
-                dbContext.SaveChanges();
-                MessageBox.Show("Xóa thành công");
-                LoadData();
-                formclear();
+                var sach = dbContext.Saches.Find(dgvSach.CurrentRow.Cells[0].Value);
+                //var result = MessageBox.Show("Bạn có chắc chắn muốn xóa sách này không", "Yes", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBoxHelper.ShowQuestion($"Bạn có chắc chắn muốn xóa sách {sach.Ten} không?");
+                if (result == DialogResult.Yes)
+                {
+                    dbContext.Saches.Remove(sach);
+                    dbContext.SaveChanges();
+                    //MessageBox.Show("Xóa thành công");
+                    MessageBoxHelper.ShowInfo("Xóa sách thành công");
+                    LoadData();
+                    formclear();
+                }
             }
+            catch(Exception ex)
+            {
+                //MessageBox.Show("Lỗi: " + ex.Message);
+                MessageBoxHelper.ShowError("Lỗi: " + ex.Message);
+            }
+
 
         }
         void formclear()

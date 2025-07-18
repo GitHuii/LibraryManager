@@ -23,31 +23,49 @@ namespace LibraryManager.View.QuanLyTaiKhoan
 
         private void Form_AddTaiKhoan_Load(object sender, EventArgs e)  
         {
-
+            guna2ShadowForm1.SetShadowForm(this);
         }
         private void btnthem_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txttk.Text) || string.IsNullOrWhiteSpace(txtmk.Text) || string.IsNullOrWhiteSpace(txtnhaplaimk.Text))
+            try
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin tài khoản.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                if (string.IsNullOrWhiteSpace(txttk.Text) || string.IsNullOrWhiteSpace(txtmk.Text) || string.IsNullOrWhiteSpace(txtnhaplaimk.Text) || string.IsNullOrWhiteSpace(cbophanquyen.Text))
+                {
+                    //MessageBox.Show("Vui lòng nhập đầy đủ thông tin tài khoản.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBoxHelper.ShowWarning("Vui lòng nhập đầy đủ thông tin tài khoản.");
+                    return;
+                }
+                if (txtmk.Text != txtnhaplaimk.Text)
+                {
+                    //MessageBox.Show("Mật khẩu không khớp, vui lòng nhập lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBoxHelper.ShowWarning("Mật khẩu không khớp, vui lòng nhập lại.");
+                    return;
+                }
+
+                var existingAccount = dbContext.TaiKhoans.FirstOrDefault(tk => tk.UserName == txttk.Text);
+                if(existingAccount!=null)
+                {
+                    MessageBoxHelper.ShowError("Tài khoản đã tồn tại, vui lòng chọn tên tài khoản khác.");
+                    return;
+                }
+                var tk = new TaiKhoan
+                {
+                    UserName = txttk.Text,
+                    PassWord = txtmk.Text,
+                    Role = cbophanquyen.Text
+                };
+                dbContext.TaiKhoans.Add(tk);
+                dbContext.SaveChanges();
+                MessageBoxHelper.ShowInfo("Thêm tài khoản thành công!");
+                //MessageBox.Show("Thêm tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
-            if (txtmk.Text != txtnhaplaimk.Text)
+            catch (Exception ex)
             {
-                MessageBox.Show("Mật khẩu không khớp, vui lòng nhập lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                MessageBoxHelper.ShowError("Lỗi khi thêm tài khoản: " + ex.Message);
+                //MessageBox.Show("Lỗi khi thêm tài khoản: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            var tk = new TaiKhoan
-            {
-                UserName = txttk.Text,
-                PassWord = txtmk.Text,
-                Role = cbophanquyen.Text
-            };
-            dbContext.TaiKhoans.Add(tk);
-            dbContext.SaveChanges();
-            MessageBox.Show("Thêm tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
 
         }
 

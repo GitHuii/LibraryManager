@@ -56,6 +56,7 @@
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txttk = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(components);
             guna2GroupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -137,7 +138,7 @@
             btnexit.FillColor = Color.DodgerBlue;
             btnexit.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnexit.ForeColor = Color.White;
-            btnexit.Image = Properties.Resources.icons8_refresh_32;
+            btnexit.Image = Properties.Resources.icons8_return_32;
             btnexit.ImageAlign = HorizontalAlignment.Left;
             btnexit.ImageSize = new Size(32, 32);
             btnexit.Location = new Point(280, 400);
@@ -160,7 +161,7 @@
             btnthem.FillColor = Color.DodgerBlue;
             btnthem.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnthem.ForeColor = Color.White;
-            btnthem.Image = Properties.Resources.icons8_refresh_32;
+            btnthem.Image = Properties.Resources.icons8_add_32__2_;
             btnthem.ImageAlign = HorizontalAlignment.Left;
             btnthem.ImageSize = new Size(32, 32);
             btnthem.Location = new Point(50, 400);
@@ -206,6 +207,7 @@
             txtnhaplaimk.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txtnhaplaimk.Size = new Size(300, 35);
             txtnhaplaimk.TabIndex = 8;
+            txtnhaplaimk.UseSystemPasswordChar = true;
             // 
             // guna2HtmlLabel3
             // 
@@ -241,6 +243,7 @@
             txtmk.ShadowDecoration.CustomizableEdges = customizableEdges10;
             txtmk.Size = new Size(300, 35);
             txtmk.TabIndex = 6;
+            txtmk.UseSystemPasswordChar = true;
             // 
             // guna2HtmlLabel1
             // 
@@ -289,6 +292,10 @@
             guna2HtmlLabel2.TabIndex = 2;
             guna2HtmlLabel2.Text = "Tài Khoản";
             // 
+            // guna2ShadowForm1
+            // 
+            guna2ShadowForm1.TargetForm = this;
+            // 
             // Form_AddTaiKhoan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -320,5 +327,6 @@
         private Guna.UI2.WinForms.Guna2Button btnthem;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2ComboBox cbophanquyen;
+        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
     }
 }

@@ -94,64 +94,95 @@ namespace LibraryManager.View.QuanLyMuonTra
 
         private void btnthem_Click(object sender, EventArgs e)
         {
-            if (dgvtimkiem.CurrentRow == null)
+            try
             {
-                MessageBox.Show("Vui lòng chọn sách để mượn.");
-                return;
+                if (dgvtimkiem.CurrentRow == null)
+                {
+                    //MessageBox.Show("Vui lòng chọn sách để mượn.");
+                    MessageBoxHelper.ShowError("Vui lòng chọn sách để mượn.");
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(txtsoluong.Text) || !int.TryParse(txtsoluong.Text, out int soLuong) || soLuong <= 0)
+                {
+                    //MessageBox.Show("Vui lòng nhập số lượng hợp lệ.");
+                    MessageBoxHelper.ShowError("Vui lòng nhập số lượng hợp lệ.");
+                    return;
+                }
+                int index = dgvtimkiem.CurrentCell.RowIndex;
+                string MaSach = dgvtimkiem.Rows[index].Cells["MaSach"].Value.ToString();
+                string TenSach = dgvtimkiem.Rows[index].Cells["Ten"].Value.ToString();
+                string SoLuong = txtsoluong.Text;
+                dgvsach.Rows.Add(MaSach, TenSach, SoLuong);
+                dgvtimkiem.Rows[index].Cells["SoLuong"].Value = Convert.ToInt32(dgvtimkiem.Rows[index].Cells["SoLuong"].Value) - Convert.ToInt32(SoLuong);
             }
-            int index = dgvtimkiem.CurrentCell.RowIndex;
-            string MaSach = dgvtimkiem.Rows[index].Cells["MaSach"].Value.ToString();
-            string TenSach = dgvtimkiem.Rows[index].Cells["Ten"].Value.ToString();
-            string SoLuong = txtsoluong.Text;
-            dgvsach.Rows.Add(MaSach, TenSach, SoLuong);
-            dgvtimkiem.Rows[index].Cells["SoLuong"].Value = Convert.ToInt32(dgvtimkiem.Rows[index].Cells["SoLuong"].Value) - Convert.ToInt32(SoLuong);
+            catch(Exception ex)
+            {
+                //MessageBox.Show("Lỗi khi thêm sách: " + ex.Message);
+                MessageBoxHelper.ShowError("Lỗi khi thêm sách: " + ex.Message);
+            }
+
         }
 
         private void btntaophieumuon_Click(object sender, EventArgs e)
         {
-            List<ChiTietPhieuMuon> chiTietList = new List<ChiTietPhieuMuon>();
-
-            foreach (DataGridViewRow row in dgvsach.Rows)
+            try
             {
-                int maSach = Convert.ToInt32(row.Cells["MaSach"].Value);
-                int soLuong = Convert.ToInt32(row.Cells["SoLuong"].Value);
+                List<ChiTietPhieuMuon> chiTietList = new List<ChiTietPhieuMuon>();
 
-                chiTietList.Add(new ChiTietPhieuMuon
+                foreach (DataGridViewRow row in dgvsach.Rows)
                 {
-                    MaSach = maSach,
-                    SoLuongMuon = soLuong
-                });
+                    int maSach = Convert.ToInt32(row.Cells["MaSach"].Value);
+                    int soLuong = Convert.ToInt32(row.Cells["SoLuong"].Value);
+
+                    chiTietList.Add(new ChiTietPhieuMuon
+                    {
+                        MaSach = maSach,
+                        SoLuongMuon = soLuong
+                    });
+                }
+                if (chiTietList.Count == 0)
+                {
+                    //MessageBox.Show("Vui lòng thêm sách vào phiếu mượn.");
+                    MessageBoxHelper.ShowError("Vui lòng thêm sách vào phiếu mượn.");
+                    return;
+                }
+                var phieuMoi = new PhieuMuon
+                {
+                    MaDocGia = int.Parse(cbomadocgia.SelectedValue.ToString()),
+                    NgayMuon = DateTime.Now,
+                    HanTra = dtphantra.Value.Date,
+                    ChiTietPhieuMuons = chiTietList
+                };
+                // Lặp qua từng sách mượn
+                foreach (var ct in phieuMoi.ChiTietPhieuMuons)
+                {
+                    var sach = dbContext.Saches.FirstOrDefault(s => s.MaSach == ct.MaSach);
+                    if (sach == null)
+                    {
+                        throw new Exception($"Không tìm thấy sách với mã {ct.MaSach}");
+                    }
+
+                    if (sach.SoLuong < ct.SoLuongMuon)
+                    {
+                        throw new Exception($"Không đủ số lượng sách {sach.Ten}. Còn lại: {sach.SoLuong}");
+                    }
+
+                    // Trừ số lượng sách
+                    sach.SoLuong -= ct.SoLuongMuon;
+                }
+                // Thêm phiếu mượn
+                dbContext.PhieuMuons.Add(phieuMoi);
+                dbContext.SaveChanges();
+                //MessageBox.Show("Thêm phiếu mượn thành công!");
+                MessageBoxHelper.ShowSuccess("Thêm phiếu mượn thành công!");
+                _mainForm.ShowUserControl(new UC_QuanLyPhieuMuonTra(_mainForm));
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Lỗi khi thêm phiếu mượn: " + ex.Message);
+                MessageBoxHelper.ShowError("Lỗi khi thêm phiếu mượn: " + ex.Message);
             }
 
-            var phieuMoi = new PhieuMuon
-            {
-                MaDocGia = int.Parse(cbomadocgia.SelectedValue.ToString()),
-                NgayMuon = DateTime.Now,
-                HanTra = dtphantra.Value.Date,
-                ChiTietPhieuMuons = chiTietList
-            };
-            // Lặp qua từng sách mượn
-            foreach (var ct in phieuMoi.ChiTietPhieuMuons)
-            {
-                var sach = dbContext.Saches.FirstOrDefault(s => s.MaSach == ct.MaSach);
-                if (sach == null)
-                {
-                    throw new Exception($"Không tìm thấy sách với mã {ct.MaSach}");
-                }
-
-                if (sach.SoLuong < ct.SoLuongMuon)
-                {
-                    throw new Exception($"Không đủ số lượng sách {sach.Ten}. Còn lại: {sach.SoLuong}");
-                }
-
-                // Trừ số lượng sách
-                sach.SoLuong -= ct.SoLuongMuon;
-            }
-            // Thêm phiếu mượn
-            dbContext.PhieuMuons.Add(phieuMoi);
-            dbContext.SaveChanges();
-            MessageBox.Show("Thêm phiếu mượn thành công!");
-            _mainForm.ShowUserControl(new UC_QuanLyPhieuMuonTra(_mainForm));
 
         }
 
