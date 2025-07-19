@@ -31,6 +31,10 @@
             components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -42,8 +46,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -52,8 +54,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panelMenu = new Guna.UI2.WinForms.Guna2Panel();
             btnxulivipham = new Guna.UI2.WinForms.Guna2Button();
             btnLogo = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -104,6 +104,9 @@
             customizableEdges3.BottomRight = false;
             customizableEdges3.TopRight = false;
             btnxulivipham.CustomizableEdges = customizableEdges3;
+            customizableEdges1.BottomRight = false;
+            customizableEdges1.TopRight = false;
+            btnxulivipham.CustomizableEdges = customizableEdges1;
             btnxulivipham.DisabledState.BorderColor = Color.DarkGray;
             btnxulivipham.DisabledState.CustomBorderColor = Color.DarkGray;
             btnxulivipham.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -117,6 +120,7 @@
             btnxulivipham.Location = new Point(21, 424);
             btnxulivipham.Name = "btnxulivipham";
             btnxulivipham.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnxulivipham.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnxulivipham.Size = new Size(280, 50);
             btnxulivipham.TabIndex = 6;
             btnxulivipham.Text = "     Xử Lí Vi Phạm";
@@ -168,6 +172,7 @@
             btnbctk.Text = "     Báo Cáo Thống Kê";
             btnbctk.TextAlign = HorizontalAlignment.Left;
             btnbctk.UseTransparentBackground = true;
+            btnbctk.Click += btnbctk_Click;
             // 
             // btnqlpmt
             // 
@@ -379,6 +384,7 @@
             btnLogout.TabIndex = 7;
             btnLogout.Text = "Đăng xuất";
             btnLogout.Click += btnLogout_Click;
+            guna2ControlBox1.Click += guna2ControlBox1_Click;
             // 
             // MainForm
             // 

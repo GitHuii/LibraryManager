@@ -233,6 +233,7 @@
             dgvdocgia.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgvdocgia.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dgvdocgia.CellClick += dgvdocgia_CellClick;
+            dgvdocgia.CellFormatting += dgvdocgia_CellFormatting;
             dgvdocgia.CellPainting += dgvdocgia_CellPainting;
             // 
             // txtTen
@@ -353,7 +354,7 @@
             // 
             lblten.BackColor = Color.Transparent;
             lblten.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblten.Location = new Point(50, 79);
+            lblten.Location = new Point(50, 75);
             lblten.Margin = new Padding(3, 2, 3, 2);
             lblten.Name = "lblten";
             lblten.Size = new Size(78, 19);
@@ -364,7 +365,7 @@
             // 
             lblngaysinh.BackColor = Color.Transparent;
             lblngaysinh.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblngaysinh.Location = new Point(50, 149);
+            lblngaysinh.Location = new Point(50, 145);
             lblngaysinh.Margin = new Padding(3, 2, 3, 2);
             lblngaysinh.Name = "lblngaysinh";
             lblngaysinh.Size = new Size(66, 19);
@@ -375,7 +376,7 @@
             // 
             lbldiachi.BackColor = Color.Transparent;
             lbldiachi.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lbldiachi.Location = new Point(470, 79);
+            lbldiachi.Location = new Point(454, 75);
             lbldiachi.Margin = new Padding(3, 2, 3, 2);
             lbldiachi.Name = "lbldiachi";
             lbldiachi.Size = new Size(48, 19);
@@ -386,7 +387,7 @@
             // 
             llblemail.BackColor = Color.Transparent;
             llblemail.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            llblemail.Location = new Point(470, 149);
+            llblemail.Location = new Point(454, 145);
             llblemail.Margin = new Padding(3, 2, 3, 2);
             llblemail.Name = "llblemail";
             llblemail.Size = new Size(37, 19);
@@ -397,7 +398,7 @@
             // 
             lblsodienthoai.BackColor = Color.Transparent;
             lblsodienthoai.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblsodienthoai.Location = new Point(50, 219);
+            lblsodienthoai.Location = new Point(50, 215);
             lblsodienthoai.Margin = new Padding(3, 2, 3, 2);
             lblsodienthoai.Name = "lblsodienthoai";
             lblsodienthoai.Size = new Size(28, 19);

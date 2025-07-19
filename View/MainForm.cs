@@ -20,7 +20,7 @@ namespace LibraryManager.View
             InitializeComponent();
         }
 
-        private void ShowUserControl(UserControl uc)
+        public void ShowUserControl(UserControl uc)
         {
             panelMain.Controls.Clear();           // Xóa nội dung cũ
             uc.Dock = DockStyle.Fill;             // Đổ đầy panel
@@ -52,7 +52,7 @@ namespace LibraryManager.View
         }
         private void btnqlpmt_Click(object sender, EventArgs e)
         {
-            ShowUserControl(new UC_QuanLyPhieuMuonTra());
+            ShowUserControl(new UC_QuanLyPhieuMuonTra(this));
         }
 
         private void LibraryManagerUI_Load(object sender, EventArgs e)
@@ -65,10 +65,6 @@ namespace LibraryManager.View
 
         }
 
-        private void guna2ControlBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnxulivipham_Click(object sender, EventArgs e)
         {
@@ -90,8 +86,17 @@ namespace LibraryManager.View
                 var loginForm = new LoginForm();
                 loginForm.ShowDialog();
 
-                Application.Exit(); 
+                Application.Exit();
             }
+        }
+        private void btnbctk_Click(object sender, EventArgs e)
+        {
+            ShowUserControl(new UC_BaoCaoThongKe());
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
