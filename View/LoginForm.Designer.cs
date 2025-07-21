@@ -34,7 +34,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -133,8 +132,8 @@
             txtPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtPassword.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             txtPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.IconLeft = (Image)resources.GetObject("txtPassword.IconLeft");
-            txtPassword.IconRight = (Image)resources.GetObject("txtPassword.IconRight");
+            txtPassword.IconLeft = Properties.Resources.icons8_password_32;
+            txtPassword.IconRight = Properties.Resources.icons8_hide_password_32;
             txtPassword.IconRightOffset = new Point(10, 0);
             txtPassword.Location = new Point(373, 239);
             txtPassword.Name = "txtPassword";
@@ -160,7 +159,7 @@
             txtUsername.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtUsername.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             txtUsername.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtUsername.IconLeft = (Image)resources.GetObject("txtUsername.IconLeft");
+            txtUsername.IconLeft = Properties.Resources.icons8_username_32__2_;
             txtUsername.Location = new Point(373, 163);
             txtUsername.Name = "txtUsername";
             txtUsername.PlaceholderForeColor = Color.Black;
@@ -194,6 +193,7 @@
             guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2ControlBox1.Size = new Size(45, 25);
             guna2ControlBox1.TabIndex = 0;
+            guna2ControlBox1.Click += guna2ControlBox1_Click;
             // 
             // guna2Panel3
             // 

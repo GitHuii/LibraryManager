@@ -34,10 +34,16 @@ namespace LibraryManager.View.QuanLySach
                 string.IsNullOrWhiteSpace(cboTheloai.Text) ||
                 string.IsNullOrWhiteSpace(txtNhaXuatBan.Text) ||
                 string.IsNullOrWhiteSpace(txtNamXuatBan.Text) ||
-                string.IsNullOrWhiteSpace(txtSoLuong.Text) || 
+                string.IsNullOrWhiteSpace(txtSoLuong.Text) ||
                 cboTheloai.SelectedIndex <= 0)
                 {
-                    MessageBoxHelper.ShowInfo("Vui lòng điền đầy đủ thông tin");
+                    MessageBoxHelper.ShowWarning("Vui lòng điền đầy đủ thông tin");
+                    return;
+                }
+                if (!int.TryParse(txtNamXuatBan.Text, out int namXuatBan) || namXuatBan < 0 || namXuatBan > DateTime.Today.Year ||
+                    !int.TryParse(txtSoLuong.Text, out int soluong) || soluong <= 0 )
+                {
+                    MessageBoxHelper.ShowWarning("Dữ liệu nhập không hợp lệ");
                     return;
                 }
                 var sach = new Sach
@@ -52,7 +58,7 @@ namespace LibraryManager.View.QuanLySach
                 dbContext.Saches.Add(sach);
                 dbContext.SaveChanges();
                 //MessageBox.Show("Thêm thành công");
-                MessageBoxHelper.ShowSuccess("Thêm thành công");
+                MessageBoxHelper.ShowSuccess("Thêm sách thành công");
                 this.Close();
             }
             catch (Exception ex)

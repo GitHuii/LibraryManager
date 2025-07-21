@@ -47,7 +47,7 @@ namespace LibraryManager.View.QuanLyDocGia
                 dbContext.DocGias.Add(dg);
                 dbContext.SaveChanges();
                 //MessageBox.Show("Thêm độc giả thành công!");
-                MessageBoxHelper.ShowInfo("Thêm độc giả thành công!");
+                MessageBoxHelper.ShowSuccess("Thêm độc giả thành công!");
             }
             catch (Exception ex)
             {

@@ -47,9 +47,14 @@ namespace LibraryManager.View
 
         private void btnsua_Click(object sender, EventArgs e)
         {
-            if (txttk.Text.IsNullOrEmpty())
+            //if (txttk.Text.IsNullOrEmpty() || tx)
+            //{
+            //    MessageBoxHelper.ShowWarning("Vui lòng chọn tài khoản cần sửa.");
+            //    return;
+            //}
+            if (string.IsNullOrWhiteSpace(txttk.Text) || string.IsNullOrWhiteSpace(txtmk.Text) || string.IsNullOrWhiteSpace(cbophanquyen.Text))
             {
-                MessageBoxHelper.ShowWarning("Vui lòng chọn tài khoản cần sửa.");
+                MessageBoxHelper.ShowWarning("Vui lòng nhập đầy đủ thông tin tài khoản.");
                 return;
             }
             DialogResult result = MessageBoxHelper.ShowQuestion($"Sửa thông tin tài khoản {txttk.Text} ?");
@@ -70,20 +75,20 @@ namespace LibraryManager.View
                 existing.Role = tk.Role;
                 dbContext.SaveChanges();
             }
-            MessageBoxHelper.ShowInfo("Cập nhật tài khoản thành công!");
+            MessageBoxHelper.ShowSuccess("Cập nhật tài khoản thành công!");
             LoadData();
         }
 
         private void btnxoa_Click(object sender, EventArgs e)
         {
             string userName = txttk.Text;
-            if(userName.IsNullOrEmpty())
+            if (userName.IsNullOrEmpty())
             {
                 MessageBoxHelper.ShowWarning("Vui lòng chọn tài khoản cần xóa.");
                 return;
             }
-            DialogResult result = MessageBoxHelper.ShowQuestion("Bạn có chắc chắn muốn xóa tài khoản này không?");
-            if(result != DialogResult.Yes)
+            DialogResult result = MessageBoxHelper.ShowQuestion($"Xóa tài khoản {userName}?");
+            if (result != DialogResult.Yes)
             {
                 return;
             }
@@ -93,7 +98,7 @@ namespace LibraryManager.View
                 dbContext.TaiKhoans.Remove(existing);
                 dbContext.SaveChanges();
             }
-            MessageBoxHelper.ShowInfo("Xóa tài khoản thành công!");
+            MessageBoxHelper.ShowSuccess("Xóa tài khoản thành công!");
             LoadData();
         }
 
@@ -130,6 +135,12 @@ namespace LibraryManager.View
         private void dgvqltk_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dgvqltk_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvqltk.ClearSelection();
+            dgvqltk.CurrentCell = null;
         }
     }
 }

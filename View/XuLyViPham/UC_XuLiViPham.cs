@@ -95,7 +95,7 @@ namespace LibraryManager.View
                 {
                     phieu.DaThuTien = true;
                     dbContext.SaveChanges();
-                    MessageBoxHelper.ShowInfo("Đã thu tiền phiếu phạt thành công!", "Thông báo");
+                    MessageBoxHelper.ShowSuccess("Đã thu tiền phiếu phạt thành công!", "Thông báo");
                     LoadData();
                 }
             }
@@ -124,8 +124,10 @@ namespace LibraryManager.View
                 {
                     dbContext.PhieuPhats.Remove(phieu);
                     dbContext.SaveChanges();
+                    MessageBoxHelper.ShowSuccess("Xóa phiếu phạt thành công!", "Thông báo");
                     LoadData();
                 }
+
             }
             catch (Exception ex)
             {

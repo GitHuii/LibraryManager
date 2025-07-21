@@ -42,7 +42,8 @@ namespace LibraryManager.View
 
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
+                //MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
+                MessageBoxHelper.ShowWarning("Vui lòng nhập đầy đủ thông tin đăng nhập.");
                 return;
             }
 
@@ -65,7 +66,8 @@ namespace LibraryManager.View
 
                         if (isFirstTimeRemember)
                         {
-                            MessageBox.Show("Đã ghi nhớ tài khoản và mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //MessageBox.Show("Đã ghi nhớ tài khoản và mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBoxHelper.ShowInfo("Đã ghi nhớ tài khoản và mật khẩu thành công!");
                         }
                     }
                     else
@@ -84,7 +86,8 @@ namespace LibraryManager.View
                 }
                 else
                 {
-                    MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBoxHelper.ShowWarning("Sai tên đăng nhập hoặc mật khẩu.");
                 }
             }
         }
@@ -103,7 +106,8 @@ namespace LibraryManager.View
 
                 if (inputUser == savedUser && !string.IsNullOrEmpty(savedPass))
                 {
-                    DialogResult result = MessageBox.Show("Tự động điền mật khẩu đã lưu cho tài khoản này?", "Gợi ý đăng nhập", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    //DialogResult result = MessageBox.Show("Tự động điền mật khẩu đã lưu cho tài khoản này?", "Gợi ý đăng nhập", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult result = MessageBoxHelper.ShowQuestion("Tự động điền mật khẩu đã lưu cho tài khoản này?");
                     if (result == DialogResult.Yes)
                     {
                         txtPassword.Text = savedPass;
@@ -118,8 +122,13 @@ namespace LibraryManager.View
             txtPassword.UseSystemPasswordChar = !isPassVisible;
 
             txtPassword.IconRight = isPassVisible
-                ? Properties.Resources.icons8_eye_50           // mắt mở
-                : Properties.Resources.icons8_closed_eye_50;   // mắt nhắm
+                ? Properties.Resources.icons8_show_password_32
+                : Properties.Resources.icons8_hide_password_32;
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

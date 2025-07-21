@@ -235,6 +235,7 @@
             dgvdocgia.CellClick += dgvdocgia_CellClick;
             dgvdocgia.CellFormatting += dgvdocgia_CellFormatting;
             dgvdocgia.CellPainting += dgvdocgia_CellPainting;
+            dgvdocgia.DataBindingComplete += dgvdocgia_DataBindingComplete;
             // 
             // txtTen
             // 

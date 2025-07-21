@@ -238,6 +238,7 @@
             dgvqltk.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dgvqltk.CellClick += dgvqltk_CellClick;
             dgvqltk.CellFormatting += dgvqltk_CellFormatting;
+            dgvqltk.DataBindingComplete += dgvqltk_DataBindingComplete;
             // 
             // btnlammoi
             // 

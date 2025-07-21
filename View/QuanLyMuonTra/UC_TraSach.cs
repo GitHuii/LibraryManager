@@ -80,6 +80,11 @@ namespace LibraryManager.View.QuanLyMuonTra
                 buttonColumn.UseColumnTextForButtonValue = true;
                 dgvchitietphieutra.Columns.Add(buttonColumn);
             }
+
+            dgvchitietphieumuon.Columns["MaSach"].HeaderText = "Mã Sách";
+            dgvchitietphieumuon.Columns["Ten"].HeaderText = "Tên Sách";
+            dgvchitietphieumuon.Columns["SoLuongMuon"].HeaderText = "Số Lượng Mượn";
+            dgvchitietphieumuon.Columns["DaTra"].HeaderText = "Đã Trả";
         }
 
         private void cbomaphieumuon_SelectedIndexChanged(object sender, EventArgs e)
@@ -152,7 +157,7 @@ namespace LibraryManager.View.QuanLyMuonTra
                 if(dgvchitietphieutra.Rows.Count == 0)
                 {
                     //MessageBox.Show("Vui lòng chọn sách để trả.");
-                    MessageBoxHelper.ShowError("Vui lòng chọn sách để trả.");
+                    MessageBoxHelper.ShowWarning("Vui lòng chọn sách để trả.");
                     return;
                 }
                 foreach (DataGridViewRow row in dgvchitietphieutra.Rows)
@@ -179,7 +184,7 @@ namespace LibraryManager.View.QuanLyMuonTra
 
                 dbContext.PhieuTras.Add(phieutra);
                 //MessageBox.Show("Thêm phiếu Trả thành công!");
-                MessageBoxHelper.ShowInfo("Thêm phiếu Trả thành công!");
+                MessageBoxHelper.ShowSuccess("Thêm phiếu Trả thành công!");
 
                 var phieumuon = dbContext.PhieuMuons.FirstOrDefault(pm => pm.MaPhieuMuon == phieutra.MaPhieuMuon);
                 if (phieutra.NgayTra > phieumuon.HanTra)
@@ -195,7 +200,7 @@ namespace LibraryManager.View.QuanLyMuonTra
                     };
                     dbContext.PhieuPhats.Add(phieuPhat);
                     //MessageBox.Show($"Trả sách trễ hạn {soNgayTre} ngày !\nĐã Thêm Phiếu Phạt");
-                    MessageBoxHelper.ShowInfo($"Trả sách trễ hạn {soNgayTre} ngày !\nĐã Thêm Phiếu Phạt");
+                    MessageBoxHelper.ShowWarning($"Trả sách trễ hạn {soNgayTre} ngày !\nĐã Thêm Phiếu Phạt");
                 }
 
 

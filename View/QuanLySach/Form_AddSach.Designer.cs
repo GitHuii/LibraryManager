@@ -100,7 +100,7 @@
             guna2GroupBox1.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2GroupBox1.Size = new Size(500, 500);
             guna2GroupBox1.TabIndex = 42;
-            guna2GroupBox1.Text = "Thêm Tài Khoản";
+            guna2GroupBox1.Text = "Thêm sách";
             // 
             // guna2HtmlLabel7
             // 
@@ -340,7 +340,7 @@
             btnthem.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnthem.Size = new Size(170, 50);
             btnthem.TabIndex = 40;
-            btnthem.Text = "Tạo Tài Khoản";
+            btnthem.Text = "Thêm Sách";
             btnthem.TextAlign = HorizontalAlignment.Left;
             btnthem.Click += btnthem_Click;
             // 

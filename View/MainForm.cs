@@ -17,6 +17,7 @@ namespace LibraryManager.View
     {
         public MainForm()
         {
+            this.Size = new Size(1500, 800); // Kích thước mặc định của form
             InitializeComponent();
         }
 
@@ -57,7 +58,7 @@ namespace LibraryManager.View
 
         private void LibraryManagerUI_Load(object sender, EventArgs e)
         {
-
+            btnLogout.Visible = false; // Ẩn nút đăng xuất ban đầu
         }
 
         private void MainForm_Resize(object sender, EventArgs e)

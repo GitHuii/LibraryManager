@@ -71,7 +71,7 @@ namespace LibraryManager.View
                     MessageBoxHelper.ShowWarning("Vui lòng chọn độc giả hợp lệ để sửa.");
                     return;
                 }
-                if( string.IsNullOrWhiteSpace(txtTen.Text) ||
+                if (string.IsNullOrWhiteSpace(txtTen.Text) ||
                     string.IsNullOrWhiteSpace(txtDiaChi.Text) ||
                     string.IsNullOrWhiteSpace(txtEmail.Text) ||
                     string.IsNullOrWhiteSpace(txtSDT.Text))
@@ -80,7 +80,7 @@ namespace LibraryManager.View
                     MessageBoxHelper.ShowWarning("Vui lòng điền đầy đủ thông tin độc giả.");
                     return;
                 }
-                DialogResult result = MessageBoxHelper.ShowQuestion($"Bạn có chắc muốn sửa thông tin độc giả DG{maDG.ToString("D3")} không?");
+                DialogResult result = MessageBoxHelper.ShowQuestion($"Sửa thông tin độc giả DG{maDG.ToString("D3")} ?");
                 if (result != DialogResult.Yes)
                 {
                     return;
@@ -95,14 +95,8 @@ namespace LibraryManager.View
                     dg.SDT = txtSDT.Text.Trim();
                     dbContext.SaveChanges();
                 }
-                else
-                {
-                    //throw new Exception("Không tìm thấy độc giả để sửa.");
-                    MessageBoxHelper.ShowError("Không tìm thấy độc giả để sửa.");
-                    return;
-                }
                 //MessageBox.Show("Cập nhật thông tin thành công!");
-                MessageBoxHelper.ShowInfo("Cập nhật thông tin thành công!");
+                MessageBoxHelper.ShowSuccess("Cập nhật thông tin thành công!");
                 loadData();
                 ClearForm();
             }
@@ -144,32 +138,32 @@ namespace LibraryManager.View
                     MessageBoxHelper.ShowWarning("Mã độc giả không hợp lệ.");
                     return;
                 }
-                
+
                 //DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa độc giả này không?",
                 //                                      "Xác nhận xóa",
                 //                                      MessageBoxButtons.YesNo,
                 //                                      MessageBoxIcon.Warning);
-                DialogResult result = MessageBoxHelper.ShowQuestion($"Bạn có chắc muốn xóa độc giả DG{maDG.ToString("D3")} không?");
+                DialogResult result = MessageBoxHelper.ShowQuestion($"Xóa độc giả DG{maDG.ToString("D3")} ?");
 
                 if (result == DialogResult.Yes)
                 {
                     var dg = dbContext.DocGias.Find(maDG);
                     if (dg == null)
                     {
-                        MessageBoxHelper.ShowWarning("Không tìm thấy độc giả.");
+                        MessageBoxHelper.ShowError("Không tìm thấy độc giả.");
                         return;
                     }
 
                     dbContext.DocGias.Remove(dg);
                     dbContext.SaveChanges();
-                    MessageBoxHelper.ShowInfo("Xóa độc giả thành công!");
+                    MessageBoxHelper.ShowSuccess("Xóa độc giả thành công!");
                     loadData();
                     ClearForm();
                 }
             }
             catch (Exception ex)
             {
-                MessageBoxHelper.ShowWarning("Lỗi khi xóa độc giả: " + ex.Message);
+                MessageBoxHelper.ShowError("Lỗi khi xóa độc giả: " + ex.Message);
             }
         }
 
@@ -207,6 +201,12 @@ namespace LibraryManager.View
                     e.FormattingApplied = true;
                 }
             }
+        }
+
+        private void dgvdocgia_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvdocgia.ClearSelection();
+            dgvdocgia.CurrentCell = null;
         }
     }
 }

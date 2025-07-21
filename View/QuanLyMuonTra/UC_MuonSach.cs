@@ -99,13 +99,13 @@ namespace LibraryManager.View.QuanLyMuonTra
                 if (dgvtimkiem.CurrentRow == null)
                 {
                     //MessageBox.Show("Vui lòng chọn sách để mượn.");
-                    MessageBoxHelper.ShowError("Vui lòng chọn sách để mượn.");
+                    MessageBoxHelper.ShowWarning("Vui lòng chọn sách để mượn.");
                     return;
                 }
                 if (string.IsNullOrWhiteSpace(txtsoluong.Text) || !int.TryParse(txtsoluong.Text, out int soLuong) || soLuong <= 0)
                 {
                     //MessageBox.Show("Vui lòng nhập số lượng hợp lệ.");
-                    MessageBoxHelper.ShowError("Vui lòng nhập số lượng hợp lệ.");
+                    MessageBoxHelper.ShowWarning("Vui lòng nhập số lượng hợp lệ.");
                     return;
                 }
                 int index = dgvtimkiem.CurrentCell.RowIndex;
@@ -143,7 +143,7 @@ namespace LibraryManager.View.QuanLyMuonTra
                 if (chiTietList.Count == 0)
                 {
                     //MessageBox.Show("Vui lòng thêm sách vào phiếu mượn.");
-                    MessageBoxHelper.ShowError("Vui lòng thêm sách vào phiếu mượn.");
+                    MessageBoxHelper.ShowWarning("Vui lòng thêm sách vào phiếu mượn.");
                     return;
                 }
                 var phieuMoi = new PhieuMuon

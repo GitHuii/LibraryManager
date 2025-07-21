@@ -96,7 +96,7 @@ namespace LibraryManager.View
                 ;
                 dbContext.SaveChanges();
                 //MessageBox.Show("Sửa thành công");
-                MessageBoxHelper.ShowInfo("Cập nhật thông tin sách thành công");
+                MessageBoxHelper.ShowSuccess("Cập nhật thông tin sách thành công");
             }
             catch (Exception ex)
             {
@@ -113,13 +113,13 @@ namespace LibraryManager.View
             {
                 var sach = dbContext.Saches.Find(dgvSach.CurrentRow.Cells[0].Value);
                 //var result = MessageBox.Show("Bạn có chắc chắn muốn xóa sách này không", "Yes", MessageBoxButtons.YesNo);
-                DialogResult result = MessageBoxHelper.ShowQuestion($"Bạn có chắc chắn muốn xóa sách {sach.Ten} không?");
+                DialogResult result = MessageBoxHelper.ShowQuestion($"Xóa sách {sach.Ten} ?");
                 if (result == DialogResult.Yes)
                 {
                     dbContext.Saches.Remove(sach);
                     dbContext.SaveChanges();
                     //MessageBox.Show("Xóa thành công");
-                    MessageBoxHelper.ShowInfo("Xóa sách thành công");
+                    MessageBoxHelper.ShowSuccess("Xóa sách thành công");
                     LoadData();
                     formclear();
                 }

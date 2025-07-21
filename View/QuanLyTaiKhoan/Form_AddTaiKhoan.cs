@@ -56,7 +56,7 @@ namespace LibraryManager.View.QuanLyTaiKhoan
                 };
                 dbContext.TaiKhoans.Add(tk);
                 dbContext.SaveChanges();
-                MessageBoxHelper.ShowInfo("Thêm tài khoản thành công!");
+                MessageBoxHelper.ShowSuccess("Thêm tài khoản thành công!");
                 //MessageBox.Show("Thêm tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }

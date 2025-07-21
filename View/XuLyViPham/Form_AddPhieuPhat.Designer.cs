@@ -275,7 +275,7 @@
             btnexit.FillColor = Color.DodgerBlue;
             btnexit.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnexit.ForeColor = Color.White;
-            btnexit.Image = Properties.Resources.icons8_refresh_32;
+            btnexit.Image = Properties.Resources.icons8_return_32;
             btnexit.ImageAlign = HorizontalAlignment.Left;
             btnexit.ImageSize = new Size(32, 32);
             btnexit.Location = new Point(280, 400);
@@ -298,7 +298,7 @@
             btnthem.FillColor = Color.DodgerBlue;
             btnthem.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnthem.ForeColor = Color.White;
-            btnthem.Image = Properties.Resources.icons8_refresh_32;
+            btnthem.Image = Properties.Resources.icons8_add_32__2_;
             btnthem.ImageAlign = HorizontalAlignment.Left;
             btnthem.ImageSize = new Size(32, 32);
             btnthem.Location = new Point(50, 400);

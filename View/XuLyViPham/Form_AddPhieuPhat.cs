@@ -16,11 +16,15 @@ namespace LibraryManager.View.XuLyViPham
     public partial class Form_AddPhieuPhat : Form
     {
         AppDbContext dbContext = DbContextProvider.Instance;
+
+        bool isLoaded = false;
         public Form_AddPhieuPhat()
         {
             this.Size = new Size(500, 500);
             InitializeComponent();
             new Guna2ShadowForm().SetShadowForm(this);
+
+            
         }
 
         private void btnexit_Click(object sender, EventArgs e)
@@ -42,7 +46,7 @@ namespace LibraryManager.View.XuLyViPham
                 }
                 var phieu = new PhieuPhat
                 {
-                    MaDocGia = int.Parse(cbomadocgia.Text),
+                    MaDocGia = int.Parse(cbomadocgia.SelectedValue.ToString()),
                     NgayLap = dtpNgayLap.Value,
                     SoTienPhat = decimal.Parse(txtSoTienPhat.Text),
                     LyDo = txtLyDo.Text,
@@ -51,7 +55,7 @@ namespace LibraryManager.View.XuLyViPham
                 dbContext.PhieuPhats.Add(phieu);
                 dbContext.SaveChanges();
                 //MessageBox.Show("Thêm phiếu phạt thành công!", "Thông báo");
-                MessageBoxHelper.ShowInfo("Thêm phiếu phạt thành công!", "Thông báo");
+                MessageBoxHelper.ShowSuccess("Thêm phiếu phạt thành công!", "Thông báo");
                 this.Close(); // đóng form sau khi lưu
             }
             catch (Exception ex)
@@ -64,18 +68,29 @@ namespace LibraryManager.View.XuLyViPham
         private void Form_AddPhieuPhat_Load(object sender, EventArgs e)
         {
             dtpNgayLap.Value = DateTime.Now.Date;
-            cbomadocgia.Items.AddRange(dbContext.DocGias.Select(dg => (object)dg.MaDocGia).ToArray());
+            cbomadocgia.DataSource = dbContext.DocGias
+                .OrderBy(pm => pm.MaDocGia)
+                .Select(pm => new
+                {
+                    Value = pm.MaDocGia,                    // giá trị xử lý nội bộ
+                    Display = "DG" + pm.MaDocGia.ToString("D3")  // hiển thị đẹp
+                })
+                .ToList();
+
+            cbomadocgia.DisplayMember = "Display";
+            cbomadocgia.ValueMember = "Value";
             cbomadocgia.DropDownHeight = 500;
+            cbomadocgia.SelectedIndex = -1;
+            isLoaded = true; // Chọn mục đầu tiên
         }
 
         private void cbomadocgia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbomadocgia.SelectedIndex == 0)
+            if (!isLoaded)
             {
-                txtTen.Text = "Chọn Mã Độc Giả Trước";
                 return;
             }
-            DocGia docGia = dbContext.DocGias.FirstOrDefault(dg => dg.MaDocGia == int.Parse(cbomadocgia.Text));
+            DocGia docGia = dbContext.DocGias.FirstOrDefault(dg => dg.MaDocGia == int.Parse(cbomadocgia.SelectedValue.ToString()));
             txtTen.Text = docGia?.Ten ?? string.Empty;
         }
     }
