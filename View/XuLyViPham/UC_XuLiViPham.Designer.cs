@@ -151,6 +151,7 @@
             dgvPhieuPhat.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dgvPhieuPhat.CellClick += dgvPhieuPhat_CellClick;
             dgvPhieuPhat.CellFormatting += dgvPhieuPhat_CellFormatting;
+            dgvPhieuPhat.DataBindingComplete += dgvPhieuPhat_DataBindingComplete;
             // 
             // guna2GroupBox1
             // 

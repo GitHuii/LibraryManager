@@ -339,6 +339,7 @@
             dgvSach.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dgvSach.CellClick += dgvSach_CellClick;
             dgvSach.CellFormatting += dgvSach_CellFormatting;
+            dgvSach.DataBindingComplete += dgvSach_DataBindingComplete;
             // 
             // btnHienThi
             // 

@@ -111,6 +111,12 @@ namespace LibraryManager.View
         {
             try
             {
+                if(dgvSach.CurrentCell == null)
+                {
+                    //MessageBox.Show("Vui lòng chọn sách để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBoxHelper.ShowWarning("Vui lòng chọn sách để xóa.");
+                    return;
+                }
                 var sach = dbContext.Saches.Find(dgvSach.CurrentRow.Cells[0].Value);
                 //var result = MessageBox.Show("Bạn có chắc chắn muốn xóa sách này không", "Yes", MessageBoxButtons.YesNo);
                 DialogResult result = MessageBoxHelper.ShowQuestion($"Xóa sách {sach.Ten} ?");
@@ -124,7 +130,7 @@ namespace LibraryManager.View
                     formclear();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //MessageBox.Show("Lỗi: " + ex.Message);
                 MessageBoxHelper.ShowError("Lỗi: " + ex.Message);
@@ -161,6 +167,12 @@ namespace LibraryManager.View
                     e.FormattingApplied = true;
                 }
             }
+        }
+
+        private void dgvSach_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvSach.ClearSelection();
+            dgvSach.CurrentCell = null;
         }
     }
 }

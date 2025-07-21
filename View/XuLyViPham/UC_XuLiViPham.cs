@@ -73,6 +73,11 @@ namespace LibraryManager.View
         {
             try
             {
+                if (dgvPhieuPhat.CurrentRow == null)
+                {
+                    MessageBoxHelper.ShowWarning("Vui lòng chọn phiếu phạt để thu tiền");
+                    return;
+                }
                 int maPhieu = int.Parse(dgvPhieuPhat.CurrentRow.Cells["MaPhieuPhat"].Value.ToString());
 
                 var phieu = dbContext.PhieuPhats.Find(maPhieu);
@@ -113,6 +118,11 @@ namespace LibraryManager.View
         {
             try
             {
+                if (dgvPhieuPhat.CurrentRow == null)
+                {
+                    MessageBoxHelper.ShowWarning("Vui lòng chọn phiếu phạt để xóa.");
+                    return;
+                }
                 int maPhieu = int.Parse(dgvPhieuPhat.CurrentRow.Cells["MaPhieuPhat"].Value.ToString());
                 DialogResult result = MessageBoxHelper.ShowQuestion($"Xóa phiết phạt PP{maPhieu.ToString("D3")} ?");
                 if (result != DialogResult.Yes)
@@ -172,6 +182,12 @@ namespace LibraryManager.View
                 txtLyDo.Text = row.Cells["LyDo"].Value.ToString();
                 chkDaThuTien.Checked = Convert.ToBoolean(row.Cells["DaThuTien"].Value);
             }
+        }
+
+        private void dgvPhieuPhat_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvPhieuPhat.ClearSelection(); // Xóa lựa chọn hiện tại
+            dgvPhieuPhat.CurrentCell = null; // Bỏ chọn ô hiện tại
         }
     }
 }
