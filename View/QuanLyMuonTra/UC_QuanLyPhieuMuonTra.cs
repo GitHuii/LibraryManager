@@ -43,6 +43,12 @@ namespace LibraryManager.View
 
         private void btntrasach_Click(object sender, EventArgs e)
         {
+            if(dbContext.PhieuMuons.Count() == 0)
+            {
+                //MessageBox.Show("Không có phiếu mượn nào để trả sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBoxHelper.ShowWarning("Không có phiếu mượn nào để trả sách!");
+                return;
+            }
             _mainForm.ShowUserControl(new UC_TraSach(_mainForm));
         }
         private void dgvqlpmt_CellClick(object sender, DataGridViewCellEventArgs e)

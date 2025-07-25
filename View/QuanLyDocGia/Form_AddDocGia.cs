@@ -38,7 +38,7 @@ namespace LibraryManager.View.QuanLyDocGia
                 DocGia dg = new DocGia()
                 {
                     Ten = txtTen.Text.Trim(),
-                    NgaySinh = dtpNgaySinh.Value,
+                    NgaySinh = dtpNgaySinh.Value.Date,
                     DiaChi = txtDiaChi.Text.Trim(),
                     Email = txtEmail.Text.Trim(),
                     SDT = txtDiaChi.Text.Trim()

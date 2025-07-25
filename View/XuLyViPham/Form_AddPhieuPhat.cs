@@ -47,7 +47,7 @@ namespace LibraryManager.View.XuLyViPham
                 var phieu = new PhieuPhat
                 {
                     MaDocGia = int.Parse(cbomadocgia.SelectedValue.ToString()),
-                    NgayLap = dtpNgayLap.Value,
+                    NgayLap = dtpNgayLap.Value.Date,
                     SoTienPhat = decimal.Parse(txtSoTienPhat.Text),
                     LyDo = txtLyDo.Text,
                 };

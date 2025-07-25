@@ -112,6 +112,14 @@ namespace LibraryManager.View.QuanLyMuonTra
                 string MaSach = dgvtimkiem.Rows[index].Cells["MaSach"].Value.ToString();
                 string TenSach = dgvtimkiem.Rows[index].Cells["Ten"].Value.ToString();
                 string SoLuong = txtsoluong.Text;
+                foreach (DataGridViewRow row in dgvsach.Rows)
+                {
+                    if (row.Cells["MaSach"].Value.ToString() == MaSach)
+                    {
+                        dgvsach.Rows[row.Index].Cells["SoLuong"].Value = Convert.ToInt32(dgvsach.Rows[row.Index].Cells["SoLuong"].Value) + Convert.ToInt32(SoLuong);
+                        return;
+                    }
+                }
                 dgvsach.Rows.Add(MaSach, TenSach, SoLuong);
                 dgvtimkiem.Rows[index].Cells["SoLuong"].Value = Convert.ToInt32(dgvtimkiem.Rows[index].Cells["SoLuong"].Value) - Convert.ToInt32(SoLuong);
             }
@@ -149,7 +157,7 @@ namespace LibraryManager.View.QuanLyMuonTra
                 var phieuMoi = new PhieuMuon
                 {
                     MaDocGia = int.Parse(cbomadocgia.SelectedValue.ToString()),
-                    NgayMuon = DateTime.Now,
+                    NgayMuon = DateTime.Now.Date,
                     HanTra = dtphantra.Value.Date,
                     ChiTietPhieuMuons = chiTietList
                 };
@@ -196,7 +204,8 @@ namespace LibraryManager.View.QuanLyMuonTra
             if (e.RowIndex >= 0 && dgvsach.Columns[e.ColumnIndex].Name == "btnxoa")
             {
                 // Xác nhận trước khi xóa
-                var confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                //var confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult confirm = MessageBoxHelper.ShowQuestion("Bạn có chắc chắn muốn xóa không?");
                 if (confirm == DialogResult.Yes)
                 {
                     int maSach = Convert.ToInt32(dgvsach.Rows[e.RowIndex].Cells["MaSach"].Value);

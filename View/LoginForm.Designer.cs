@@ -99,7 +99,7 @@
             btnLogin.Name = "btnLogin";
             btnLogin.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnLogin.Size = new Size(247, 45);
-            btnLogin.TabIndex = 3;
+            btnLogin.TabIndex = 2;
             btnLogin.Text = "Login";
             btnLogin.Click += btnLogin_Click;
             // 

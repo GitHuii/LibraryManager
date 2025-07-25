@@ -197,7 +197,7 @@ namespace LibraryManager.View.QuanLyMuonTra
                     var phieuPhat = new PhieuPhat
                     {
                         MaDocGia = phieumuon.MaDocGia,
-                        NgayLap = DateTime.Now,
+                        NgayLap = DateTime.Now.Date,
                         SoTienPhat = soNgayTre * 5000,
                         LyDo = $"Trả sách trễ hạn {soNgayTre} ngày",
                         DaThuTien = false
