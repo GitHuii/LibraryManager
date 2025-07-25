@@ -80,7 +80,7 @@ namespace LibraryManager.View
                     key.Close();
 
                     // Mở MainForm
-                    MainForm mainForm = new MainForm();
+                    MainForm mainForm = new MainForm(user);
                     mainForm.Show();
                     this.Hide();
                 }

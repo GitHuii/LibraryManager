@@ -30,8 +30,6 @@ namespace LibraryManager.View
             dgvphieumuon.DataSource = dbContext.PhieuMuons.ToList();
             dgvphieumuon.Columns["DocGia"].Visible = false;
 
-            dgvphieutra.DataSource = dbContext.PhieuTras.ToList();
-            dgvphieutra.Columns["PhieuMuon"].Visible = false;
         }
         private void PhieuMuonTraUI_Load(object sender, EventArgs e)
         {
@@ -61,10 +59,15 @@ namespace LibraryManager.View
                     ct.DaTra
                 }).ToList();
 
+            dgvphieutra.DataSource = dbContext.PhieuTras.Where(pt => pt.MaPhieuMuon.Equals(maPhieuMuon)).ToList();
+
             dgvchitiet.Columns["MaSach"].HeaderText = "Mã Sách";
             dgvchitiet.Columns["Ten"].HeaderText = "Tên Sách";
             dgvchitiet.Columns["SoLuongMuon"].HeaderText = "Số Lượng Mượn";
             dgvchitiet.Columns["DaTra"].HeaderText = "Đã Trả";
+
+
+            dgvphieutra.Columns["PhieuMuon"].Visible = false;
 
         }
 

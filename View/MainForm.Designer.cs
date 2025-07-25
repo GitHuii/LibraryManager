@@ -272,7 +272,7 @@
             btnqldg.ShadowDecoration.CustomizableEdges = customizableEdges11;
             btnqldg.Size = new Size(280, 50);
             btnqldg.TabIndex = 2;
-            btnqldg.Text = "     Quản Lí Độc Giả";
+            btnqldg.Text = "     Quản Lý Độc Giả";
             btnqldg.TextAlign = HorizontalAlignment.Left;
             btnqldg.UseTransparentBackground = true;
             btnqldg.Click += btnqldg_Click;
@@ -302,7 +302,7 @@
             btnqltk.ShadowDecoration.CustomizableEdges = customizableEdges13;
             btnqltk.Size = new Size(280, 50);
             btnqltk.TabIndex = 1;
-            btnqltk.Text = "     Quản Lí Tài Khoản";
+            btnqltk.Text = "     Quản Lý Tài Khoản";
             btnqltk.TextAlign = HorizontalAlignment.Left;
             btnqltk.UseTransparentBackground = true;
             btnqltk.Click += btnqltk_Click;

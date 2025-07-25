@@ -1,5 +1,6 @@
 ﻿using Guna.UI2.WinForms;
 using LibraryManager.DAO;
+using LibraryManager.Models;
 using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,16 @@ namespace LibraryManager.View
         {
             this.Size = new Size(1500, 800); // Kích thước mặc định của form
             InitializeComponent();
+        }
+        public MainForm(TaiKhoan tk)
+        {
+
+            this.Size = new Size(1500, 800); // Kích thước mặc định của form
+            InitializeComponent();
+            if (!tk.Role.Equals("Admin"))
+            {
+                btnqltk.Visible = false;
+            }
         }
 
         public void ShowUserControl(UserControl uc)
@@ -58,7 +69,7 @@ namespace LibraryManager.View
 
         private void LibraryManagerUI_Load(object sender, EventArgs e)
         {
-            btnLogout.Visible = false; // Ẩn nút đăng xuất ban đầu
+            btnLogout.Visible = true; // Ẩn nút đăng xuất ban đầu
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
@@ -87,7 +98,7 @@ namespace LibraryManager.View
                 var loginForm = new LoginForm();
                 loginForm.ShowDialog();
 
-                Application.Exit();
+                //Application.Exit();
             }
         }
         private void btnbctk_Click(object sender, EventArgs e)

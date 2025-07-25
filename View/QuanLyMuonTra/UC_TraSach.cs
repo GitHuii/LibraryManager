@@ -81,10 +81,7 @@ namespace LibraryManager.View.QuanLyMuonTra
                 dgvchitietphieutra.Columns.Add(buttonColumn);
             }
 
-            dgvchitietphieumuon.Columns["MaSach"].HeaderText = "Mã Sách";
-            dgvchitietphieumuon.Columns["Ten"].HeaderText = "Tên Sách";
-            dgvchitietphieumuon.Columns["SoLuongMuon"].HeaderText = "Số Lượng Mượn";
-            dgvchitietphieumuon.Columns["DaTra"].HeaderText = "Đã Trả";
+            
         }
 
         private void cbomaphieumuon_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,7 +108,14 @@ namespace LibraryManager.View.QuanLyMuonTra
                 .ToList();
             Load_dgvchitietphieumuon();
 
-
+            if (dgvchitietphieumuon.Columns.Count <= 0)
+            {
+                return;
+            }
+            dgvchitietphieumuon.Columns["MaSach"].HeaderText = "Mã Sách";
+            dgvchitietphieumuon.Columns["Ten"].HeaderText = "Tên Sách";
+            dgvchitietphieumuon.Columns["SoLuongMuon"].HeaderText = "Số Lượng Mượn";
+            dgvchitietphieumuon.Columns["DaTra"].HeaderText = "Đã Trả";
         }
 
         private void dgvchitietphieumuon_CellClick(object sender, DataGridViewCellEventArgs e)
