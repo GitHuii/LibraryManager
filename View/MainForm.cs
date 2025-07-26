@@ -25,7 +25,6 @@ namespace LibraryManager.View
         }
         public MainForm(TaiKhoan _tk)
         {
-
             this.Size = new Size(1500, 800); // Kích thước mặc định của form
             InitializeComponent();
             tk = _tk; // Lưu thông tin tài khoản đăng nhập

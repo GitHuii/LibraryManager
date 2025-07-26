@@ -31,7 +31,7 @@ namespace LibraryManager.View
 
             // Ẩn mật khẩu mặc định
             txtPassword.UseSystemPasswordChar = true;
-            txtPassword.IconRight = Properties.Resources.icons8_closed_eye_50;
+            txtPassword.IconRight = Properties.Resources.icons8_show_password_32;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

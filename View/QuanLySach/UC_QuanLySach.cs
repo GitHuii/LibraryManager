@@ -101,6 +101,12 @@ namespace LibraryManager.View
             catch (Exception ex)
             {
                 //MessageBox.Show("Lỗi: " + ex.Message);
+                if(ex.Message.Contains("string was not in a correct format"))
+                {
+                    //MessageBoxHelper.ShowWarning("Sách đã tồn tại trong hệ thống.");
+                    MessageBoxHelper.ShowWarning("Dữ liệu nhập không hợp lệ");
+                    return;
+                }
                 MessageBoxHelper.ShowError("Lỗi: " + ex.Message);
             }
             LoadData();
@@ -146,6 +152,7 @@ namespace LibraryManager.View
             txtNhaXuatBan.Clear();
             txtNamXuatBan.Clear();
             txtSoLuong.Clear();
+            txtTimKiem.Clear();
         }
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)

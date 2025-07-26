@@ -61,6 +61,12 @@ namespace LibraryManager.View.XuLyViPham
             catch (Exception ex)
             {
                 //MessageBox.Show("Lỗi: " + ex.Message, "Lỗi");
+                if(ex.Message.Contains("string was not in a correct format"))
+                {
+                    //MessageBoxHelper.ShowWarning("Số tiền phạt không hợp lệ.");
+                    MessageBoxHelper.ShowWarning("Dữ liệu nhập không hợp lệ.");
+                    return;
+                }
                 MessageBoxHelper.ShowError("Lỗi: " + ex.Message, "Thông báo");
             }
         }

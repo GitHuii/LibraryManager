@@ -117,6 +117,7 @@ namespace LibraryManager.View
             txtDiaChi.Text = "";
             txtEmail.Text = "";
             txtSDT.Text = "";
+            txttimkiem.Text = "";  
             dtpNgaySinh.Value = DateTime.Now;
         }
 
